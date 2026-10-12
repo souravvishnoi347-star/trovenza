@@ -1,18 +1,6 @@
 {
   "name": "trovenza-travels-website",
   "version": "1.0.0",
-  "description": "Trovenza Travels Pvt Ltd - Institutional Ground Logistics & Corporate Concierge",
-  "main": "server.js",
-  "scripts": {
-    "dev": "node server.js",
-    "start": "node server.js"
-  },
-  "keywords": [
-    "trovenza",
-    "corporate-mobility",
-    "executive-fleet",
-    "executive-car-rental"
-  ],
-  "author": "Trovenza Travels Pvt Ltd",
-  "license": "ISC"
+  "description": "Trovenza Travels Official Portal",
+  "scripts": {}
 }
