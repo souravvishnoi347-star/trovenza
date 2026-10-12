@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taxi & Cab Services | Outstation, Local & Airport Rentals - Trovenza</title>
+  <meta name="description" content="Book 24/7 chauffeur-driven taxis with Trovenza. Reliable outstation cabs, airport transfers (Delhi IGI, Dehradun DED), and hourly local car rentals in Innova Crysta, Dzire, Ertiga, Fortuner & Tempo Traveller.">
+  <meta name="keywords" content="Trovenza taxi service, outstation cab booking, Innova Crysta rental Delhi, airport taxi Dehradun, car rental with driver, outstation cabs Haridwar Rishikesh Jaipur">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Utility Strip -->
+  <div class="top-utility-strip">
+    <div class="container utility-flex">
+      <div class="utility-left-items">
+        <span>📞 24x7 Taxi Hotline: <strong style="color:var(--text-primary);">+91 98765 43210</strong></span>
+        <span class="gem-official-pill">✓ Commercial Yellow Plates Only</span>
+      </div>
+      <div class="utility-right-items">
+        <a href="https://wa.me/919876543210?text=Namaste%20Trovenza!%20Need%20to%20book%20a%20taxi." target="_blank" style="color:var(--color-green); font-weight:700;">
+          💬 Instant WhatsApp Booking
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <header class="site-main-header">
+    <div class="container nav-inner-box">
+      <a href="index.html" class="brand-wrapper-white" aria-label="Trovenza Home">
+        <img src="images/logo.png" alt="Trovenza Logo" class="brand-crest-img">
+        <div class="brand-title-text">
+          <span class="brand-main-name">TROVENZA <span>GROUP</span></span>
+          <span class="brand-sub-tag">Taxi Services • Tours • Govt Fleets</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-pills-list">
+          <li><a href="index.html" class="nav-pill-link">Home</a></li>
+          <li><a href="taxi-services.html" class="nav-pill-link active">🚖 Taxi Services</a></li>
+          <li><a href="chardham-yatra.html" class="nav-pill-link" style="color:var(--color-gold-hover);">🕉️ Char Dham 2026</a></li>
+          <li><a href="govt-tenders.html" class="nav-pill-link">🏛️ Govt Tender Fleets</a></li>
+          <li><a href="contact.html" class="nav-pill-link">Contact & Support</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions-wrap">
+        <a href="https://wa.me/919876543210?text=Namaste%20Trovenza!%20I%20want%20to%20book%20a%20cab." target="_blank" class="btn-nav-wa">
+          WhatsApp
+        </a>
+        <a href="#bookForm" class="btn-nav-book">
+          Book Cab
+        </a>
+        <button class="mobile-toggle" aria-label="Toggle navigation">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header (Bright White Banner) -->
+  <section style="background:linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%); padding:4rem 0 3.5rem; border-bottom:1px solid var(--border-light);">
+    <div class="container" style="text-align:center; max-width:820px;">
+      <span class="section-tag-pill tag-red">🚖 24x7 CHAUFFEUR-DRIVEN MOBILITY</span>
+      <h1 class="section-h2-title" style="font-size:2.9rem;">
+        Professional Taxi & Cab Services with Transparent Tariffs
+      </h1>
+      <p class="section-p-sub">
+        Punctual, sanitized, commercial yellow-plated vehicles driven by police-vetted chauffeurs. Serving Delhi NCR, Dehradun, Haridwar, Rishikesh, Jaipur, Agra, and all major northern routes.
+      </p>
+    </div>
+  </section>
+
+  <!-- Booking Form Strip (Clean White) -->
+  <section style="padding:3.5rem 0; background:#F8FAFC; border-bottom:1px solid var(--border-light);" id="bookForm">
+    <div class="container" style="max-width:960px;">
+      <div style="background:#FFFFFF; padding:2.5rem; border-radius:var(--radius-xl); box-shadow:var(--shadow-card); border:1.5px solid var(--border-light);">
+        <h3 style="font-family:var(--font-heading); font-size:1.45rem; color:var(--color-navy); margin-bottom:1.25rem; text-align:center;">
+          ⚡ Instant Cab Booking & Fare Calculator
+        </h3>
+        <form id="heroTaxiForm">
+          <div class="form-row-2">
+            <div class="form-field-group">
+              <label class="form-label-bold">Service Type</label>
+              <select class="form-select-box" id="heroTaxiMode">
+                <option value="Outstation Round Trip">Outstation Round Trip</option>
+                <option value="Outstation One Way">Outstation One Way Drop</option>
+                <option value="Airport Transfer">Airport Transfer (IGI / Jolly Grant)</option>
+                <option value="Local 8hr/80km">Local Rental (8hr / 80km)</option>
+                <option value="Local 12hr/120km">Local Rental (12hr / 120km)</option>
+              </select>
+            </div>
+            <div class="form-field-group">
+              <label class="form-label-bold">Car Model</label>
+              <select class="form-select-box" id="heroTaxiVehicle">
+                <option value="Toyota Innova Crysta">Toyota Innova Crysta (6/7 Seater)</option>
+                <option value="Toyota Innova Hycross">Innova Hycross Hybrid</option>
+                <option value="Maruti Swift Dzire">Maruti Swift Dzire (Sedan)</option>
+                <option value="Toyota Ertiga">Toyota Ertiga (6 Seater)</option>
+                <option value="Toyota Fortuner 4x4">Toyota Fortuner 4x4 (VIP)</option>
+                <option value="Tempo Traveller">Tempo Traveller (12/17 Seater)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-field-group">
+              <label class="form-label-bold">Pickup City / Address</label>
+              <input type="text" class="form-input-box" id="heroTaxiPickup" placeholder="e.g. New Delhi / Airport / Dehradun" required>
+            </div>
+            <div class="form-field-group">
+              <label class="form-label-bold">Drop Destination</label>
+              <input type="text" class="form-input-box" id="heroTaxiDrop" placeholder="e.g. Haridwar / Rishikesh / Chandigarh" required>
+            </div>
+          </div>
+          <div class="form-field-group">
+            <label class="form-label-bold">Travel Date</label>
+            <input type="date" class="form-input-box" id="heroTaxiDate" required>
+          </div>
+          <button type="submit" class="form-submit-cta cta-red">
+            <span>Book Cab via WhatsApp →</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fleet Showcase Grid (Real Assets) -->
+  <section style="padding:4.5rem 0; background:#F8FAFC; border-bottom:1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-head-center">
+        <span class="section-tag-pill tag-red">Verified Clean Vehicles</span>
+        <h2 class="section-h2-title">Our Premium Fleet of Chauffeur-Driven Cabs</h2>
+        <p class="section-p-sub">Sanitized after every ride, high clearance for Himalayan terrains, and commercial yellow-plate compliant.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.75rem;">
+        <!-- Crysta -->
+        <div style="background:#FFFFFF; border:1.5px solid var(--border-light); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-card);">
+          <div style="height:190px; overflow:hidden; background:#F1F5F9;">
+            <img src="images/fleet/toyota-crysta.webp" alt="Toyota Innova Crysta" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div style="padding:1.25rem;">
+            <span style="font-size:0.75rem; font-weight:800; color:var(--color-red); text-transform:uppercase;">Executive MPV</span>
+            <h4 style="font-size:1.15rem; font-weight:800; color:var(--color-navy); margin:0.35rem 0;">Innova Crysta (Captain Seats)</h4>
+            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem;">6+1 Seater • ₹18/km outstation. Rear AC, luxury pushback recliner captain loungers.</p>
+            <a href="https://wa.me/919876543210?text=Book%20Innova%20Crysta%20Cab" target="_blank" class="form-submit-cta cta-red" style="padding:0.6rem; font-size:0.85rem;">Reserve Crysta</a>
+          </div>
+        </div>
+
+        <!-- Hycross -->
+        <div style="background:#FFFFFF; border:1.5px solid var(--border-light); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-card);">
+          <div style="height:190px; overflow:hidden; background:#F1F5F9;">
+            <img src="images/fleet/innova-hycross.jpg" alt="Toyota Innova Hycross Hybrid" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div style="padding:1.25rem;">
+            <span style="font-size:0.75rem; font-weight:800; color:var(--color-red); text-transform:uppercase;">Hybrid Luxury</span>
+            <h4 style="font-size:1.15rem; font-weight:800; color:var(--color-navy); margin:0.35rem 0;">Innova Hycross Hybrid</h4>
+            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem;">6+1 Seater • ₹22/km outstation. Whisper-quiet self-charging electric luxury lounge.</p>
+            <a href="https://wa.me/919876543210?text=Book%20Innova%20Hycross%20Cab" target="_blank" class="form-submit-cta cta-red" style="padding:0.6rem; font-size:0.85rem;">Reserve Hycross</a>
+          </div>
+        </div>
+
+        <!-- Dzire -->
+        <div style="background:#FFFFFF; border:1.5px solid var(--border-light); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-card);">
+          <div style="height:190px; overflow:hidden; background:#F1F5F9;">
+            <img src="images/fleet/swift-dzire.avif" alt="Maruti Swift Dzire" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div style="padding:1.25rem;">
+            <span style="font-size:0.75rem; font-weight:800; color:var(--color-red); text-transform:uppercase;">City & Outstation Sedan</span>
+            <h4 style="font-size:1.15rem; font-weight:800; color:var(--color-navy); margin:0.35rem 0;">Maruti Swift Dzire</h4>
+            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem;">4+1 Seater • ₹12/km outstation. High mileage, smooth silent highway journey.</p>
+            <a href="https://wa.me/919876543210?text=Book%20Swift%20Dzire%20Cab" target="_blank" class="form-submit-cta cta-red" style="padding:0.6rem; font-size:0.85rem;">Reserve Dzire</a>
+          </div>
+        </div>
+
+        <!-- Tempo -->
+        <div style="background:#FFFFFF; border:1.5px solid var(--border-light); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-card);">
+          <div style="height:190px; overflow:hidden; background:#F1F5F9;">
+            <img src="images/fleet/tempo-traveller.jpg" alt="Force Tempo Traveller" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div style="padding:1.25rem;">
+            <span style="font-size:0.75rem; font-weight:800; color:var(--color-red); text-transform:uppercase;">Group & Yatra Coach</span>
+            <h4 style="font-size:1.15rem; font-weight:800; color:var(--color-navy); margin:0.35rem 0;">Force Tempo Traveller</h4>
+            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem;">12-17 Pushback Seats • ₹28/km. Big boot, 1x1 Maharaja luxury reclining seats.</p>
+            <a href="https://wa.me/919876543210?text=Book%20Tempo%20Traveller%20Cab" target="_blank" class="form-submit-cta cta-red" style="padding:0.6rem; font-size:0.85rem;">Reserve Tempo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Routes Table (Clean White) -->
+  <section style="padding:5rem 0; background:#FFFFFF;">
+    <div class="container">
+      <div class="section-head-center">
+        <span class="section-tag-pill tag-red">Trending Outstation Circuits</span>
+        <h2 class="section-h2-title">Popular Outstation Routes & Indicative Fares</h2>
+        <p class="section-p-sub">
+          Transparent pricing including driver allowance and fuel. Toll and state taxes as per actual receipts.
+        </p>
+      </div>
+
+      <div style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; background:#FFFFFF; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-card); border:1.5px solid var(--border-light);">
+          <thead style="background:#F8FAFC; color:var(--color-navy); font-size:0.88rem; text-transform:uppercase; border-bottom:2px solid var(--border-light);">
+            <tr>
+              <th style="padding:1.1rem 1.25rem; text-align:left;">Route</th>
+              <th style="padding:1.1rem 1.25rem; text-align:left;">Dzire (Sedan)</th>
+              <th style="padding:1.1rem 1.25rem; text-align:left;">Innova Crysta</th>
+              <th style="padding:1.1rem 1.25rem; text-align:left;">Fortuner 4x4</th>
+              <th style="padding:1.1rem 1.25rem; text-align:center;">Action</th>
+            </tr>
+          </thead>
+          <tbody style="font-size:0.92rem; color:var(--text-secondary);">
+            <tr style="border-bottom:1px solid var(--border-light);">
+              <td style="padding:1.1rem 1.25rem; font-weight:700; color:var(--color-navy);">Delhi ⇄ Haridwar / Rishikesh</td>
+              <td style="padding:1.1rem 1.25rem; font-weight:700; color:var(--color-red);">₹3,400 one-way</td>
+              <td style="padding:1.1rem 1.25rem; font-weight:700; color:var(--color-red);">₹5,800 one-way</td>
+              <td style="padding:1.1rem 1.25rem; font-weight:700; color:var(--color-red);">₹11,500 one-way</td>
+              <td style="padding:1.1rem 1.25rem; text-align:center;"><a href="https://wa.me/919876543210?text=Book%20Delhi-Haridwar%20Cab" target="_blank" class="btn-nav-wa" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Book Now</a></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-light); background:#F8FAFC;">
+              <td style="padding:1.1rem 1.25rem; font-weight:700; color:var(--color-navy);">Delhi ⇄ Agra (Taj Mahal)</td>
+              <td style="padding:1.1rem 1.25rem; font-weight:700; color:var(--color-red);">₹2,800 one-way</td>
+              <td style="padding:1.1rem 1.25rem; font-weight:700; color:var(--color-red);">₹4,900 one-way</td>
+              <td style="padding:1.1rem 1.25rem; font-weight:700; color:var(--color-red);">₹9,800 one-way</td>
+              <td style="padding:1.1rem 1.25rem; text-align:center;"><a href="https://wa.me/919876543210?text=Book%20Delhi-Agra%20Cab" target="_blank" class="btn-nav-wa" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Book Now</a></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-light);">
+              <td style="padding:1.1rem 1.25rem; font-weight:700; color:var(--color-navy);">Delhi ⇄ Jaipur (Pink City)</td>
+              <td style="padding:1.1rem 1.25rem; font-weight:700; color:var(--color-red);">₹3,200 one-way</td>
+              <td style="padding:1.1rem 1.25rem; font-weight:700; color:var(--color-red);">₹5,500 one-way</td>
+              <td style="padding:1.1rem 1.25rem; font-weight:700; color:var(--color-red);">₹10,500 one-way</td>
+              <td style="padding:1.1rem 1.25rem; text-align:center;"><a href="https://wa.me/919876543210?text=Book%20Delhi-Jaipur%20Cab" target="_blank" class="btn-nav-wa" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Book Now</a></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-light); background:#F8FAFC;">
+              <td style="padding:1.1rem 1.25rem; font-weight:700; color:var(--color-navy);">Dehradun Airport ⇄ Rishikesh / Haridwar</td>
+              <td style="padding:1.1rem 1.25rem; font-weight:700; color:var(--color-red);">₹1,200 drop</td>
+              <td style="padding:1.1rem 1.25rem; font-weight:700; color:var(--color-red);">₹2,200 drop</td>
+              <td style="padding:1.1rem 1.25rem; font-weight:700; color:var(--color-red);">₹4,500 drop</td>
+              <td style="padding:1.1rem 1.25rem; text-align:center;"><a href="https://wa.me/919876543210?text=Book%20Dehradun-Rishikesh%20Cab" target="_blank" class="btn-nav-wa" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Book Now</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer-white">
+    <div class="container footer-bottom-bar" style="border:none; padding-top:0;">
+      <span>© 2026 Trovenza Group. 24/7 Taxi Services. All Rights Reserved.</span>
+      <div style="display:flex; gap:1.5rem;">
+        <a href="index.html">Home</a>
+        <a href="chardham-yatra.html">Char Dham</a>
+        <a href="govt-tenders.html">Govt Fleets</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
