@@ -1239,8 +1239,25 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN & MOBILE CHROME OVERHAUL
    ========================================================================= */
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive {
+  width: 100% !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  display: block;
+  margin-bottom: 1.5rem;
+  scrollbar-width: thin;
+}
+
 @media (max-width: 1024px) {
   .hero-portal-grid {
     grid-template-columns: 1fr;
@@ -1249,7 +1266,7 @@ button, input, select, textarea {
 
   .fleet-display-stage {
     grid-template-columns: 1fr;
-    padding: 2rem;
+    padding: 1.75rem;
   }
 
   .travel-packages-grid {
@@ -1279,17 +1296,27 @@ button, input, select, textarea {
     display: none;
   }
 
+  .site-main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #FFFFFF;
+  }
+
   .nav-pills-list {
     display: none;
-    position: absolute;
-    top: 76px;
+    position: fixed;
+    top: 68px;
     left: 0;
     right: 0;
     background: #FFFFFF;
     flex-direction: column;
-    padding: 1.5rem;
-    box-shadow: var(--shadow-elevated);
+    padding: 1.5rem 1rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     border-bottom: 2px solid var(--border-light);
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    z-index: 9999;
   }
 
   .nav-pills-list.mobile-open {
@@ -1297,11 +1324,23 @@ button, input, select, textarea {
   }
 
   .mobile-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem;
   }
 
   .hero-portal-h1 {
-    font-size: 2.3rem;
+    font-size: clamp(1.85rem, 6vw, 2.4rem) !important;
+    line-height: 1.25;
+  }
+
+  .section-h2-title {
+    font-size: clamp(1.6rem, 5.5vw, 2.2rem) !important;
+    line-height: 1.25;
   }
 
   .travel-packages-grid {
@@ -1317,11 +1356,70 @@ button, input, select, textarea {
     grid-template-columns: 1fr;
   }
 
+  .stage-img-container {
+    height: 220px !important;
+  }
+
+  .stage-info-column h3 {
+    font-size: 1.35rem !important;
+  }
+
   .elevation-cards-row {
     grid-template-columns: 1fr;
   }
 
   .footer-grid-4 {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .form-row-2, .form-row-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .booking-card-body {
+    padding: 1.25rem !important;
+  }
+
+  .booking-card-top-tabs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .b-card-tab {
+    padding: 0.85rem 0.35rem;
+    font-size: 0.78rem;
+  }
+
+  .form-field-group {
+    margin-bottom: 0.85rem;
   }
 }
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.85rem;
+  }
+
+  .brand-main-name {
+    font-size: 1.15rem;
+  }
+
+  .brand-crest-img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .btn-nav-book {
+    display: none;
+  }
+
+  .hero-booking-white-card {
+    border-radius: var(--radius-md);
+  }
+
+  .b-card-tab {
+    font-size: 0.72rem;
+    padding: 0.75rem 0.2rem;
+  }
+}
+

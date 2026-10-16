@@ -29,6 +29,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Mobile Navigation Toggle
+  const mobileToggle = document.getElementById('mobileNavToggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (mobileToggle && navLinks) {
+    mobileToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('mobile-open');
+    });
+
+    document.querySelectorAll('.nav-item').forEach(item => {
+      item.addEventListener('click', () => {
+        navLinks.classList.remove('mobile-open');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
+        navLinks.classList.remove('mobile-open');
+      }
+    });
+  }
+
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -41,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
 
 // Itineraries Data
 const itineraries = {

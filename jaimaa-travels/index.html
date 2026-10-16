@@ -22,6 +22,10 @@
     <div class="container top-bar-inner">
       <div class="top-bar-left">
         <span>🚩 <strong>Jai Maa Tour & Travels</strong> — Trusted by 45,000+ Pilgrims Across India Since 2014</span>
+        <span class="divider">|</span>
+        <a href="../index.html" class="top-contact-link" style="color:#B45309; font-weight:700;">
+          ⭐ Sister Concern: Trovenza Mobility & Cabs
+        </a>
       </div>
       <div class="top-bar-right">
         <a href="tel:+919876543210" class="top-contact-link">
@@ -51,18 +55,23 @@
       <nav class="nav-links">
         <a href="#charDham" class="nav-item">Char Dham 2026</a>
         <a href="#packages" class="nav-item">Holiday Packages</a>
-        <a href="#fleet" class="nav-item">Our Vehicles</a>
+        <a href="packages/triyuginarayan-wedding-2n3d.html" class="nav-item" style="color:var(--color-saffron); font-weight:700;">💒 Wedding Package</a>
+        <a href="#fleet" class="nav-item">Taxi & Vehicles</a>
         <a href="#whyUs" class="nav-item">Why Choose Us</a>
-        <a href="#reviews" class="nav-item">Guest Reviews</a>
-        <a href="#contact" class="nav-item">Contact Us</a>
+        <a href="#reviews" class="nav-item">Reviews</a>
+        <a href="#contact" class="nav-item">Contact</a>
+        <a href="../index.html" class="nav-item" style="color:#0284C7;">Trovenza Portal ↗</a>
       </nav>
 
       <div class="header-actions">
         <a href="https://wa.me/919876543210?text=Namaste%20Jai%20Maa%20Travels!%20I%20want%20to%20inquire%20about%20Tour%20Packages." target="_blank" class="btn-whatsapp">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-          Chat on WhatsApp
+          WhatsApp
         </a>
         <a href="#quickInquiry" class="btn-primary">Get Free Quote</a>
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
       </div>
     </div>
   </header>
@@ -113,9 +122,19 @@
             <label>Select Tour / Package</label>
             <select id="tourSelect" required>
               <option value="">-- Choose Package --</option>
+              <option value="Triyuginarayan Celestial Wedding (Flat 4 Lakhs - 30 Guests)">💒 Triyuginarayan Wedding (2N/3D - Flat ₹4 Lakhs for 30 Guests)</option>
+              <option value="Auli + Chopta Tungnath Trek (4N/5D)">Auli + Chopta Tungnath (4N/5D - MAP)</option>
+              <option value="Nainital + Almora + Kausani (5N/6D)">Nainital + Almora + Kausani (5N/6D - MAP)</option>
+              <option value="Rishikesh + Mussoorie + Rafting + Kanatal (5N/6D)">Rishikesh + Mussoorie + Rafting + Kanatal (5N/6D - MAP)</option>
+              <option value="Rishikesh + Mussoorie Weekend (2N/3D)">Rishikesh + Mussoorie (2N/3D - MAP)</option>
+              <option value="Adi Kailash + Om Parvat (6N/7D)">Sacred Adi Kailash & Om Parvat (6N/7D - MAP)</option>
+              <option value="Kartik Swami + Triyuginarayan + Dhari Devi (4N/5D)">Kartik Swami + Triyuginarayan + Dhari Devi (4N/5D - MAP)</option>
+              <option value="Chopta Tungnath Mini Switzerland (2N/3D)">Chopta Tungnath (2N/3D - MAP)</option>
+              <option value="Auli Snow Paradise & Ski Resort (2N/3D)">Auli Ski Resort (2N/3D - MAP)</option>
               <option value="Maha Char Dham Yatra (10 Days)">Maha Char Dham Yatra (10 Days / 9 Nights)</option>
               <option value="Do Dham - Kedarnath & Badrinath (5 Days)">Do Dham - Kedarnath & Badrinath (5 Days / 4 Nights)</option>
               <option value="Kedarnath VIP Helicopter Tour (3 Days)">Kedarnath VIP Helicopter Tour (3 Days / 2 Nights)</option>
+              <option value="Delhi to Haridwar Taxi Booking">🚖 Delhi to Haridwar Taxi Service (Dzire/Ertiga/Crysta/Urbania)</option>
               <option value="Ayodhya & Kashi Vishwanath (5 Days)">Ayodhya & Kashi Vishwanath Circuit (5 Days)</option>
               <option value="Kashmir Paradise & Gulmarg (6 Days)">Kashmir Paradise & Gulmarg (6 Days / 5 Nights)</option>
               <option value="Himachal Shimla Manali (6 Days)">Himachal Shimla Manali (6 Days / 5 Nights)</option>
@@ -360,14 +379,277 @@
   <section class="section-container bg-light" id="packages">
     <div class="container">
       <div class="section-header">
-        <span class="badge-saffron">🌍 PAN-INDIA & INTERNATIONAL GETAWAYS</span>
-        <h2 class="section-title">Trending Holiday Tour Packages</h2>
+        <span class="badge-saffron">💍 CELESTIAL WEDDINGS & HIMALAYAN TOURS</span>
+        <h2 class="section-title">Uttarakhand Packages & Special Events</h2>
         <p class="section-desc">
-          Complete family and couple holiday packages curated with private vehicles, 3-star/4-star verified hotels, and local sightseeing guides.
+          Handcrafted mountain itineraries with MAP meal plans, verified mountain resort stays, sanitized private cabs, and all-inclusive destination wedding management.
         </p>
       </div>
 
+      <!-- SPECIAL WEDDING EVENT SHOWCASE BANNER -->
+      <div style="background:linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); border:2px solid #F59E0B; border-radius:var(--radius-lg); padding:2rem; margin-bottom:3rem; box-shadow:0 8px 24px rgba(217, 119, 6, 0.12);">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem;">
+          <div style="max-width:700px;">
+            <div style="display:flex; gap:0.5rem; align-items:center; margin-bottom:0.75rem;">
+              <span style="background:#DC2626; color:#FFFFFF; font-size:0.75rem; font-weight:800; padding:0.25rem 0.65rem; border-radius:999px; text-transform:uppercase;">Special Event Package</span>
+              <span style="background:#D97706; color:#FFFFFF; font-size:0.75rem; font-weight:800; padding:0.25rem 0.65rem; border-radius:999px;">Up to 30 Guests Included</span>
+            </div>
+            <h3 style="font-family:'Outfit',sans-serif; font-size:1.8rem; color:var(--color-navy); margin-bottom:0.5rem;">
+              💒 Celestial Destination Wedding at Triyuginarayan Temple
+            </h3>
+            <p style="font-size:0.95rem; color:#78350F; line-height:1.6; margin-bottom:1rem;">
+              Tie the eternal sacred knot where Lord Shiva married Goddess Parvati in front of the Akhand Dhuni. Complete stress-free wedding management for 30 guests: 15 resort rooms (twin sharing), all meals (Breakfast + Lunch + Evening High Tea/Pahadi Snacks + Royal Dinner), dedicated Haridwar-to-Haridwar luxury travel (Force Urbania / Tempo), Haldi, Mehndi, Ring Ceremony setups, Mandap decor, makeup artist, cinematic 4K photography, and temple fees.
+            </p>
+            <div style="display:flex; flex-wrap:wrap; gap:0.75rem; font-size:0.85rem; color:#92400E; font-weight:600;">
+              <span>✓ Flat ₹4,00,000 All-Inclusive</span>
+              <span>✓ 2 Nights / 3 Days</span>
+              <span>✓ Full Meals + High Tea</span>
+              <span>✓ 15 Resort Rooms</span>
+              <span>✓ Haridwar Transport</span>
+            </div>
+          </div>
+          <div style="text-align:center; min-width:220px;">
+            <div style="font-size:0.85rem; color:#78350F; font-weight:700; text-transform:uppercase;">Fixed Package Cost</div>
+            <div style="font-size:2.4rem; font-weight:900; color:#DC2626; line-height:1.1; margin:0.25rem 0;">₹4,00,000</div>
+            <div style="font-size:0.8rem; color:#64748B; margin-bottom:1.25rem;">Complete 30 Guests Event</div>
+            <div style="display:flex; flex-direction:column; gap:0.5rem;">
+              <a href="packages/triyuginarayan-wedding-2n3d.html" class="btn-primary" style="padding:0.75rem 1.25rem; font-size:0.9rem; text-align:center;">
+                View Full Wedding Itinerary →
+              </a>
+              <a href="https://wa.me/919876543210?text=Namaste!%20I%20am%20interested%20in%20the%20Triyuginarayan%20Wedding%20Package%20(Rs.%204%20Lakhs%20for%2030%20Guests)." target="_blank" class="btn-whatsapp" style="padding:0.65rem 1.25rem; font-size:0.85rem; justify-content:center;">
+                Chat on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="packages-grid">
+        
+        <!-- P1: Auli + Chopta -->
+        <div class="pkg-card">
+          <div class="pkg-image-wrapper">
+            <img src="images/packages/manali-solang.jpg" alt="Auli Chopta Tour Package">
+            <span class="pkg-duration">4 Nights / 5 Days</span>
+          </div>
+          <div class="pkg-content">
+            <h3 class="pkg-title">Auli + Chopta Tungnath Chandrashila Trek</h3>
+            <p class="pkg-route">📍 Haridwar • Devprayag • Chopta • Tungnath Mahadev • Auli Ski Slopes • Joshimath</p>
+            <ul class="pkg-highlights">
+              <li>✓ MAP Plan: Daily Hot Breakfast & Gourmet Dinner</li>
+              <li>✓ World's Highest Shiva Temple (Tungnath) & Chandrashila Peak</li>
+              <li>✓ Auli Ropeway & Gorson Bugyal Meadow Trek</li>
+              <li>✓ Dedicated private cab & verified mountain resort stays</li>
+            </ul>
+            <div class="pkg-price-box">
+              <div>
+                <span class="price-from">Starting From</span>
+                <span class="price-amount">₹16,500 <small>/ person</small></span>
+              </div>
+            </div>
+            <div class="pkg-btn-row">
+              <a href="packages/auli-chopta-4n5d.html" class="btn-pkg-book" style="background:#0F172A;">View Itinerary</a>
+              <a href="https://wa.me/919876543210?text=Inquiry%20for%20Auli%20Chopta%204N5D%20Package" target="_blank" class="btn-pkg-details" style="color:#25D366; border-color:#25D366;">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- P2: Nainital + Almora + Kausani -->
+        <div class="pkg-card">
+          <div class="pkg-image-wrapper">
+            <img src="images/packages/kashmir.jpg" alt="Nainital Almora Kausani Tour">
+            <span class="pkg-duration">5 Nights / 6 Days</span>
+          </div>
+          <div class="pkg-content">
+            <h3 class="pkg-title">Nainital + Almora + Kausani Kumaon Tour</h3>
+            <p class="pkg-route">📍 Kathgodam / Haridwar • Naini Lake • Bhimtal • Almora Bright End • Kausani Sunset</p>
+            <ul class="pkg-highlights">
+              <li>✓ MAP Plan: Daily Breakfast & Chef's Special Dinner</li>
+              <li>✓ 300 km Panoramic Himalayan Peaks View (Trishul & Nanda Devi)</li>
+              <li>✓ Anasakti Ashram (Gandhi Ashram) & Kausani Tea Gardens</li>
+              <li>✓ Private Sanitized Sedan / SUV throughout tour</li>
+            </ul>
+            <div class="pkg-price-box">
+              <div>
+                <span class="price-from">Starting From</span>
+                <span class="price-amount">₹18,500 <small>/ person</small></span>
+              </div>
+            </div>
+            <div class="pkg-btn-row">
+              <a href="packages/nainital-almora-kausani-5n6d.html" class="btn-pkg-book" style="background:#0F172A;">View Itinerary</a>
+              <a href="https://wa.me/919876543210?text=Inquiry%20for%20Nainital%20Almora%20Kausani%205N6D%20Package" target="_blank" class="btn-pkg-details" style="color:#25D366; border-color:#25D366;">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- P3: Rishikesh + Mussoorie + Kanatal + Dhanaulti -->
+        <div class="pkg-card">
+          <div class="pkg-image-wrapper">
+            <img src="images/packages/manali-solang.jpg" alt="Rishikesh Mussoorie Kanatal Dhanaulti">
+            <span class="pkg-duration">5 Nights / 6 Days</span>
+          </div>
+          <div class="pkg-content">
+            <h3 class="pkg-title">Rishikesh Rafting + Mussoorie + Kanatal</h3>
+            <p class="pkg-route">📍 Haridwar • Rishikesh • Shivpuri Rafting • Mussoorie Kempty • Kanatal • Dhanaulti</p>
+            <ul class="pkg-highlights">
+              <li>✓ MAP Plan: Daily Breakfast & Dinner Included</li>
+              <li>✓ 16 km Ganga River Rafting with Cliff Jumping in Rishikesh</li>
+              <li>✓ Dhanaulti Eco Park, Surkanda Devi Temple & Mussoorie Mall Road</li>
+              <li>✓ Private hill cab with experienced mountain driver</li>
+            </ul>
+            <div class="pkg-price-box">
+              <div>
+                <span class="price-from">Starting From</span>
+                <span class="price-amount">₹17,200 <small>/ person</small></span>
+              </div>
+            </div>
+            <div class="pkg-btn-row">
+              <a href="packages/rishikesh-mussoorie-kanatal-dhanaulti-5n6d.html" class="btn-pkg-book" style="background:#0F172A;">View Itinerary</a>
+              <a href="https://wa.me/919876543210?text=Inquiry%20for%20Rishikesh%20Mussoorie%20Kanatal%205N6D%20Package" target="_blank" class="btn-pkg-details" style="color:#25D366; border-color:#25D366;">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- P4: Rishikesh + Mussoorie 2N3D -->
+        <div class="pkg-card">
+          <div class="pkg-image-wrapper">
+            <img src="images/packages/hawa-mahal.webp" alt="Rishikesh Mussoorie Weekend Getaway">
+            <span class="pkg-duration">2 Nights / 3 Days</span>
+          </div>
+          <div class="pkg-content">
+            <h3 class="pkg-title">Rishikesh & Mussoorie Weekend Getaway</h3>
+            <p class="pkg-route">📍 Haridwar / Dehradun • Ram Jhula • Parmarth Aarti • Mussoorie Gun Hill • Kempty Falls</p>
+            <ul class="pkg-highlights">
+              <li>✓ MAP Plan: Daily Breakfast & Sumptuous Dinner</li>
+              <li>✓ Triveni Ghat Evening Ganga Aarti & Laxman Jhula stroll</li>
+              <li>✓ Camel's Back Road & Mall Road Mussoorie evening walk</li>
+              <li>✓ Quick refreshing weekend recharge with private cab</li>
+            </ul>
+            <div class="pkg-price-box">
+              <div>
+                <span class="price-from">Starting From</span>
+                <span class="price-amount">₹9,500 <small>/ person</small></span>
+              </div>
+            </div>
+            <div class="pkg-btn-row">
+              <a href="packages/rishikesh-mussoorie-2n3d.html" class="btn-pkg-book" style="background:#0F172A;">View Itinerary</a>
+              <a href="https://wa.me/919876543210?text=Inquiry%20for%20Rishikesh%20Mussoorie%202N3D%20Package" target="_blank" class="btn-pkg-details" style="color:#25D366; border-color:#25D366;">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- P5: Adi Kailash + Om Parvat -->
+        <div class="pkg-card">
+          <div class="pkg-image-wrapper">
+            <img src="images/yatra/badrinath.webp" alt="Adi Kailash Om Parvat Sacred Yatra">
+            <span class="pkg-duration">6 Nights / 7 Days</span>
+          </div>
+          <div class="pkg-content">
+            <h3 class="pkg-title">Sacred Adi Kailash & Om Parvat Yatra</h3>
+            <p class="pkg-route">📍 Kathgodam • Pithoragarh • Dharchula • Gunji • Adi Kailash • Parvati Sarovar • Om Parvat</p>
+            <ul class="pkg-highlights">
+              <li>✓ MAP Plan: Pure Satvik Vegetarian Breakfast & Dinner</li>
+              <li>✓ Inner-Line Permit (ILP) & Medical Fitness Coordination</li>
+              <li>✓ 4x4 Bolero / Camper for extreme high-altitude border terrain</li>
+              <li>✓ Darshan of natural OM symbol formed on Om Parvat peak</li>
+            </ul>
+            <div class="pkg-price-box">
+              <div>
+                <span class="price-from">Starting From</span>
+                <span class="price-amount">₹32,000 <small>/ person</small></span>
+              </div>
+            </div>
+            <div class="pkg-btn-row">
+              <a href="packages/adi-kailash-om-parvat-6n7d.html" class="btn-pkg-book" style="background:#0F172A;">View Itinerary</a>
+              <a href="https://wa.me/919876543210?text=Inquiry%20for%20Adi%20Kailash%20Om%20Parvat%206N7D%20Package" target="_blank" class="btn-pkg-details" style="color:#25D366; border-color:#25D366;">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- P6: Kartik Swami + Triyuginarayan + Dhari Devi -->
+        <div class="pkg-card">
+          <div class="pkg-image-wrapper">
+            <img src="images/yatra/kedarnath.avif" alt="Kartik Swami Triyuginarayan Dhari Devi">
+            <span class="pkg-duration">4 Nights / 5 Days</span>
+          </div>
+          <div class="pkg-content">
+            <h3 class="pkg-title">Kartik Swami + Triyuginarayan + Dhari Devi</h3>
+            <p class="pkg-route">📍 Haridwar • Dhari Devi Temple • Rudraprayag • Kartik Swami Ridge • Triyuginarayan</p>
+            <ul class="pkg-highlights">
+              <li>✓ MAP Plan: Daily Morning Breakfast & Evening Dinner</li>
+              <li>✓ 360-degree Himalayan ridge temple trek to Kartik Swami</li>
+              <li>✓ Akhand Dhuni sacred flame darshan at Triyuginarayan</li>
+              <li>✓ Guardian deity of Uttarakhand (Maa Dhari Devi) blessings</li>
+            </ul>
+            <div class="pkg-price-box">
+              <div>
+                <span class="price-from">Starting From</span>
+                <span class="price-amount">₹14,800 <small>/ person</small></span>
+              </div>
+            </div>
+            <div class="pkg-btn-row">
+              <a href="packages/kartik-swami-triyuginarayan-dhari-devi-4n5d.html" class="btn-pkg-book" style="background:#0F172A;">View Itinerary</a>
+              <a href="https://wa.me/919876543210?text=Inquiry%20for%20Kartik%20Swami%20Triyuginarayan%204N5D%20Package" target="_blank" class="btn-pkg-details" style="color:#25D366; border-color:#25D366;">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- P7: Chopta Tungnath 2N3D -->
+        <div class="pkg-card">
+          <div class="pkg-image-wrapper">
+            <img src="images/packages/manali-solang.jpg" alt="Chopta Tungnath Trek Package">
+            <span class="pkg-duration">2 Nights / 3 Days</span>
+          </div>
+          <div class="pkg-content">
+            <h3 class="pkg-title">Chopta Tungnath Mini Switzerland Trek</h3>
+            <p class="pkg-route">📍 Haridwar / Rishikesh • Devprayag • Chopta Swiss Camp • Tungnath • Chandrashila</p>
+            <ul class="pkg-highlights">
+              <li>✓ MAP Plan: Campfire Evening Dinner & Breakfast</li>
+              <li>✓ Stay in luxury Swiss camps amidst lush pine forests</li>
+              <li>✓ Highest temple trek in the world with summit sunrise view</li>
+              <li>✓ Private Sanitized Cab from Haridwar to Haridwar</li>
+            </ul>
+            <div class="pkg-price-box">
+              <div>
+                <span class="price-from">Starting From</span>
+                <span class="price-amount">₹8,999 <small>/ person</small></span>
+              </div>
+            </div>
+            <div class="pkg-btn-row">
+              <a href="packages/chopta-tungnath-2n3d.html" class="btn-pkg-book" style="background:#0F172A;">View Itinerary</a>
+              <a href="https://wa.me/919876543210?text=Inquiry%20for%20Chopta%20Tungnath%202N3D%20Package" target="_blank" class="btn-pkg-details" style="color:#25D366; border-color:#25D366;">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- P8: Auli Ski Resort 2N3D -->
+        <div class="pkg-card">
+          <div class="pkg-image-wrapper">
+            <img src="images/packages/kashmir.jpg" alt="Auli Ski Resort Snow Package">
+            <span class="pkg-duration">2 Nights / 3 Days</span>
+          </div>
+          <div class="pkg-content">
+            <h3 class="pkg-title">Auli Snow Paradise & Ski Resort</h3>
+            <p class="pkg-route">📍 Haridwar • Joshimath • Auli Ropeway • Gorson Bugyal Snow Meadows</p>
+            <ul class="pkg-highlights">
+              <li>✓ MAP Plan: Daily Morning Breakfast & Hot Dinner</li>
+              <li>✓ Skiing lessons and snow activities with experienced instructors</li>
+              <li>✓ Spectacular view of Nanda Devi, Kamet and Dunagiri peaks</li>
+              <li>✓ Dedicated private vehicle and luxury chalet stay</li>
+            </ul>
+            <div class="pkg-price-box">
+              <div>
+                <span class="price-from">Starting From</span>
+                <span class="price-amount">₹11,500 <small>/ person</small></span>
+              </div>
+            </div>
+            <div class="pkg-btn-row">
+              <a href="packages/auli-ski-resort-2n3d.html" class="btn-pkg-book" style="background:#0F172A;">View Itinerary</a>
+              <a href="https://wa.me/919876543210?text=Inquiry%20for%20Auli%20Ski%20Resort%202N3D%20Package" target="_blank" class="btn-pkg-details" style="color:#25D366; border-color:#25D366;">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
         
         <!-- Kashmir -->
         <div class="pkg-card">
@@ -547,23 +829,36 @@
       </div>
 
       <div class="fleet-row-grid">
+        <!-- Force Urbania (16 Pax) -->
+        <div class="fleet-card">
+          <img src="images/fleet/tempo-traveller.jpg" alt="Force Urbania 16 Seater Luxury Van">
+          <div class="fleet-body">
+            <span style="font-size:0.75rem; font-weight:800; color:var(--color-saffron); text-transform:uppercase;">Luxury Commuter</span>
+            <h4>Force Urbania (16 Pax)</h4>
+            <span class="fleet-spec">16+1 Executive Pushback Seats</span>
+            <p>Aerodynamic ultra-luxury passenger cruiser. Individual AC vents, sealed noise-free cabin, and ample luggage space for wedding & corporate delegations.</p>
+          </div>
+        </div>
+
         <!-- Crysta -->
         <div class="fleet-card">
           <img src="images/fleet/toyota-crysta.webp" alt="Toyota Innova Crysta">
           <div class="fleet-body">
+            <span style="font-size:0.75rem; font-weight:800; color:var(--color-saffron); text-transform:uppercase;">Executive MPV</span>
             <h4>Toyota Innova Crysta</h4>
             <span class="fleet-spec">6+1 Seater Captain Loungers</span>
-            <p>Unmatched king of mountain roads. Spacious legroom, powerful AC and high luggage clearance.</p>
+            <p>Unmatched king of mountain roads. Spacious legroom, powerful dual AC, and high clearance for Himalayan circuits.</p>
           </div>
         </div>
 
-        <!-- Hycross -->
+        <!-- Ertiga -->
         <div class="fleet-card">
-          <img src="images/fleet/innova-hycross.jpg" alt="Toyota Innova Hycross">
+          <img src="images/fleet/toyota-crysta.webp" alt="Maruti / Toyota Ertiga">
           <div class="fleet-body">
-            <h4>Innova Hycross Hybrid</h4>
-            <span class="fleet-spec">6+1 Seater Luxury Lounge</span>
-            <p>Ultra-quiet premium cabin, smooth suspension and executive comfort for families.</p>
+            <span style="font-size:0.75rem; font-weight:800; color:var(--color-saffron); text-transform:uppercase;">Family MPV</span>
+            <h4>Maruti / Toyota Ertiga</h4>
+            <span class="fleet-spec">6+1 Seater Family Wagon</span>
+            <p>Economical 6-seater family favorite. High highway mileage, comfortable seating, and smooth AC ride.</p>
           </div>
         </div>
 
@@ -571,9 +866,10 @@
         <div class="fleet-card">
           <img src="images/fleet/swift-dzire.avif" alt="Maruti Swift Dzire">
           <div class="fleet-body">
+            <span style="font-size:0.75rem; font-weight:800; color:var(--color-saffron); text-transform:uppercase;">Highway Sedan</span>
             <h4>Maruti Swift Dzire</h4>
             <span class="fleet-spec">4+1 Seater Sedan</span>
-            <p>Economical, swift and comfortable for small families and couple tours.</p>
+            <p>Economical, swift and comfortable for couples, solo travelers, and airport pickups.</p>
           </div>
         </div>
 
@@ -581,12 +877,89 @@
         <div class="fleet-card">
           <img src="images/fleet/tempo-traveller.jpg" alt="Force Tempo Traveller">
           <div class="fleet-body">
+            <span style="font-size:0.75rem; font-weight:800; color:var(--color-saffron); text-transform:uppercase;">Pilgrimage Coach</span>
             <h4>Force Tempo Traveller</h4>
             <span class="fleet-spec">12 / 17 / 26 Pushback Seats</span>
-            <p>Custom 1x1 Maharaja pushback recliner seats and huge luggage space for large groups.</p>
+            <p>Custom 1x1 Maharaja pushback recliner seats and huge dedicated luggage boot for large Char Dham groups.</p>
           </div>
         </div>
       </div>
+
+      <!-- Delhi to Haridwar Fixed One-Way Taxi Rates Table -->
+      <div style="margin-top:3.5rem; background:#FFFFFF; border:1.5px solid var(--color-border); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-card);">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem;">
+          <div>
+            <span style="font-size:0.78rem; font-weight:800; color:var(--color-saffron); text-transform:uppercase; letter-spacing:0.05em;">Fixed Highway Rates</span>
+            <h3 style="font-family:'Outfit',sans-serif; font-size:1.4rem; color:var(--color-navy); margin-top:0.25rem;">Delhi ⇄ Haridwar One-Way Fixed Taxi Fares</h3>
+            <p style="font-size:0.88rem; color:var(--color-text-muted);">Transparent commercial yellow-plate taxi tariffs with police-verified drivers. No hidden charges.</p>
+          </div>
+          <span style="background:var(--color-saffron-light); color:#92400E; font-size:0.8rem; font-weight:800; padding:0.35rem 0.85rem; border-radius:999px;">
+            24x7 Instant Dispatch
+          </span>
+        </div>
+
+        <div class="table-responsive">
+          <table style="width:100%; border-collapse:collapse; text-align:left; font-size:0.92rem;">
+            <thead>
+              <tr style="background:var(--color-bg-light); border-bottom:2px solid var(--color-border); color:var(--color-navy);">
+                <th style="padding:1rem 1.25rem;">Vehicle Model</th>
+                <th style="padding:1rem 1.25rem;">Capacity</th>
+                <th style="padding:1rem 1.25rem;">Delhi ➔ Haridwar Fare</th>
+                <th style="padding:1rem 1.25rem;">Best For</th>
+                <th style="padding:1rem 1.25rem; text-align:center;">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:1rem 1.25rem; font-weight:700; color:var(--color-navy);">Maruti Swift Dzire</td>
+                <td style="padding:1rem 1.25rem;">4 Passengers</td>
+                <td style="padding:1rem 1.25rem; font-weight:800; color:#DC2626; font-size:1.1rem;">₹3,600</td>
+                <td style="padding:1rem 1.25rem; color:var(--color-text-muted);">Couples & Small Families</td>
+                <td style="padding:1rem 1.25rem; text-align:center;">
+                  <a href="https://wa.me/919876543210?text=Namaste!%20I%20want%20to%20book%20Swift%20Dzire%20from%20Delhi%20to%20Haridwar%20(Rs.%203600)." target="_blank" class="btn-whatsapp" style="padding:0.4rem 0.85rem; font-size:0.8rem;">Book Cab</a>
+                </td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--color-border); background:var(--color-bg-light);">
+                <td style="padding:1rem 1.25rem; font-weight:700; color:var(--color-navy);">Maruti / Toyota Ertiga</td>
+                <td style="padding:1rem 1.25rem;">6 Passengers</td>
+                <td style="padding:1rem 1.25rem; font-weight:800; color:#DC2626; font-size:1.1rem;">₹4,200</td>
+                <td style="padding:1rem 1.25rem; color:var(--color-text-muted);">Budget Family MPV</td>
+                <td style="padding:1rem 1.25rem; text-align:center;">
+                  <a href="https://wa.me/919876543210?text=Namaste!%20I%20want%20to%20book%20Ertiga%20from%20Delhi%20to%20Haridwar%20(Rs.%204200)." target="_blank" class="btn-whatsapp" style="padding:0.4rem 0.85rem; font-size:0.8rem;">Book Cab</a>
+                </td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:1rem 1.25rem; font-weight:700; color:var(--color-navy);">Toyota Innova Crysta</td>
+                <td style="padding:1rem 1.25rem;">6/7 Passengers</td>
+                <td style="padding:1rem 1.25rem; font-weight:800; color:#DC2626; font-size:1.1rem;">₹5,000</td>
+                <td style="padding:1rem 1.25rem; color:var(--color-text-muted);">Executive Comfort & Senior Yatris</td>
+                <td style="padding:1rem 1.25rem; text-align:center;">
+                  <a href="https://wa.me/919876543210?text=Namaste!%20I%20want%20to%20book%20Innova%20Crysta%20from%20Delhi%20to%20Haridwar%20(Rs.%205000)." target="_blank" class="btn-whatsapp" style="padding:0.4rem 0.85rem; font-size:0.8rem;">Book Cab</a>
+                </td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--color-border); background:var(--color-bg-light);">
+                <td style="padding:1rem 1.25rem; font-weight:700; color:var(--color-navy);">Force Tempo Traveller</td>
+                <td style="padding:1rem 1.25rem;">12-17 Passengers</td>
+                <td style="padding:1rem 1.25rem; font-weight:800; color:#DC2626; font-size:1.1rem;">₹12,000</td>
+                <td style="padding:1rem 1.25rem; color:var(--color-text-muted);">Family Pilgrimages & Big Groups</td>
+                <td style="padding:1rem 1.25rem; text-align:center;">
+                  <a href="https://wa.me/919876543210?text=Namaste!%20I%20want%20to%20book%20Tempo%20Traveller%20from%20Delhi%20to%20Haridwar%20(Rs.%2012000)." target="_blank" class="btn-whatsapp" style="padding:0.4rem 0.85rem; font-size:0.8rem;">Book Cab</a>
+                </td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:1rem 1.25rem; font-weight:700; color:var(--color-navy);">Force Urbania (16 Pax Luxury)</td>
+                <td style="padding:1rem 1.25rem;">16 Passengers</td>
+                <td style="padding:1rem 1.25rem; font-weight:800; color:#DC2626; font-size:1.1rem;">₹15,000</td>
+                <td style="padding:1rem 1.25rem; color:var(--color-text-muted);">VIP Wedding & Corporate Delegations</td>
+                <td style="padding:1rem 1.25rem; text-align:center;">
+                  <a href="https://wa.me/919876543210?text=Namaste!%20I%20want%20to%20book%20Force%20Urbania%20from%20Delhi%20to%20Haridwar%20(Rs.%2015000)." target="_blank" class="btn-whatsapp" style="padding:0.4rem 0.85rem; font-size:0.8rem;">Book Cab</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -682,7 +1055,7 @@
             <span class="detail-icon">🏢</span>
             <div>
               <strong>Head Office:</strong>
-              <p>Near Har Ki Pauri / Railway Station Road, Haridwar, Uttarakhand - 249401</p>
+              <p>No. 7, Gyan Mandir, Opp. Daksh Mandir, Haridwar, Uttarakhand - 249408</p>
             </div>
           </div>
 
@@ -741,8 +1114,11 @@
               <span class="brand-tag" style="color:#FDE68A;">TOUR & TRAVELS • ESTD 2014</span>
             </div>
           </div>
-          <p style="color:#94A3B8; font-size:0.88rem; max-width:320px; line-height:1.5;">
+          <p style="color:#94A3B8; font-size:0.88rem; max-width:320px; line-height:1.5; margin-bottom:1rem;">
             Haridwar's premier pilgrimage and holiday tour operator with 12+ years of unblemished service excellence.
+          </p>
+          <p style="color:#FDE68A; font-size:0.8rem; font-weight:600;">
+            🤝 Sister Concern: <a href="../index.html" style="color:#FFFFFF; text-decoration:underline;">Trovenza Group</a> (Corporate Cabs & National Tours)
           </p>
         </div>
 
@@ -755,25 +1131,29 @@
         </div>
 
         <div class="footer-col">
-          <h5>India Tour Packages</h5>
-          <a href="#packages">Kashmir Paradise</a>
-          <a href="#packages">Himachal Shimla Manali</a>
-          <a href="#packages">Royal Rajasthan</a>
-          <a href="#packages">Ayodhya-Kashi Circuit</a>
-          <a href="#packages">Nepal Himalayan Tour</a>
+          <h5>Holiday & Wedding</h5>
+          <a href="packages/triyuginarayan-wedding-2n3d.html" style="color:#FDE68A; font-weight:700;">💒 Triyuginarayan Wedding (₹4L)</a>
+          <a href="packages/auli-chopta-4n5d.html">Auli + Chopta 4N/5D</a>
+          <a href="packages/nainital-almora-kausani-5n6d.html">Nainital Almora Kausani 5N/6D</a>
+          <a href="packages/adi-kailash-om-parvat-6n7d.html">Adi Kailash & Om Parvat 6N/7D</a>
+          <a href="packages/kartik-swami-triyuginarayan-dhari-devi-4n5d.html">Kartik Swami Circuit 4N/5D</a>
+          <a href="packages/chopta-tungnath-2n3d.html">Chopta Tungnath 2N/3D</a>
+          <a href="packages/auli-ski-resort-2n3d.html">Auli Ski Resort 2N/3D</a>
         </div>
 
         <div class="footer-col">
-          <h5>Quick Contact</h5>
+          <h5>Head Office & Support</h5>
+          <p style="color:#94A3B8; font-size:0.85rem; margin-bottom:0.5rem; line-height:1.4;">
+            📍 No. 7, Gyan Mandir, Opp. Daksh Mandir, Haridwar, Uttarakhand - 249408
+          </p>
           <p style="color:#94A3B8; font-size:0.88rem; margin-bottom:0.5rem;">📞 +91 98765 43210</p>
-          <p style="color:#94A3B8; font-size:0.88rem; margin-bottom:0.5rem;">📍 Haridwar, Uttarakhand</p>
           <p style="color:#94A3B8; font-size:0.88rem;">✉️ info@jaimaatravels.com</p>
         </div>
       </div>
 
       <div class="footer-bottom-row">
         <span>© 2014-2026 Jai Maa Tour & Travels. All Rights Reserved.</span>
-        <span>Trusted Pilgrim Specialist Since 12 Years</span>
+        <span>Trusted Pilgrim Specialist Since 12 Years • Office: Gyan Mandir, Haridwar</span>
       </div>
     </div>
   </footer>

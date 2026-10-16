@@ -78,17 +78,30 @@ document.addEventListener('DOMContentLoaded', () => {
       ratePerKm: "₹18 / km",
       seating: "6+1 Executive Captain",
       luggage: "4 Suitcases + 2 Bags",
-      rateNum: 18
+      rateNum: 18,
+      delhiHaridwarFixed: 5000
     },
-    fortuner: {
-      name: "Toyota Fortuner 4x4 (VIP Protocol)",
-      category: "Sovereign Escort & Mountain SUV",
-      image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80",
-      desc: "Rugged high-clearance 4WD powerhouse tailored for Himalayan routes and VIP security protocols. All-terrain traction control and ministerial commanding presence.",
-      ratePerKm: "₹35 / km",
-      seating: "6+1 VIP Leather",
-      luggage: "4 Suitcases + High Trunk",
-      rateNum: 35
+    urbania: {
+      name: "Force Urbania (16 Pax Ultra-Luxury)",
+      category: "VIP Delegation & Wedding Cruiser",
+      image: "images/fleet/tempo-traveller.jpg",
+      desc: "Next-generation aerodynamic luxury cruiser with 16 individual plush reclining seats, panoramic individual AC vents, sealed quiet cabin, and massive luggage hold.",
+      ratePerKm: "₹38 / km",
+      seating: "16+1 Executive Pushback",
+      luggage: "16 Large Suitcases",
+      rateNum: 38,
+      delhiHaridwarFixed: 15000
+    },
+    ertiga: {
+      name: "Maruti / Toyota Ertiga (6 Seater)",
+      category: "Economical Family MPV",
+      image: "images/fleet/toyota-crysta.webp",
+      desc: "Affordable and fuel-efficient 6-seater family MPV, ideal for small groups, airport runs, and plains-to-hills trips.",
+      ratePerKm: "₹14 / km",
+      seating: "6+1 Family Seating",
+      luggage: "3 Suitcases + Hand Bags",
+      rateNum: 14,
+      delhiHaridwarFixed: 4200
     },
     dzire: {
       name: "Maruti Swift Dzire (Executive Sedan)",
@@ -98,17 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
       ratePerKm: "₹12 / km",
       seating: "4+1 Sedan Cabin",
       luggage: "2 Medium Bags + 2 Duffels",
-      rateNum: 12
-    },
-    hycross: {
-      name: "Toyota Innova Hycross Hybrid",
-      category: "Luxury Hybrid Lounge",
-      image: "images/fleet/innova-hycross.jpg",
-      desc: "Ultra-quiet self-charging electric hybrid propulsion with panoramic glass roof, ventilated ottoman seating, and presidential highway poise.",
-      ratePerKm: "₹22 / km",
-      seating: "6+1 Ottoman Lounge",
-      luggage: "4 Large Bags",
-      rateNum: 22
+      rateNum: 12,
+      delhiHaridwarFixed: 3600
     },
     tempo: {
       name: "Force Tempo Traveller (12/17 Luxury)",
@@ -118,7 +122,19 @@ document.addEventListener('DOMContentLoaded', () => {
       ratePerKm: "₹28 / km",
       seating: "12-17 Pushback Seats",
       luggage: "15+ Bags (Dedicated Trunk)",
-      rateNum: 28
+      rateNum: 28,
+      delhiHaridwarFixed: 12000
+    },
+    hycross: {
+      name: "Toyota Innova Hycross Hybrid",
+      category: "Luxury Hybrid Lounge",
+      image: "images/fleet/innova-hycross.jpg",
+      desc: "Ultra-quiet self-charging electric hybrid propulsion with panoramic glass roof, ventilated ottoman seating, and presidential highway poise.",
+      ratePerKm: "₹22 / km",
+      seating: "6+1 Ottoman Lounge",
+      luggage: "4 Large Bags",
+      rateNum: 22,
+      delhiHaridwarFixed: 6500
     }
   };
 
@@ -181,13 +197,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const r = routes[selectedRouteKey] || routes.delhi_haridwar;
     const v = vehicleData[selectedCarKey] || vehicleData.crysta;
 
-    const baseFare = r.km * v.rateNum;
-    const driverAllowance = 400;
-    const totalEst = baseFare + r.toll + driverAllowance;
+    let totalEst = 0;
+    if (selectedRouteKey === 'delhi_haridwar' && v.delhiHaridwarFixed) {
+      totalEst = v.delhiHaridwarFixed;
+    } else {
+      const baseFare = r.km * v.rateNum;
+      const driverAllowance = 400;
+      totalEst = baseFare + r.toll + driverAllowance;
+    }
 
     if (calcPriceDisplay) calcPriceDisplay.textContent = `₹${totalEst.toLocaleString('en-IN')}`;
     if (calcDistDisplay) calcDistDisplay.textContent = `Approx. ${r.km} km (${r.name})`;
-    if (calcTollDisplay) calcTollDisplay.textContent = `₹${r.toll}`;
+    if (calcTollDisplay) calcTollDisplay.textContent = selectedRouteKey === 'delhi_haridwar' ? 'Toll extra at actuals' : `₹${r.toll}`;
 
     if (calcBookWaBtn) {
       const msg = `Namaste Trovenza! 🚖 Fare Calculation Inquiry:%0A` +
