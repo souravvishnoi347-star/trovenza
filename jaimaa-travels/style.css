@@ -110,9 +110,21 @@ a {
   text-decoration: none;
 }
 
-.brand-logo-icon {
-  font-size: 2.2rem;
-  line-height: 1;
+.brand-logo-img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid #FDE68A;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.15);
+  flex-shrink: 0;
+}
+
+.footer-logo-img {
+  width: 58px;
+  height: 58px;
+  border-color: #D97706;
 }
 
 .brand-text {
