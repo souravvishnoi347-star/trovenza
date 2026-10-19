@@ -185,26 +185,29 @@ button, input, select, textarea {
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-light);
   box-shadow: var(--shadow-sm);
+  width: 100%;
 }
 
 .nav-inner-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 76px;
-  gap: 1rem;
+  min-height: 72px;
+  gap: 0.75rem;
+  width: 100%;
 }
 
 .brand-wrapper-white {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.75rem;
   flex-shrink: 0;
+  text-decoration: none;
 }
 
 .brand-crest-img {
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   border: 2px solid var(--color-gold);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -218,11 +221,12 @@ button, input, select, textarea {
 
 .brand-main-name {
   font-family: var(--font-heading);
-  font-size: 1.55rem;
+  font-size: 1.45rem;
   font-weight: 800;
   color: var(--color-navy);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   line-height: 1.1;
+  white-space: nowrap;
 }
 
 .brand-main-name span {
@@ -230,26 +234,30 @@ button, input, select, textarea {
 }
 
 .brand-sub-tag {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: var(--text-muted);
+  white-space: nowrap;
 }
 
 /* Nav Menu Pills (SOTC Style) */
 .nav-pills-list {
   display: flex;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.25rem;
   flex-wrap: nowrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-pill-link {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-secondary);
-  padding: 0.45rem 0.65rem;
+  padding: 0.4rem 0.6rem;
   border-radius: var(--radius-full);
   display: inline-flex;
   align-items: center;
@@ -257,6 +265,7 @@ button, input, select, textarea {
   border: 1px solid transparent;
   white-space: nowrap;
   transition: all var(--transition-fast);
+  text-decoration: none;
 }
 
 .nav-pill-link:hover {
@@ -275,7 +284,7 @@ button, input, select, textarea {
 .nav-badge-hot {
   background: var(--color-red);
   color: #FFFFFF;
-  font-size: 0.58rem;
+  font-size: 0.55rem;
   font-weight: 800;
   padding: 0.1rem 0.35rem;
   border-radius: 4px;
@@ -288,7 +297,6 @@ button, input, select, textarea {
   align-items: center;
   gap: 0.5rem;
   flex-shrink: 0;
-  margin-left: auto;
 }
 
 .btn-nav-wa {
@@ -297,13 +305,14 @@ button, input, select, textarea {
   gap: 0.35rem;
   background: #25D366;
   color: #FFFFFF;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  padding: 0.48rem 0.85rem;
+  padding: 0.45rem 0.85rem;
   border-radius: var(--radius-full);
   box-shadow: 0 2px 10px rgba(37, 211, 102, 0.25);
   white-space: nowrap;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .btn-nav-wa:hover {
@@ -317,13 +326,14 @@ button, input, select, textarea {
   gap: 0.35rem;
   background: var(--color-red);
   color: #FFFFFF;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  padding: 0.48rem 0.95rem;
+  padding: 0.45rem 0.95rem;
   border-radius: var(--radius-sm);
   box-shadow: 0 4px 14px rgba(220, 38, 38, 0.25);
   white-space: nowrap;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .btn-nav-book:hover {
@@ -336,9 +346,12 @@ button, input, select, textarea {
   background: transparent;
   border: 1px solid var(--border-light);
   border-radius: var(--radius-sm);
-  padding: 0.5rem;
+  padding: 0.45rem;
   cursor: pointer;
   color: var(--color-navy);
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 /* ==========================================================================
@@ -1264,61 +1277,51 @@ html, body {
   scrollbar-width: thin;
 }
 
-@media (max-width: 1200px) {
-  .nav-inner-box {
-    gap: 0.5rem;
-  }
-  .nav-pills-list {
-    gap: 0.15rem;
-  }
-  .nav-pill-link {
-    font-size: 0.78rem;
-    padding: 0.4rem 0.5rem;
-  }
-  .brand-main-name {
-    font-size: 1.3rem;
-  }
-  .brand-crest-img {
-    width: 44px;
-    height: 44px;
-  }
-  .btn-nav-wa, .btn-nav-book {
-    padding: 0.42rem 0.75rem;
-    font-size: 0.78rem;
-  }
-}
-
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
   .nav-pills-list {
     display: none;
     position: fixed;
-    top: 68px;
+    top: 72px;
     left: 0;
     right: 0;
     background: #FFFFFF;
     flex-direction: column;
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 1.25rem;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     border-bottom: 2px solid var(--border-light);
-    max-height: calc(100vh - 70px);
+    max-height: calc(100vh - 72px);
     overflow-y: auto;
     z-index: 9999;
+    gap: 0.5rem;
   }
 
   .nav-pills-list.mobile-open {
     display: flex;
   }
 
-  .mobile-toggle {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0.4rem;
+  .nav-pills-list .nav-pill-link {
+    font-size: 0.95rem;
+    padding: 0.65rem 1rem;
+    border-radius: var(--radius-sm);
+    width: 100%;
+    justify-content: flex-start;
   }
 
+  .mobile-toggle {
+    display: flex !important;
+  }
+
+  .brand-main-name {
+    font-size: 1.35rem;
+  }
+
+  .brand-crest-img {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 1024px) {
   .hero-portal-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -1363,6 +1366,42 @@ html, body {
     background: #FFFFFF;
   }
 
+  .nav-inner-box {
+    min-height: 64px;
+    gap: 0.4rem;
+  }
+
+  .brand-main-name {
+    font-size: 1.15rem;
+  }
+
+  .brand-sub-tag {
+    display: none;
+  }
+
+  .brand-crest-img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .nav-actions-wrap {
+    gap: 0.35rem;
+  }
+
+  .btn-nav-wa {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.65rem;
+  }
+
+  .btn-nav-wa span {
+    display: inline;
+  }
+
+  .btn-nav-book {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.75rem;
+  }
+
   .mobile-toggle {
     display: flex;
     align-items: center;
@@ -1370,7 +1409,7 @@ html, body {
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 0.4rem;
+    padding: 0.35rem;
   }
 
   .hero-portal-h1 {
@@ -1437,19 +1476,42 @@ html, body {
 
 @media (max-width: 480px) {
   .container {
-    padding: 0 0.85rem;
+    padding: 0 0.75rem;
+  }
+
+  .nav-inner-box {
+    gap: 0.25rem;
+  }
+
+  .brand-wrapper-white {
+    gap: 0.4rem;
   }
 
   .brand-main-name {
-    font-size: 1.15rem;
+    font-size: 1rem;
   }
 
   .brand-crest-img {
-    width: 38px;
-    height: 38px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .btn-nav-wa {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.55rem;
+  }
+
+  .btn-nav-wa svg {
+    width: 13px;
+    height: 13px;
   }
 
   .btn-nav-book {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.6rem;
+  }
+
+  .btn-nav-book svg {
     display: none;
   }
 
