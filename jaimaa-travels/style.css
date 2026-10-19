@@ -1416,7 +1416,50 @@ html, body {
   color: var(--color-navy);
 }
 
+@media (max-width: 1200px) {
+  .header-inner {
+    gap: 0.75rem;
+  }
+  .nav-links {
+    gap: 0.85rem;
+  }
+  .nav-item {
+    font-size: 0.82rem;
+  }
+  .brand-title {
+    font-size: 1.25rem;
+  }
+  .btn-whatsapp, .btn-primary {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8rem;
+  }
+}
+
 @media (max-width: 1024px) {
+  .mobile-nav-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 76px;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid var(--color-border);
+    max-height: calc(100vh - 76px);
+    overflow-y: auto;
+    z-index: 9999;
+    gap: 0.75rem;
+  }
+  .nav-links.mobile-open {
+    display: flex;
+  }
   .hero-grid {
     grid-template-columns: 1fr;
   }
@@ -1521,5 +1564,91 @@ html, body {
     width: 44px;
     height: 44px;
   }
+}
+
+/* ==========================================================================
+   ANIMATIONS & LUXURY DEVOTIONAL MOTION SYSTEM
+   ========================================================================== */
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes saffronPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(217, 119, 6, 0);
+  }
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-heading {
+  animation: fadeInSlideUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-card {
+  animation: fadeInSlideUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+}
+
+.package-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+  will-change: transform, box-shadow;
+}
+
+.package-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.1);
+  border-color: #FCD34D;
+}
+
+.package-card .card-img-wrap {
+  overflow: hidden;
+}
+
+.package-card img {
+  transition: transform 0.5s ease;
+}
+
+.package-card:hover img {
+  transform: scale(1.05);
+}
+
+.fleet-card {
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fleet-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-saffron);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+}
+
+.btn-primary:hover, .btn-whatsapp:hover {
+  transform: translateY(-2px);
 }
 

@@ -551,4 +551,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 10. Scroll Reveal Animation Engine
+  const revealTargets = document.querySelectorAll(
+    '.pkg-card-white, .trust-badge-card, .review-card, .fare-calc-wrapper, .faq-trovenza-item, .wedding-banner-trovenza, .section-header-center, .fleet-display-stage'
+  );
+
+  if ('IntersectionObserver' in window && revealTargets.length > 0) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealTargets.forEach(el => {
+      el.classList.add('reveal-on-scroll');
+      revealObserver.observe(el);
+    });
+  } else {
+    revealTargets.forEach(el => el.classList.add('revealed'));
+  }
+
 });

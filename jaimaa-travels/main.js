@@ -363,3 +363,32 @@ function initFareEstimator() {
   vehicleSelect.addEventListener('change', updateFare);
   updateFare();
 }
+
+// Scroll Reveal Engine
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollTargets = document.querySelectorAll(
+    '.package-card, .fleet-card, .review-card, .why-card, .faq-item, .policy-card, .estimator-card, .hero-card'
+  );
+
+  if ('IntersectionObserver' in window && scrollTargets.length > 0) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    scrollTargets.forEach(el => {
+      el.classList.add('reveal-on-scroll');
+      observer.observe(el);
+    });
+  } else {
+    scrollTargets.forEach(el => el.classList.add('revealed'));
+  }
+});
