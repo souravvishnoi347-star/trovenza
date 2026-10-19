@@ -43,6 +43,60 @@
           "ratingValue": "4.9",
           "reviewCount": "1480"
         }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.trovenzatravels.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is biometric or online registration mandatory for the Char Dham Yatra 2026, and does Trovenza assist?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, biometric or online registration through the Uttarakhand Tourism Development Board (UTDB) is 100% compulsory for all pilgrims visiting Yamunotri, Gangotri, Kedarnath, and Badrinath. When you book a Char Dham package or yatra cab with Trovenza, our pilgrimage concierge team verifies your registration, slot confirmation, and green card verification at zero extra cost."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do Kedarnath helicopter shuttle bookings work, and what are your helipad transfer services?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Official Kedarnath helicopter slots are allotted through the IRCTC HeliYatra booking window from helipads at Phata, Sersi, and Guptkashi. Trovenza handles end-to-end ground coordination: punctual chauffeur drop to your designated helipad, priority helipad coordination, and backup pony/palki standby if weather disrupts flights."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are there night driving charges, and what are the mountain driving curfew restrictions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For passenger safety in hilly regions of Uttarakhand and Himachal Pradesh, local police enforce a strict mountain driving curfew between 8:00 PM and 4:30 AM on ghat roads. For highway plain routes (such as Delhi to Agra or Jaipur), night driving is permitted with a standard night driver allowance of ₹400 for trips operating between 10:00 PM and 6:00 AM."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are state border entry taxes and highway toll fees included in your taxi quotes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Trovenza maintains 100% billing transparency. For fixed one-way drops (like Delhi to Haridwar), tolls and driver allowance are included or clearly itemized. For custom round-trip outstation cab bookings, interstate entry taxes (UP, Uttarakhand, Haryana, Rajasthan) and electronic FASTag tolls are billed at exact government receipts without any hidden surcharge."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is your booking advance, cancellation policy, and refund turnaround time?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bookings require a 25% advance token to secure the chauffeur and vehicle. Cancellations made more than 72 hours prior to scheduled departure receive a 100% full refund (or a 100% credit voucher valid for 12 months). Cancellations between 24 and 72 hours receive a 50% refund. Cancellations within 24 hours incur vehicle retention costs because the chauffeur is reserved exclusively."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is included in the ₹4,00,000 Triyuginarayan Temple destination wedding package, and how is the priest arranged?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our flagship ₹4,00,000 celestial wedding package accommodates up to 30 guests for 2 Nights / 3 Days: 15 twin-sharing luxury resort rooms, all meals (Daily Breakfast, Lavish Buffet Lunch, Evening High Tea with Pahadi Snacks, and Grand Royal Reception Dinner), dedicated Haridwar luxury convoy (Force Urbania / Tempo), authentic Garhwal Brahmin temple priest, Akhand Dhuni hawan samagri, floral mandap decor, bridal makeup artist, and 4K cinematic photography."
+            }
+          }
+        ]
       }
     ]
   }
@@ -439,6 +493,268 @@
           </div>
         </div>
       </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 1B: INTERACTIVE LIVE TAXI FARE CALCULATOR & KM ESTIMATOR
+       ========================================================================= -->
+  <section class="section-taxi-calculator" id="fareCalculator">
+    <div class="container">
+      <div class="section-head-center">
+        <span class="section-tag-pill tag-red">⚡ Live Outstation & Hill Fare Calculator</span>
+        <h2 class="section-h2-title">Interactive Cab Fare & Tariff Estimator</h2>
+        <p class="section-p-sub">
+          Instant transparent quotes for 10+ popular pilgrimage and tourist circuits, or calculate custom kilometer rates with zero hidden charges.
+        </p>
+      </div>
+
+      <div class="fare-calc-wrapper">
+        <!-- Dual Mode Navigation Tabs -->
+        <div class="calc-mode-nav">
+          <button class="calc-nav-tab active" data-calc-pane="paneFixedRoutes" type="button">
+            <span>📍 Popular Fixed Routes (10+ Circuits)</span>
+          </button>
+          <button class="calc-nav-tab" data-calc-pane="paneCustomKm" type="button">
+            <span>📏 Custom KM Trip Estimator</span>
+          </button>
+        </div>
+
+        <!-- PANE 1: Popular Fixed Routes -->
+        <div class="calc-mode-pane active" id="paneFixedRoutes">
+          <div class="calc-grid-layout">
+            <div>
+              <div class="form-field-group">
+                <label class="form-label-bold">Select Travel Route</label>
+                <select class="form-select-box" id="calcRouteSelect">
+                  <optgroup label="Delhi NCR Outstation Circuits">
+                    <option value="delhi_haridwar" selected>Delhi ⇄ Haridwar / Rishikesh (240 km)</option>
+                    <option value="delhi_mussoorie">Delhi ⇄ Mussoorie Queen of Hills (300 km)</option>
+                    <option value="delhi_nainital">Delhi ⇄ Nainital Lake City (320 km)</option>
+                    <option value="delhi_agra">Delhi ⇄ Agra (Taj Expressway) (210 km)</option>
+                    <option value="delhi_jaipur">Delhi ⇄ Jaipur Pink City (280 km)</option>
+                    <option value="delhi_dehradun">Delhi ⇄ Dehradun Expressway (250 km)</option>
+                  </optgroup>
+                  <optgroup label="Dehradun Airport (Jolly Grant) Transfers">
+                    <option value="ded_rishikesh">Dehradun Airport ⇄ Rishikesh (35 km)</option>
+                    <option value="ded_mussoorie">Dehradun Airport ⇄ Mussoorie (60 km)</option>
+                  </optgroup>
+                  <optgroup label="Himalayan Char Dham & High-Altitude Circuits">
+                    <option value="haridwar_chopta">Haridwar ⇄ Chopta Mini Switzerland (210 km)</option>
+                    <option value="haridwar_kedarnath">Haridwar ⇄ Phata / Guptkashi Kedarnath Base (215 km)</option>
+                    <option value="haridwar_badrinath">Haridwar ⇄ Badrinath Dham (320 km)</option>
+                  </optgroup>
+                </select>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-field-group">
+                  <label class="form-label-bold">Choose Vehicle Category</label>
+                  <select class="form-select-box" id="calcCarSelect">
+                    <option value="dzire">Maruti Swift Dzire (Sedan • 4+1)</option>
+                    <option value="ertiga">Maruti / Toyota Ertiga (Family MPV • 6+1)</option>
+                    <option value="crysta" selected>Toyota Innova Crysta (Captain Seats • 6+1)</option>
+                    <option value="hycross">Toyota Innova Hycross (Hybrid • 6+1)</option>
+                    <option value="tempo">Force Tempo Traveller (12/17 Seats)</option>
+                    <option value="urbania">Force Urbania (16 Pax Ultra-Luxury)</option>
+                  </select>
+                </div>
+                <div class="form-field-group">
+                  <label class="form-label-bold">Trip Type</label>
+                  <select class="form-select-box" id="calcTripType">
+                    <option value="oneway" selected>One-Way Drop</option>
+                    <option value="roundtrip">Round-Trip Circuit</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style="background:#F8FAFC; border:1px solid var(--border-light); border-radius:var(--radius-md); padding:1rem 1.25rem; margin-top:1rem;">
+                <span style="font-size:0.8rem; font-weight:800; color:var(--color-navy); display:block; margin-bottom:0.35rem;">
+                  🛡️ Trovenza Commercial Yellow Plate Standard:
+                </span>
+                <span style="font-size:0.8rem; color:var(--text-muted); line-height:1.5;">
+                  All vehicles carry All-India Tourist Permits (AITP). 100% police-vetted chauffeurs, sanitized dual AC cabins, and guaranteed on-time doorstep arrival.
+                </span>
+              </div>
+            </div>
+
+            <!-- Estimated Output Card -->
+            <div class="calc-breakdown-card">
+              <div>
+                <span style="font-size:0.75rem; font-weight:800; color:var(--color-gold-hover); text-transform:uppercase; letter-spacing:0.06em;">
+                  Live Estimated Fare
+                </span>
+                <div class="calc-price-lead" id="calcPriceDisplay">₹5,000</div>
+                <div style="font-size:0.88rem; color:var(--text-secondary); font-weight:600; margin-bottom:1rem;" id="calcDistDisplay">
+                  Approx. 240 km (One-Way)
+                </div>
+
+                <div style="border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light); padding:0.85rem 0; margin-bottom:1rem; font-size:0.85rem;">
+                  <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+                    <span style="color:var(--text-muted);">Tolls & State Taxes:</span>
+                    <strong style="color:var(--color-navy);" id="calcTollDisplay">₹480 Included</strong>
+                  </div>
+                  <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+                    <span style="color:var(--text-muted);">Driver Allowance:</span>
+                    <strong style="color:var(--color-green);" id="calcDriverDisplay">Included</strong>
+                  </div>
+                  <div style="display:flex; justify-content:space-between;">
+                    <span style="color:var(--text-muted);">Surge / Hidden Fees:</span>
+                    <strong style="color:var(--color-green);">₹0 Guaranteed</strong>
+                  </div>
+                </div>
+
+                <div class="calc-pill-tags">
+                  <span>✓ Fuel Included</span>
+                  <span>✓ Yellow Commercial Plate</span>
+                  <span>✓ GPS Tracked</span>
+                  <span>✓ 24x7 Support</span>
+                </div>
+              </div>
+
+              <a id="calcBookWaBtn" href="https://wa.me/919876543210?text=Namaste%20Trovenza!%20Need%20quote%20for%20taxi%20booking." target="_blank" class="form-submit-cta cta-red" style="margin-top:1rem;">
+                <span>Confirm & Reserve on WhatsApp →</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANE 2: Custom KM Estimator -->
+        <div class="calc-mode-pane" id="paneCustomKm">
+          <div class="calc-grid-layout">
+            <div>
+              <div class="form-row-2">
+                <div class="form-field-group">
+                  <label class="form-label-bold">Estimated Trip Distance (KM)</label>
+                  <input type="number" class="form-input-box" id="customKmInput" value="200" min="20" max="5000" step="10">
+                  <div class="calc-km-presets">
+                    <button type="button" class="km-preset-btn" data-set-km="100">100 km</button>
+                    <button type="button" class="km-preset-btn" data-set-km="250">250 km</button>
+                    <button type="button" class="km-preset-btn" data-set-km="500">500 km</button>
+                    <button type="button" class="km-preset-btn" data-km="50">+50 km</button>
+                    <button type="button" class="km-preset-btn" data-km="100">+100 km</button>
+                  </div>
+                </div>
+
+                <div class="form-field-group">
+                  <label class="form-label-bold">Trip Type</label>
+                  <select class="form-select-box" id="customTripType">
+                    <option value="oneway">One-Way Drop</option>
+                    <option value="roundtrip" selected>Round-Trip Outstation</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-field-group">
+                  <label class="form-label-bold">Select Vehicle</label>
+                  <select class="form-select-box" id="customCarSelect">
+                    <option value="dzire">Maruti Swift Dzire (₹12 / km)</option>
+                    <option value="ertiga">Maruti / Toyota Ertiga (₹14 / km)</option>
+                    <option value="crysta" selected>Toyota Innova Crysta (₹18 / km)</option>
+                    <option value="hycross">Toyota Innova Hycross Hybrid (₹22 / km)</option>
+                    <option value="tempo">Force Tempo Traveller (₹28 / km)</option>
+                    <option value="urbania">Force Urbania 16 Pax (₹38 / km)</option>
+                  </select>
+                </div>
+
+                <div class="form-field-group">
+                  <label class="form-label-bold">Trip Duration (Days)</label>
+                  <input type="number" class="form-input-box" id="customDaysInput" value="1" min="1" max="30">
+                  <small style="font-size:0.75rem; color:var(--text-muted); display:block; margin-top:0.25rem;">
+                    Round-trips apply standard 250 km/day minimum billing.
+                  </small>
+                </div>
+              </div>
+
+              <div style="background:#F8FAFC; border:1px solid var(--border-light); border-radius:var(--radius-md); padding:1rem 1.25rem; margin-top:1rem;">
+                <span style="font-size:0.8rem; font-weight:800; color:var(--color-navy); display:block; margin-bottom:0.35rem;">
+                  💡 Driver Allowance & Billing Transparency:
+                </span>
+                <span style="font-size:0.8rem; color:var(--text-muted); line-height:1.5;">
+                  Driver allowance is ₹400/day. Tolls and inter-state border taxes are estimated based on typical NHAI highway tariffs and settled at actual electronic receipts.
+                </span>
+              </div>
+            </div>
+
+            <!-- Custom Output Card -->
+            <div class="calc-breakdown-card">
+              <div>
+                <span style="font-size:0.75rem; font-weight:800; color:var(--color-gold-hover); text-transform:uppercase; letter-spacing:0.06em;">
+                  Custom Estimated Tariff
+                </span>
+                <div class="calc-price-lead" id="customPriceDisplay">₹5,340</div>
+                <div style="font-size:0.88rem; color:var(--text-secondary); font-weight:600; margin-bottom:1rem;" id="customDistDisplay">
+                  400 km (Billed)
+                </div>
+
+                <div style="border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light); padding:0.85rem 0; margin-bottom:1rem; font-size:0.85rem;">
+                  <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+                    <span style="color:var(--text-muted);">Vehicle Base Rate:</span>
+                    <strong style="color:var(--color-navy);" id="customRateDisplay">₹18 / km</strong>
+                  </div>
+                  <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+                    <span style="color:var(--text-muted);">Driver Allowance:</span>
+                    <strong style="color:var(--color-navy);" id="customDriverDisplay">₹400 (1 Day)</strong>
+                  </div>
+                  <div style="display:flex; justify-content:space-between;">
+                    <span style="color:var(--text-muted);">Estimated Tolls / Taxes:</span>
+                    <strong style="color:var(--color-navy);" id="customTollDisplay">₹440</strong>
+                  </div>
+                </div>
+
+                <div class="calc-pill-tags">
+                  <span>✓ 1-Click WhatsApp Quote</span>
+                  <span>✓ Zero Advance Lock</span>
+                  <span>✓ Dedicated Vehicle</span>
+                </div>
+              </div>
+
+              <a id="customBookWaBtn" href="https://wa.me/919876543210?text=Namaste%20Trovenza!%20Need%20custom%20KM%20cab%20estimate." target="_blank" class="form-submit-cta cta-red" style="margin-top:1rem;">
+                <span>Get Instant WhatsApp Quote →</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 1C: FLEET SAFETY & COMMERCIAL YELLOW PLATE GUARANTEE BADGES
+       ========================================================================= -->
+  <section class="section-trust-badges">
+    <div class="container">
+      <div class="trust-badges-grid">
+        <div class="trust-badge-card">
+          <div class="trust-icon-box">👮</div>
+          <h4>100% Police Verified</h4>
+          <p>Antecedent-vetted chauffeurs with 5+ years mountain ghat driving mastery.</p>
+        </div>
+
+        <div class="trust-badge-card">
+          <div class="trust-icon-box">🚕</div>
+          <h4>Commercial Yellow Plates</h4>
+          <p>100% legal RTO registered commercial fleet. Zero risk of private cab impoundment.</p>
+        </div>
+
+        <div class="trust-badge-card">
+          <div class="trust-icon-box">📜</div>
+          <h4>All-India Tourist Permit</h4>
+          <p>Seamless interstate border crossings across Uttarakhand, HP, UP, and Delhi NCR.</p>
+        </div>
+
+        <div class="trust-badge-card">
+          <div class="trust-icon-box">⏱️</div>
+          <h4>30-Min Standby SLA</h4>
+          <p>Guaranteed replacement vehicle dispatched immediately in case of any eventuality.</p>
+        </div>
+
+        <div class="trust-badge-card">
+          <div class="trust-icon-box">🛰️</div>
+          <h4>Sanitized & GPS Monitored</h4>
+          <p>Pre-trip deep fumigation, dual-zone AC chill, and 24x7 satellite telemetry oversight.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -481,8 +797,8 @@
             <div style="display:flex; flex-wrap:wrap; gap:1rem; font-size:0.85rem; color:#92400E; font-weight:700;">
               <span>✓ Flat ₹4,00,000 All-Inclusive</span>
               <span>✓ 2 Nights / 3 Days</span>
-              <span>✓ All Meals Included</span>
-              <span>✓ 15 Resort Rooms</span>
+              <span>✓ All 4 Meals Included</span>
+              <span>✓ 15 Mountain Resort Rooms</span>
               <span>✓ Haridwar Luxury Convoy</span>
             </div>
           </div>
@@ -500,6 +816,87 @@
             </div>
           </div>
         </div>
+
+        <!-- Royal Multi-Cuisine Wedding Menu Preview -->
+        <div style="margin-top:2.25rem; border-top:1.5px solid #FDE68A; padding-top:1.75rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1rem;">
+            <div>
+              <span style="font-size:0.75rem; font-weight:800; color:#DC2626; text-transform:uppercase; letter-spacing:0.06em;">Included in ₹4 Lakh Package</span>
+              <h4 style="font-family:var(--font-brand); font-size:1.35rem; color:var(--color-navy); margin-top:0.15rem;">
+                🍽️ Royal Wedding Feast & Multi-Cuisine Menu Preview
+              </h4>
+            </div>
+            <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+              <button type="button" class="wedding-menu-pill-btn active" data-menu-pane="menuBreakfast">🌅 Breakfast</button>
+              <button type="button" class="wedding-menu-pill-btn" data-menu-pane="menuLunch">🍲 Buffet Lunch</button>
+              <button type="button" class="wedding-menu-pill-btn" data-menu-pane="menuHighTea">☕ High Tea & Pahadi Snacks</button>
+              <button type="button" class="wedding-menu-pill-btn" data-menu-pane="menuDinner">👑 Reception Feast</button>
+            </div>
+          </div>
+
+          <!-- Menu Panes -->
+          <div class="wedding-menu-pane active" id="menuBreakfast">
+            <strong style="color:var(--color-navy); display:block; margin-bottom:0.35rem;">Daily Wholesome Royal Breakfast (8:00 AM - 10:30 AM)</strong>
+            <p style="font-size:0.88rem; color:#78350F; line-height:1.6; margin:0;">
+              Fresh Kumaoni Poha • Stuffed Aloo & Paneer Parathas with Pahadi Butter & Pickles • Poori Bhaji • Fresh Seasonal Fruits & Fresh Juices • Pahadi Herbal Green Tea, Masala Chai & South Indian Filter Coffee.
+            </p>
+          </div>
+
+          <div class="wedding-menu-pane" id="menuLunch">
+            <strong style="color:var(--color-navy); display:block; margin-bottom:0.35rem;">Lavish North Indian & Garhwali Buffet Lunch (1:00 PM - 3:00 PM)</strong>
+            <p style="font-size:0.88rem; color:#78350F; line-height:1.6; margin:0;">
+              Paneer Butter Masala • Yellow Dal Tadka with Desi Ghee tempering • Aloo Gobhi Adraki • Steamed Dehraduni Basmati Rice • Traditional Garhwali Jhangore Ki Kheer • Fresh Tandoori Rotis, Naans & Assorted Salad Platter.
+            </p>
+          </div>
+
+          <div class="wedding-menu-pane" id="menuHighTea">
+            <strong style="color:var(--color-navy); display:block; margin-bottom:0.35rem;">Sunset High Tea & Authentic Pahadi Delicacies (4:30 PM - 6:00 PM)</strong>
+            <p style="font-size:0.88rem; color:#78350F; line-height:1.6; margin:0;">
+              Traditional Garhwali Singodi wrapped in Maalu leaves • Authentic Almora Bal Mithai • Hot Crispy Onion & Mountain Potato Pakoras • Fresh Mint Chutney • Ginger Cardamom Masala Chai & Mountain Herbal Infusions.
+            </p>
+          </div>
+
+          <div class="wedding-menu-pane" id="menuDinner">
+            <strong style="color:var(--color-navy); display:block; margin-bottom:0.35rem;">Celestial Wedding Reception Feast (8:00 PM Onwards)</strong>
+            <p style="font-size:0.88rem; color:#78350F; line-height:1.6; margin:0;">
+              Signature Pahadi Chainsoo & Kafuli • Shahi Paneer • Dal Makhani (Slow-simmered overnight) • Zafrani Vegetable Dum Biryani & Burrani Raita • Live Tawa Roti & Laccha Paratha Counter • Hot Gulab Jamun & Chilled Rasmalai.
+            </p>
+          </div>
+        </div>
+
+        <!-- 3-Day Ceremony Timeline Stepper -->
+        <div style="margin-top:2rem; border-top:1.5px solid #FDE68A; padding-top:1.75rem;">
+          <span style="font-size:0.75rem; font-weight:800; color:#DC2626; text-transform:uppercase; letter-spacing:0.06em;">Sacred Itinerary</span>
+          <h4 style="font-family:var(--font-brand); font-size:1.35rem; color:var(--color-navy); margin:0.15rem 0 1rem;">
+            📅 3-Day Celestial Wedding Ceremony Timeline
+          </h4>
+
+          <div class="wedding-timeline-grid">
+            <div class="timeline-step-box">
+              <span class="timeline-step-badge">DAY 1</span>
+              <strong style="color:var(--color-navy); display:block; font-size:0.95rem; margin-bottom:0.35rem;">Arrival & Riverside Haldi/Mehndi</strong>
+              <p style="font-size:0.82rem; color:#78350F; line-height:1.55; margin:0;">
+                Private luxury convoy from Haridwar/Dehradun to Guptkashi/Triyuginarayan resort. Traditional Tilak & Aarti welcome. Evening riverside Haldi ceremony with yellow marigold decor, live dhol, and Mehndi artists.
+              </p>
+            </div>
+
+            <div class="timeline-step-box" style="border-color:#F59E0B; background:#FFFBEB;">
+              <span class="timeline-step-badge" style="background:#D97706;">DAY 2 (MAIN WEDDING)</span>
+              <strong style="color:var(--color-navy); display:block; font-size:0.95rem; margin-bottom:0.35rem;">Akhand Dhuni Pheras & Royal Reception</strong>
+              <p style="font-size:0.82rem; color:#78350F; line-height:1.55; margin:0;">
+                Baraat procession with traditional pahadi dhol-damau to the sacred Triyuginarayan Temple. 7 sacred pheras around the eternal flame. 4K cinematic mountain shoot, followed by Grand Evening Reception & Sangeet feast.
+              </p>
+            </div>
+
+            <div class="timeline-step-box">
+              <span class="timeline-step-badge">DAY 3</span>
+              <strong style="color:var(--color-navy); display:block; font-size:0.95rem; margin-bottom:0.35rem;">Dhari Devi Darshan & Haridwar Drop</strong>
+              <p style="font-size:0.82rem; color:#78350F; line-height:1.55; margin:0;">
+                Farewell royal breakfast. Scenic return convoy with special VIP blessing stop at the sacred Maa Dhari Devi Temple (guardian deity of Char Dham). Drop at Haridwar Railway Station or Dehradun Jolly Grant Airport.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Packages Grid -->
@@ -508,7 +905,7 @@
         <!-- P1: Auli + Chopta -->
         <div class="travel-pkg-card" data-pkg-category="himalayan">
           <div class="pkg-card-media">
-            <img src="images/packages/manali-solang.jpg" alt="Auli Chopta Tungnath Trek">
+            <img loading="lazy" src="images/packages/manali-solang.jpg" alt="Auli Chopta Tungnath Trek">
             <span class="pkg-duration-badge">4N / 5D</span>
             <span class="pkg-category-badge" style="background:#0284C7;">MAP Plan</span>
           </div>
@@ -539,7 +936,7 @@
         <!-- P2: Nainital + Almora + Kausani -->
         <div class="travel-pkg-card" data-pkg-category="himalayan">
           <div class="pkg-card-media">
-            <img src="images/packages/kashmir.jpg" alt="Nainital Almora Kausani Kumaon Tour">
+            <img loading="lazy" src="images/packages/kashmir.jpg" alt="Nainital Almora Kausani Kumaon Tour">
             <span class="pkg-duration-badge">5N / 6D</span>
             <span class="pkg-category-badge" style="background:#0284C7;">MAP Plan</span>
           </div>
@@ -570,7 +967,7 @@
         <!-- P3: Rishikesh + Mussoorie + Rafting + Kanatal + Dhanaulti -->
         <div class="travel-pkg-card" data-pkg-category="himalayan">
           <div class="pkg-card-media">
-            <img src="images/packages/manali-solang.jpg" alt="Rishikesh Rafting Mussoorie Kanatal">
+            <img loading="lazy" src="images/packages/manali-solang.jpg" alt="Rishikesh Rafting Mussoorie Kanatal">
             <span class="pkg-duration-badge">5N / 6D</span>
             <span class="pkg-category-badge" style="background:#0284C7;">MAP Plan</span>
           </div>
@@ -601,7 +998,7 @@
         <!-- P4: Rishikesh + Mussoorie 2N3D -->
         <div class="travel-pkg-card" data-pkg-category="himalayan">
           <div class="pkg-card-media">
-            <img src="images/packages/hawa-mahal.webp" alt="Rishikesh Mussoorie Weekend">
+            <img loading="lazy" src="images/packages/hawa-mahal.webp" alt="Rishikesh Mussoorie Weekend">
             <span class="pkg-duration-badge">2N / 3D</span>
             <span class="pkg-category-badge" style="background:#0284C7;">MAP Plan</span>
           </div>
@@ -632,7 +1029,7 @@
         <!-- P5: Adi Kailash + Om Parvat -->
         <div class="travel-pkg-card" data-pkg-category="spiritual">
           <div class="pkg-card-media">
-            <img src="images/yatra/badrinath.webp" alt="Adi Kailash Om Parvat Yatra">
+            <img loading="lazy" src="images/yatra/badrinath.webp" alt="Adi Kailash Om Parvat Yatra">
             <span class="pkg-duration-badge">6N / 7D</span>
             <span class="pkg-category-badge" style="background:#D97706;">MAP Plan</span>
           </div>
@@ -663,7 +1060,7 @@
         <!-- P6: Kartik Swami + Triyuginarayan + Dhari Devi -->
         <div class="travel-pkg-card" data-pkg-category="spiritual">
           <div class="pkg-card-media">
-            <img src="images/yatra/kedarnath.avif" alt="Kartik Swami Triyuginarayan Dhari Devi">
+            <img loading="lazy" src="images/yatra/kedarnath.avif" alt="Kartik Swami Triyuginarayan Dhari Devi">
             <span class="pkg-duration-badge">4N / 5D</span>
             <span class="pkg-category-badge" style="background:#D97706;">MAP Plan</span>
           </div>
@@ -694,7 +1091,7 @@
         <!-- P7: Chopta Tungnath 2N3D -->
         <div class="travel-pkg-card" data-pkg-category="himalayan">
           <div class="pkg-card-media">
-            <img src="images/packages/manali-solang.jpg" alt="Chopta Tungnath Chandrashila">
+            <img loading="lazy" src="images/packages/manali-solang.jpg" alt="Chopta Tungnath Chandrashila">
             <span class="pkg-duration-badge">2N / 3D</span>
             <span class="pkg-category-badge" style="background:#0284C7;">MAP Plan</span>
           </div>
@@ -725,7 +1122,7 @@
         <!-- P8: Auli Ski Resort 2N3D -->
         <div class="travel-pkg-card" data-pkg-category="himalayan">
           <div class="pkg-card-media">
-            <img src="images/packages/kashmir.jpg" alt="Auli Ski Resort Snow Meadows">
+            <img loading="lazy" src="images/packages/kashmir.jpg" alt="Auli Ski Resort Snow Meadows">
             <span class="pkg-duration-badge">2N / 3D</span>
             <span class="pkg-category-badge" style="background:#0284C7;">MAP Plan</span>
           </div>
@@ -756,7 +1153,7 @@
         <!-- Package 1: Char Dham -->
         <div class="travel-pkg-card" data-pkg-category="spiritual">
           <div class="pkg-card-media">
-            <img src="images/yatra/badrinath.webp" alt="Char Dham Yatra 2026 - Sri Badrinath Dham">
+            <img loading="lazy" src="images/yatra/badrinath.webp" alt="Char Dham Yatra 2026 - Sri Badrinath Dham">
             <span class="pkg-duration-badge">10D / 9N</span>
             <span class="pkg-category-badge" style="background:#D97706;">Spiritual</span>
           </div>
@@ -787,7 +1184,7 @@
         <!-- Package 2: Kedarnath Heli -->
         <div class="travel-pkg-card" data-pkg-category="spiritual">
           <div class="pkg-card-media">
-            <img src="https://images.unsplash.com/photo-1506015391300-4802dc74de2e?auto=format&fit=crop&w=600&q=80" alt="Kedarnath Helicopter Charter">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1506015391300-4802dc74de2e?auto=format&fit=crop&w=600&q=80" alt="Kedarnath Helicopter Charter">
             <span class="pkg-duration-badge">3D / 2N</span>
             <span class="pkg-category-badge" style="background:#DC2626;">VIP Express</span>
           </div>
@@ -818,7 +1215,7 @@
         <!-- Package 3: Ayodhya & Varanasi -->
         <div class="travel-pkg-card" data-pkg-category="spiritual">
           <div class="pkg-card-media">
-            <img src="images/yatra/ram-mandir.jpg" alt="Ayodhya Ram Mandir and Kashi Vishwanath Circuit">
+            <img loading="lazy" src="images/yatra/ram-mandir.jpg" alt="Ayodhya Ram Mandir and Kashi Vishwanath Circuit">
             <span class="pkg-duration-badge">5D / 4N</span>
             <span class="pkg-category-badge" style="background:#D97706;">Spiritual</span>
           </div>
@@ -849,7 +1246,7 @@
         <!-- Package 4: Kashmir Paradise -->
         <div class="travel-pkg-card" data-pkg-category="himalayan">
           <div class="pkg-card-media">
-            <img src="images/packages/kashmir.jpg" alt="Kashmir Dal Lake Shikara and Gulmarg">
+            <img loading="lazy" src="images/packages/kashmir.jpg" alt="Kashmir Dal Lake Shikara and Gulmarg">
             <span class="pkg-duration-badge">6D / 5N</span>
             <span class="pkg-category-badge" style="background:#0284C7;">Hill Station</span>
           </div>
@@ -880,7 +1277,7 @@
         <!-- Package 5: Himachal Escape -->
         <div class="travel-pkg-card" data-pkg-category="himalayan">
           <div class="pkg-card-media">
-            <img src="images/packages/manali-solang.jpg" alt="Himachal Manali Solang Valley Snow">
+            <img loading="lazy" src="images/packages/manali-solang.jpg" alt="Himachal Manali Solang Valley Snow">
             <span class="pkg-duration-badge">6D / 5N</span>
             <span class="pkg-category-badge" style="background:#0284C7;">Himalayan</span>
           </div>
@@ -911,7 +1308,7 @@
         <!-- Package 6: Royal Rajasthan -->
         <div class="travel-pkg-card" data-pkg-category="heritage">
           <div class="pkg-card-media">
-            <img src="images/packages/hawa-mahal.webp" alt="Rajasthan Hawa Mahal Jaipur and Desert Safari">
+            <img loading="lazy" src="images/packages/hawa-mahal.webp" alt="Rajasthan Hawa Mahal Jaipur and Desert Safari">
             <span class="pkg-duration-badge">7D / 6N</span>
             <span class="pkg-category-badge" style="background:#B45309;">Heritage</span>
           </div>
@@ -942,7 +1339,7 @@
         <!-- Package 7: Nepal Himalayan Escapade -->
         <div class="travel-pkg-card" data-pkg-category="international">
           <div class="pkg-card-media">
-            <img src="images/packages/nepal.jpg" alt="Nepal Kathmandu Pashupatinath and Pokhara Himalayas">
+            <img loading="lazy" src="images/packages/nepal.jpg" alt="Nepal Kathmandu Pashupatinath and Pokhara Himalayas">
             <span class="pkg-duration-badge">6D / 5N</span>
             <span class="pkg-category-badge" style="background:#7C3AED;">International</span>
           </div>
@@ -973,7 +1370,7 @@
         <!-- Package 8: Dubai Luxury -->
         <div class="travel-pkg-card" data-pkg-category="international">
           <div class="pkg-card-media">
-            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80" alt="Dubai Burj Khalifa Skyline">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80" alt="Dubai Burj Khalifa Skyline">
             <span class="pkg-duration-badge">5D / 4N</span>
             <span class="pkg-category-badge" style="background:#7C3AED;">International</span>
           </div>
@@ -1031,7 +1428,7 @@
 
         <div class="elevation-cards-row">
           <div class="elevation-pill-card">
-            <img src="images/yatra/varanasi-ghats.jpg" style="width:52px; height:52px; border-radius:50%; object-fit:cover; margin:0 auto 0.6rem; display:block; border:2px solid #FDE68A; box-shadow:0 2px 6px rgba(0,0,0,0.08);" alt="Haridwar Ganga Ghats">
+            <img loading="lazy" src="images/yatra/varanasi-ghats.jpg" style="width:52px; height:52px; border-radius:50%; object-fit:cover; margin:0 auto 0.6rem; display:block; border:2px solid #FDE68A; box-shadow:0 2px 6px rgba(0,0,0,0.08);" alt="Haridwar Ganga Ghats">
             <span style="font-size:0.75rem; color:var(--color-gold-hover); font-weight:800;">314 m Elevation</span>
             <h5 style="font-family:var(--font-brand); font-size:1.1rem; color:var(--color-navy); margin:0.35rem 0;">Haridwar</h5>
             <p style="font-size:0.75rem; color:var(--text-muted);">Ganga Aarti Baseline</p>
@@ -1039,7 +1436,7 @@
           </div>
 
           <div class="elevation-pill-card">
-            <img src="images/yatra/yamunotri.webp" style="width:52px; height:52px; border-radius:50%; object-fit:cover; margin:0 auto 0.6rem; display:block; border:2px solid #FDE68A; box-shadow:0 2px 6px rgba(0,0,0,0.08);" alt="Yamunotri Dham Temple">
+            <img loading="lazy" src="images/yatra/yamunotri.webp" style="width:52px; height:52px; border-radius:50%; object-fit:cover; margin:0 auto 0.6rem; display:block; border:2px solid #FDE68A; box-shadow:0 2px 6px rgba(0,0,0,0.08);" alt="Yamunotri Dham Temple">
             <span style="font-size:0.75rem; color:var(--color-gold-hover); font-weight:800;">3,293 m Elevation</span>
             <h5 style="font-family:var(--font-brand); font-size:1.1rem; color:var(--color-navy); margin:0.35rem 0;">Yamunotri</h5>
             <p style="font-size:0.75rem; color:var(--text-muted);">Surya Kund Sanctum</p>
@@ -1047,7 +1444,7 @@
           </div>
 
           <div class="elevation-pill-card">
-            <img src="images/yatra/gangotri.webp" style="width:52px; height:52px; border-radius:50%; object-fit:cover; margin:0 auto 0.6rem; display:block; border:2px solid #FDE68A; box-shadow:0 2px 6px rgba(0,0,0,0.08);" alt="Gangotri Dham Temple">
+            <img loading="lazy" src="images/yatra/gangotri.webp" style="width:52px; height:52px; border-radius:50%; object-fit:cover; margin:0 auto 0.6rem; display:block; border:2px solid #FDE68A; box-shadow:0 2px 6px rgba(0,0,0,0.08);" alt="Gangotri Dham Temple">
             <span style="font-size:0.75rem; color:var(--color-gold-hover); font-weight:800;">3,100 m Elevation</span>
             <h5 style="font-family:var(--font-brand); font-size:1.1rem; color:var(--color-navy); margin:0.35rem 0;">Gangotri</h5>
             <p style="font-size:0.75rem; color:var(--text-muted);">Bhagirathi Sanctum</p>
@@ -1063,7 +1460,7 @@
           </div>
 
           <div class="elevation-pill-card">
-            <img src="images/yatra/badrinath.webp" style="width:52px; height:52px; border-radius:50%; object-fit:cover; margin:0 auto 0.6rem; display:block; border:2px solid #FDE68A; box-shadow:0 2px 6px rgba(0,0,0,0.08);" alt="Badrinath Dham Temple">
+            <img loading="lazy" src="images/yatra/badrinath.webp" style="width:52px; height:52px; border-radius:50%; object-fit:cover; margin:0 auto 0.6rem; display:block; border:2px solid #FDE68A; box-shadow:0 2px 6px rgba(0,0,0,0.08);" alt="Badrinath Dham Temple">
             <span style="font-size:0.75rem; color:var(--color-gold-hover); font-weight:800;">3,300 m Elevation</span>
             <h5 style="font-family:var(--font-brand); font-size:1.1rem; color:var(--color-navy); margin:0.35rem 0;">Badrinath</h5>
             <p style="font-size:0.75rem; color:var(--text-muted);">Vishnu Dham & Tapt Kund</p>
@@ -1077,7 +1474,7 @@
         <!-- 10D9N Char Dham -->
         <div class="yatra-card-white">
           <div class="yatra-card-media">
-            <img src="images/yatra/kedarnath.avif" alt="Maha Char Dham 10D9N - Kedarnath Sanctum">
+            <img loading="lazy" src="images/yatra/kedarnath.avif" alt="Maha Char Dham 10D9N - Kedarnath Sanctum">
             <span class="yatra-duration-pill">10 Days / 9 Nights</span>
           </div>
           <div class="yatra-card-body">
@@ -1098,7 +1495,7 @@
         <!-- 5D4N Do Dham -->
         <div class="yatra-card-white">
           <div class="yatra-card-media">
-            <img src="images/yatra/badrinath.webp" alt="Do Dham Kedar Badri 5D4N - Sri Badrinath Dham">
+            <img loading="lazy" src="images/yatra/badrinath.webp" alt="Do Dham Kedar Badri 5D4N - Sri Badrinath Dham">
             <span class="yatra-duration-pill">5 Days / 4 Nights</span>
           </div>
           <div class="yatra-card-body">
@@ -1119,7 +1516,7 @@
         <!-- VIP Helicopter Charter (Fixed Himalayan Helicopter Image) -->
         <div class="yatra-card-white">
           <div class="yatra-card-media">
-            <img src="https://images.unsplash.com/photo-1506015391300-4802dc74de2e?auto=format&fit=crop&w=600&q=80" alt="Kedarnath VIP Helicopter Charter">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1506015391300-4802dc74de2e?auto=format&fit=crop&w=600&q=80" alt="Kedarnath VIP Helicopter Charter">
             <span class="yatra-duration-pill" style="background:var(--color-red); color:#FFFFFF; border-color:var(--color-red);">VIP Express Heli</span>
           </div>
           <div class="yatra-card-body">
@@ -1213,6 +1610,264 @@
   </section>
 
   <!-- =========================================================================
+       SECTION 5: REAL CUSTOMER REVIEWS & TESTIMONIALS (GOOGLE 4.9★ VERIFIED)
+       ========================================================================= -->
+  <section class="section-reviews" id="reviews">
+    <div class="container">
+      <div class="section-head-center">
+        <div class="google-proof-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.87c2.27-2.09 3.675-5.17 3.675-9.15z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.87-3.05c-1.08.72-2.45 1.16-4.06 1.16-3.13 0-5.78-2.11-6.73-4.96H1.28v3.15C3.25 21.3 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.27 14.24A7.18 7.18 0 0 1 4.89 12c0-.78.14-1.54.38-2.24V6.61H1.28A11.94 11.94 0 0 0 0 12c0 1.92.45 3.74 1.28 5.39l3.99-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.25 2.7 1.28 6.61l3.99 3.15c.95-2.85 3.6-4.96 6.73-4.96z"/></svg>
+          <span style="font-weight:800; font-size:0.92rem; color:var(--color-navy);">Google Verified Rating: 4.9 / 5.0</span>
+          <span style="font-size:0.8rem; color:var(--text-muted);">(1,480+ Authentic Reviews)</span>
+        </div>
+        <h2 class="section-h2-title">Trusted by Thousands of Travelers Across India</h2>
+        <p class="section-p-sub">
+          Read genuine verified feedback from families on Himalayan pilgrimages, executives on outstation business, and couples hosting royal destination weddings.
+        </p>
+      </div>
+
+      <div class="reviews-grid">
+        <!-- Review 1 -->
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "Traveling with 74-year-old parents across high Himalayan altitudes was daunting, but Trovenza's chauffeur Surender was a blessing. Spotless Innova Crysta, medical oxygen cylinder ready on Yamunotri climb, and comfortable stops at high-grade mountain chalets. Truly divine service!"
+            </p>
+          </div>
+          <div class="reviewer-meta">
+            <div class="reviewer-avatar">RS</div>
+            <div class="reviewer-info">
+              <h5>Rajeshwar & Sunita Sharma</h5>
+              <span>Ahmedabad, Gujarat • 10D9N Maha Char Dham</span>
+              <span class="verified-pill">✓ Verified Pilgrimage Guest</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "Our midnight flight landed at Delhi T3 and driver Vikram was waiting with a placard outside exit gate 4. Smooth, silent highway journey in a spotless Swift Dzire. Driver drove responsibly with zero rush, transparent ₹3,600 billing with zero surge pricing. Highly recommended."
+            </p>
+          </div>
+          <div class="reviewer-meta">
+            <div class="reviewer-avatar">VM</div>
+            <div class="reviewer-info">
+              <h5>Dr. Vikram & Priya Malhotra</h5>
+              <span>South Extension, New Delhi • Delhi to Haridwar Cab</span>
+              <span class="verified-pill">✓ Verified Outstation Cab</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "Booked the 16-Pax Force Urbania for our leadership retreat from Delhi to Mussoorie and Dhanaulti. The vehicle was pristine, ultra-quiet cabin, individual AC vents, and fast USB chargers at every seat. GST invoice generated in 1 hour. Trovenza sets the benchmark for corporate transport."
+            </p>
+          </div>
+          <div class="reviewer-meta">
+            <div class="reviewer-avatar">RS</div>
+            <div class="reviewer-info">
+              <h5>Rohit Sen (VP Operations)</h5>
+              <span>Tech Mahindra, Noida • Corporate Fleet Delegation</span>
+              <span class="verified-pill">✓ Verified Corporate Client</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 4 -->
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "Getting married at the Akhand Dhuni of Lord Shiva and Mata Parvati was our dream. Trovenza executed the ₹4 Lakh package flawlessly: the Force Urbania convoy from Haridwar was immaculate, the Pahadi feast was praised by all 28 guests, and the temple priest guided rituals with profound sanctity."
+            </p>
+          </div>
+          <div class="reviewer-meta">
+            <div class="reviewer-avatar">AJ</div>
+            <div class="reviewer-info">
+              <h5>Ananya & Devansh Joshi</h5>
+              <span>Bandra, Mumbai • Triyuginarayan Temple Wedding</span>
+              <span class="verified-pill">✓ Verified Wedding Couple</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 6: TRANSPARENT BOOKING, CANCELLATION & DETOUR POLICY
+       ========================================================================= -->
+  <section class="section-policy" id="bookingPolicy">
+    <div class="container">
+      <div class="section-head-center">
+        <span class="section-tag-pill tag-navy">100% Policy Transparency</span>
+        <h2 class="section-h2-title">Booking Advance, Cancellation & Detour Terms</h2>
+        <p class="section-p-sub">
+          Straightforward consumer rights with zero ambiguous clauses or hidden vehicle lock-in conditions.
+        </p>
+      </div>
+
+      <div class="policy-grid">
+        <div class="policy-card">
+          <h4><span>💳</span> 25% Advance Booking Token</h4>
+          <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.65;">
+            Lock your vehicle, verified chauffeur, and travel dates with just a <strong>25% advance token</strong>. The remaining 75% balance is payable seamlessly upon chauffeur arrival or tour departure.
+          </p>
+          <ul style="font-size:0.82rem; color:var(--text-muted); margin-top:0.75rem; padding-left:1.2rem; line-height:1.6;">
+            <li>Instant booking voucher generated on WhatsApp/Email</li>
+            <li>Direct bank transfer, UPI, NEFT or corporate credit card</li>
+            <li>Commercial yellow-plate allocation confirmed with driver number</li>
+          </ul>
+        </div>
+
+        <div class="policy-card">
+          <h4><span>🔄</span> Cancellation Refund Matrix</h4>
+          <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.65;">
+            Transparent sliding refund window designed to protect both traveler flexibility and driver dedication.
+          </p>
+          <table class="policy-table">
+            <thead>
+              <tr>
+                <th>Timeline Before Trip</th>
+                <th>Refund Policy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:600; color:var(--color-navy);">> 72 Hours Prior</td>
+                <td style="font-weight:700; color:var(--color-green);">100% Full Refund (or 100% credit voucher)</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600; color:var(--color-navy);">24 to 72 Hours</td>
+                <td style="font-weight:700; color:var(--color-gold);">50% Refund</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600; color:var(--color-navy);">< 24 Hours</td>
+                <td style="color:var(--text-muted);">Vehicle retention fee (chauffeur committed)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="policy-card">
+          <h4><span>🏔️</span> Mountain Landslide & Force Majeure</h4>
+          <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.65;">
+            Himalayan weather disruptions are handled with strict passenger safety first:
+          </p>
+          <ul style="font-size:0.82rem; color:var(--text-secondary); margin-top:0.75rem; padding-left:1.2rem; line-height:1.6;">
+            <li><strong>Immediate Safe Harbor:</strong> Immediate holding at pre-vetted safe hotels until SDRF clears roads.</li>
+            <li><strong>Alternate Route Detour:</strong> Transparent pro-rata KM tariff adjustment without emergency price gouging.</li>
+            <li><strong>24x7 Control Room Coordination:</strong> Direct telemetry with Uttarakhand Police traffic control.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 7: FREQUENTLY ASKED QUESTIONS (RICH ACCORDION & AEO)
+       ========================================================================= -->
+  <section class="section-faq" id="faq">
+    <div class="container">
+      <div class="section-head-center">
+        <span class="section-tag-pill tag-red">Got Questions? We Have Answers</span>
+        <h2 class="section-h2-title">Frequently Asked Questions</h2>
+        <p class="section-p-sub">
+          Everything you need to know about Char Dham passes, Kedarnath helicopter boarding, mountain night curfews, tolls, and Triyuginarayan destination weddings.
+        </p>
+      </div>
+
+      <div class="faq-accordion-list">
+        <!-- Q1 -->
+        <div class="faq-accordion-item">
+          <button type="button" class="faq-question-btn" aria-expanded="false">
+            <span>Is biometric or online registration mandatory for Char Dham Yatra 2026, and does Trovenza assist?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer-panel">
+            <p>
+              Yes, biometric or online registration through the official Uttarakhand Tourism Development Board (UTDB) portal is 100% compulsory for every pilgrim traveling to Yamunotri, Gangotri, Kedarnath, and Badrinath. When you reserve any Char Dham yatra cab or package with Trovenza, our pilgrimage concierge team verifies your registration, slot confirmation, and vehicle green cards with the RTO at zero extra charge.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="faq-accordion-item">
+          <button type="button" class="faq-question-btn" aria-expanded="false">
+            <span>How do Kedarnath helicopter shuttle bookings work, and what are your helipad transfer services?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer-panel">
+            <p>
+              Official Kedarnath helicopter shuttle tickets are allotted exclusively through the IRCTC HeliYatra booking window from operational helipads at Phata, Sersi, and Guptkashi. Trovenza handles complete ground logistics: timely chauffeur drops right at your designated helipad, priority coordination with ground operators, and backup standby arrangements for pony or palki if mountain weather temporarily halts helicopter flights.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="faq-accordion-item">
+          <button type="button" class="faq-question-btn" aria-expanded="false">
+            <span>Are there night driving charges, and what are the mountain driving curfew restrictions?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer-panel">
+            <p>
+              For passenger safety in high-altitude terrain, Uttarakhand Police strictly prohibits commercial driving between 8:00 PM and 4:30 AM on mountain ghat roads. For highway plain routes (such as Delhi to Agra, Jaipur, or Chandigarh), overnight driving is permitted with a standard night driver allowance of ₹400 for journeys between 10:00 PM and 6:00 AM.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="faq-accordion-item">
+          <button type="button" class="faq-question-btn" aria-expanded="false">
+            <span>Are state border entry taxes and highway toll fees included in your taxi quotes?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer-panel">
+            <p>
+              Trovenza upholds 100% billing transparency. On popular one-way fixed routes (like Delhi to Haridwar), tolls and driver allowance are included upfront or clearly itemized. For custom round-trip outstation cab rentals, state entry permits (UP, Uttarakhand, Haryana, Rajasthan) and electronic FASTag tolls are billed at exact government receipts without any hidden surcharge.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="faq-accordion-item">
+          <button type="button" class="faq-question-btn" aria-expanded="false">
+            <span>What is your booking advance, cancellation policy, and refund turnaround time?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer-panel">
+            <p>
+              Bookings require a 25% advance token to reserve the chauffeur and vehicle. Cancellations made more than 72 hours prior to scheduled departure receive a 100% full refund (or a 100% credit voucher valid for 12 months). Cancellations between 24 and 72 hours receive a 50% refund. Cancellations within 24 hours incur vehicle retention costs because the chauffeur and vehicle are reserved exclusively for your family.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="faq-accordion-item">
+          <button type="button" class="faq-question-btn" aria-expanded="false">
+            <span>What is included in the ₹4,00,000 Triyuginarayan Temple destination wedding package, and how is the priest arranged?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer-panel">
+            <p>
+              Our flagship ₹4,00,000 celestial wedding package accommodates up to 30 guests for 2 Nights / 3 Days: 15 twin-sharing luxury resort rooms, all meals (Daily Breakfast, Lavish Buffet Lunch, Evening High Tea with Pahadi Snacks, and Grand Royal Reception Dinner), dedicated Haridwar luxury convoy (Force Urbania / Tempo), authentic Garhwal Brahmin temple priest, Akhand Dhuni hawan samagri, floral mandap decor, bridal makeup artist, and 4K cinematic photography.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
        FOOTER (CORPORATE NAVY FINISH)
        ========================================================================= -->
   <footer class="site-footer-white">
@@ -1284,7 +1939,7 @@
   </footer>
 
   <!-- Floating Active WhatsApp Button -->
-  <div style="position:fixed; bottom:2rem; right:2rem; z-index:999; display:flex; align-items:center; gap:0.65rem;">
+  <div class="floating-wa-btn-wrap" style="position:fixed; bottom:2rem; right:2rem; z-index:999; display:flex; align-items:center; gap:0.65rem;">
     <span style="background:#FFFFFF; color:var(--color-navy); border:1px solid var(--border-light); padding:0.4rem 0.85rem; border-radius:999px; font-size:0.78rem; font-weight:700; box-shadow:var(--shadow-card);">
       Online: Dispatch / Yatra Desk
     </span>
@@ -1292,6 +1947,22 @@
       <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z"/>
       </svg>
+    </a>
+  </div>
+
+  <!-- Mobile Sticky Bottom Action Bar -->
+  <div class="mobile-bottom-bar">
+    <a href="tel:+919876543210" class="bottom-bar-btn bottom-bar-call" aria-label="Call Hotline">
+      <span style="font-size:1.15rem;">📞</span>
+      <span>Call Hotline</span>
+    </a>
+    <a href="https://wa.me/919876543210?text=Namaste%20Trovenza!%20I%20want%20to%20inquire%20about%20booking." target="_blank" class="bottom-bar-btn bottom-bar-wa" aria-label="Book on WhatsApp">
+      <span style="font-size:1.15rem;">💬</span>
+      <span>Book WhatsApp</span>
+    </a>
+    <a href="#fareCalculator" class="bottom-bar-btn bottom-bar-calc" aria-label="Quick Fare">
+      <span style="font-size:1.15rem;">⚡</span>
+      <span>Quick Fare</span>
     </a>
   </div>
 
