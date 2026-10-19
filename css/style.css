@@ -1356,7 +1356,7 @@ html, body {
 
 @media (max-width: 768px) {
   .top-utility-strip {
-    display: none;
+    display: none !important;
   }
 
   .site-main-header {
@@ -1364,131 +1364,317 @@ html, body {
     top: 0;
     z-index: 1000;
     background: #FFFFFF;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid var(--border-light);
   }
 
   .nav-inner-box {
-    min-height: 64px;
-    gap: 0.4rem;
+    min-height: 60px;
+    height: 60px;
+    padding: 0 0.85rem;
+    gap: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .brand-wrapper-white {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-shrink: 0;
+    text-decoration: none;
+  }
+
+  .brand-crest-img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    flex-shrink: 0;
   }
 
   .brand-main-name {
     font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1.1;
+    white-space: nowrap;
   }
 
   .brand-sub-tag {
-    display: none;
-  }
-
-  .brand-crest-img {
-    width: 38px;
-    height: 38px;
+    display: none !important;
   }
 
   .nav-actions-wrap {
-    gap: 0.35rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-shrink: 0;
+  }
+
+  /* CRITICAL FIX: Hide redundant Book Now in mobile header - Bottom Sticky Bar has primary CTA */
+  .btn-nav-book {
+    display: none !important;
   }
 
   .btn-nav-wa {
-    font-size: 0.75rem;
-    padding: 0.4rem 0.65rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: #25D366;
+    color: #FFFFFF;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.42rem 0.75rem;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.28);
+    white-space: nowrap;
   }
 
   .btn-nav-wa span {
     display: inline;
   }
 
-  .btn-nav-book {
-    font-size: 0.75rem;
-    padding: 0.4rem 0.75rem;
-  }
-
   .mobile-toggle {
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
-    background: transparent;
-    border: none;
+    width: 38px;
+    height: 38px;
+    background: #F8FAFC;
+    border: 1.5px solid var(--border-light);
+    border-radius: 8px;
     cursor: pointer;
-    padding: 0.35rem;
+    padding: 0;
+    color: var(--color-navy);
+    flex-shrink: 0;
+  }
+
+  /* Prevent aggressive iOS Safari/Chrome automatic zoom */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+
+  /* Mobile Spacing & Section Titles */
+  .hero-portal-canvas {
+    padding: 2.25rem 0 2.5rem !important;
   }
 
   .hero-portal-h1 {
-    font-size: clamp(1.85rem, 6vw, 2.4rem) !important;
-    line-height: 1.25;
+    font-size: clamp(1.45rem, 5.2vw, 1.95rem) !important;
+    line-height: 1.22;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-body-p {
+    font-size: 0.92rem !important;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
   }
 
   .section-h2-title {
-    font-size: clamp(1.6rem, 5.5vw, 2.2rem) !important;
+    font-size: clamp(1.4rem, 4.8vw, 1.85rem) !important;
     line-height: 1.25;
   }
 
+  .section-p-subtitle {
+    font-size: 0.88rem !important;
+    margin-bottom: 1.75rem;
+  }
+
+  /* Booking Console on Mobile */
+  .portal-booking-card {
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(10, 25, 47, 0.08);
+  }
+
+  .booking-card-body {
+    padding: 1.15rem 0.95rem !important;
+  }
+
+  .booking-card-top-tabs {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.35rem;
+    padding: 0.35rem;
+    background: #F1F5F9;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+
+  .b-card-tab {
+    padding: 0.65rem 0.25rem;
+    font-size: 0.74rem;
+    font-weight: 700;
+    border-radius: 7px;
+    text-align: center;
+  }
+
+  .form-row-2, .form-row-3 {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem;
+  }
+
+  .form-field-group {
+    margin-bottom: 0.75rem;
+  }
+
+  .btn-hero-submit {
+    height: 48px;
+    font-size: 0.92rem;
+    font-weight: 800;
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  /* Travel Packages on Mobile */
   .travel-packages-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
   }
 
-  .hero-stats-strip {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  .pkg-card-white {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
   }
 
-  .stage-metrics-grid {
-    grid-template-columns: 1fr;
+  .pkg-card-media {
+    height: 200px !important;
+  }
+
+  .pkg-card-media img {
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .pkg-card-body {
+    padding: 1.15rem !important;
+  }
+
+  .pkg-actions-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .btn-pkg-itinerary, .btn-pkg-wa {
+    width: 100% !important;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Fleet Display Stage on Mobile */
+  .fleet-display-stage {
+    grid-template-columns: 1fr !important;
+    padding: 1.25rem !important;
+    gap: 1.25rem;
   }
 
   .stage-img-container {
-    height: 220px !important;
+    height: 190px !important;
+  }
+
+  .stage-img-container img {
+    max-height: 190px;
+    object-fit: contain;
   }
 
   .stage-info-column h3 {
     font-size: 1.35rem !important;
   }
 
+  .stage-metrics-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.5rem;
+  }
+
   .elevation-cards-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
   }
 
-  .footer-grid-4 {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .hero-stats-strip {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem;
   }
 
-  .form-row-2, .form-row-3 {
+  /* Fare Calculator on Mobile */
+  .section-taxi-calculator {
+    padding: 3rem 0 !important;
+  }
+
+  .fare-calc-wrapper {
+    padding: 1.25rem !important;
+    border-radius: 12px;
+  }
+
+  .calc-grid-layout {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
+
+  .fare-preset-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  /* Wedding Showcase on Mobile */
+  .wedding-banner-trovenza {
+    padding: 1.5rem 1rem !important;
+    border-radius: 14px;
+  }
+
+  .wedding-meals-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem;
+  }
+
+  .wedding-timeline-grid {
     grid-template-columns: 1fr !important;
   }
 
-  .booking-card-body {
-    padding: 1.25rem !important;
+  /* Trust Badges on Mobile */
+  .trust-badges-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.75rem;
   }
 
-  .booking-card-top-tabs {
-    grid-template-columns: repeat(3, 1fr);
+  .trust-badge-card {
+    padding: 1rem 0.75rem;
   }
 
-  .b-card-tab {
-    padding: 0.85rem 0.35rem;
-    font-size: 0.78rem;
+  /* Reviews Grid on Mobile */
+  .reviews-grid-trovenza {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
   }
 
-  .form-field-group {
-    margin-bottom: 0.85rem;
+  /* Policy Grid on Mobile */
+  .policy-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+
+  /* Footer on Mobile */
+  .footer-grid-4 {
+    grid-template-columns: 1fr !important;
+    gap: 1.75rem;
+    text-align: left;
   }
 }
 
 @media (max-width: 480px) {
   .container {
-    padding: 0 0.75rem;
+    padding: 0 0.85rem !important;
   }
 
   .nav-inner-box {
-    gap: 0.25rem;
-  }
-
-  .brand-wrapper-white {
-    gap: 0.4rem;
-  }
-
-  .brand-main-name {
-    font-size: 1rem;
+    padding: 0 0.65rem !important;
+    height: 56px;
+    min-height: 56px;
   }
 
   .brand-crest-img {
@@ -1496,9 +1682,13 @@ html, body {
     height: 32px;
   }
 
+  .brand-main-name {
+    font-size: 1.02rem;
+  }
+
   .btn-nav-wa {
-    font-size: 0.72rem;
-    padding: 0.35rem 0.55rem;
+    font-size: 0.74rem;
+    padding: 0.35rem 0.6rem;
   }
 
   .btn-nav-wa svg {
@@ -1507,21 +1697,21 @@ html, body {
   }
 
   .btn-nav-book {
-    font-size: 0.72rem;
-    padding: 0.35rem 0.6rem;
+    display: none !important;
   }
 
-  .btn-nav-book svg {
-    display: none;
-  }
-
-  .hero-booking-white-card {
-    border-radius: var(--radius-md);
+  .mobile-toggle {
+    width: 36px;
+    height: 36px;
   }
 
   .b-card-tab {
-    font-size: 0.72rem;
-    padding: 0.75rem 0.2rem;
+    font-size: 0.7rem;
+    padding: 0.55rem 0.2rem;
+  }
+
+  .trust-badges-grid {
+    grid-template-columns: 1fr !important;
   }
 }
 
