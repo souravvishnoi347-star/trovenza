@@ -1277,7 +1277,7 @@ html, body {
   scrollbar-width: thin;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1350px) {
   .nav-pills-list {
     display: none;
     position: fixed;

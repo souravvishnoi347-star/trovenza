@@ -1416,26 +1416,7 @@ html, body {
   color: var(--color-navy);
 }
 
-@media (max-width: 1200px) {
-  .header-inner {
-    gap: 0.75rem;
-  }
-  .nav-links {
-    gap: 0.85rem;
-  }
-  .nav-item {
-    font-size: 0.82rem;
-  }
-  .brand-title {
-    font-size: 1.25rem;
-  }
-  .btn-whatsapp, .btn-primary {
-    padding: 0.45rem 0.85rem;
-    font-size: 0.8rem;
-  }
-}
-
-@media (max-width: 1024px) {
+@media (max-width: 1350px) {
   .mobile-nav-toggle {
     display: inline-flex !important;
     align-items: center;
@@ -1460,6 +1441,22 @@ html, body {
   .nav-links.mobile-open {
     display: flex;
   }
+  .nav-item {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+    width: 100%;
+  }
+  .brand-title {
+    font-size: 1.25rem;
+  }
+  .btn-whatsapp, .btn-primary {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 1024px) {
   .hero-grid {
     grid-template-columns: 1fr;
   }
