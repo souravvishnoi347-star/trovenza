@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trovenza & Jai Maa Travels — Client Admin Control Center</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="../images/logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Site Config Bridge -->
+  <script src="../site-config.js"></script>
+
+  <style>
+    :root {
+      --color-navy: #0A192F;
+      --color-navy-dark: #060D17;
+      --color-navy-light: #1E293B;
+      --color-gold: #D97706;
+      --color-gold-hover: #B45309;
+      --color-gold-light: #FEF3C7;
+      --color-saffron: #F59E0B;
+      --color-red: #DC2626;
+      --color-red-light: #FEE2E2;
+      --color-green: #10B981;
+      --color-green-light: #D1FAE5;
+      --color-blue: #2563EB;
+      --color-blue-light: #DBEAFE;
+      --bg-body: #F1F5F9;
+      --bg-card: #FFFFFF;
+      --border-color: #E2E8F0;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 12px rgba(15,23,42,0.08);
+      --shadow-lg: 0 12px 28px rgba(15,23,42,0.12);
+      --sidebar-width: 270px;
+      --header-height: 68px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-body);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      color: var(--color-navy);
+    }
+
+    /* ==========================================================================
+       LOGIN OVERLAY SCREEN
+       ========================================================================== */
+    #loginScreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 50% 20%, #1E293B 0%, #0A192F 100%);
+      z-index: 999999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .login-box {
+      background: #FFFFFF;
+      width: 100%;
+      max-width: 440px;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+      padding: 2.5rem 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--color-gold), var(--color-red), var(--color-saffron));
+    }
+
+    .login-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      justify-content: center;
+    }
+
+    .login-logo {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .login-brand-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--color-navy);
+      letter-spacing: 0.02em;
+    }
+
+    .login-brand-title span {
+      color: var(--color-gold);
+    }
+
+    .login-heading {
+      font-size: 1.25rem;
+      text-align: center;
+      margin-bottom: 0.35rem;
+    }
+
+    .login-sub {
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--color-navy);
+      margin-bottom: 0.45rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-md);
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--text-main);
+      background: #FFFFFF;
+      transition: all 0.2s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--color-gold);
+      box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15);
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 0.9rem;
+      background: linear-gradient(135deg, var(--color-navy) 0%, #1E293B 100%);
+      color: #FFFFFF;
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 0.98rem;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(10, 25, 47, 0.25);
+    }
+
+    .btn-submit:hover {
+      background: var(--color-gold);
+      color: #FFFFFF;
+      transform: translateY(-1px);
+    }
+
+    .login-hint {
+      margin-top: 1.25rem;
+      padding: 0.75rem;
+      background: #F8FAFC;
+      border-radius: var(--radius-sm);
+      border: 1px dashed var(--border-color);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .login-error {
+      background: var(--color-red-light);
+      color: var(--color-red);
+      font-size: 0.84rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: 1rem;
+      display: none;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       DASHBOARD WRAPPER & LAYOUT
+       ========================================================================== */
+    #dashboardApp {
+      display: none;
+      min-height: 100vh;
+      flex-direction: row;
+    }
+
+    /* Sidebar Navigation */
+    .admin-sidebar {
+      width: var(--sidebar-width);
+      background: var(--color-navy);
+      color: #FFFFFF;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      z-index: 100;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .sidebar-header {
+      padding: 1.5rem 1.25rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .sidebar-logo {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .sidebar-title-box h3 {
+      color: #FFFFFF;
+      font-size: 1.15rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .sidebar-title-box span {
+      font-size: 0.7rem;
+      color: var(--color-gold);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .sidebar-nav {
+      list-style: none;
+      padding: 1rem 0.75rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .nav-tab-btn {
+      width: 100%;
+      text-align: left;
+      padding: 0.75rem 1rem;
+      background: transparent;
+      border: none;
+      border-radius: var(--radius-md);
+      color: #CBD5E1;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: all 0.2s ease;
+    }
+
+    .nav-tab-btn:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: #FFFFFF;
+    }
+
+    .nav-tab-btn.active {
+      background: linear-gradient(90deg, var(--color-gold) 0%, #B45309 100%);
+      color: #FFFFFF;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+    }
+
+    .nav-tab-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-badge {
+      margin-left: auto;
+      background: rgba(255, 255, 255, 0.2);
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+    }
+
+    .sidebar-footer {
+      padding: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.8rem;
+      color: #94A3B8;
+    }
+
+    /* Main Content Area */
+    .admin-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      background: var(--bg-body);
+    }
+
+    .top-navbar {
+      height: var(--header-height);
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .top-left-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .btn-view-site {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.95rem;
+      background: #F8FAFC;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--color-navy);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-view-site:hover {
+      background: var(--color-navy);
+      color: #FFFFFF;
+    }
+
+    .btn-logout {
+      padding: 0.45rem 0.95rem;
+      background: var(--color-red-light);
+      color: var(--color-red);
+      border: 1px solid #FECACA;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-logout:hover {
+      background: var(--color-red);
+      color: #FFFFFF;
+    }
+
+    .mobile-menu-trigger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.35rem;
+      color: var(--color-navy);
+    }
+
+    /* Content Pane */
+    .content-area {
+      padding: 2rem;
+      flex: 1;
+    }
+
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==========================================================================
+       CARDS & STATS
+       ========================================================================== */
+    .stats-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: #FFFFFF;
+      padding: 1.35rem 1.25rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .stat-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .stat-val {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--color-navy);
+      line-height: 1.1;
+    }
+
+    .stat-lbl {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .panel-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    .panel-card-header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .panel-card-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--color-navy);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .panel-card-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .panel-card-body {
+      padding: 1.5rem;
+    }
+
+    /* Grid Form Layouts */
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .form-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .form-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    /* Buttons */
+    .btn-primary-action {
+      background: linear-gradient(135deg, var(--color-gold) 0%, #B45309 100%);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.92rem;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
+    }
+
+    .btn-primary-action:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(217, 119, 6, 0.35);
+    }
+
+    .btn-secondary-action {
+      background: #F8FAFC;
+      color: var(--color-navy);
+      font-weight: 700;
+      font-size: 0.88rem;
+      border: 1px solid var(--border-color);
+      padding: 0.7rem 1.25rem;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary-action:hover {
+      background: #E2E8F0;
+    }
+
+    .btn-danger-action {
+      background: var(--color-red-light);
+      color: var(--color-red);
+      border: 1px solid #FECACA;
+      font-weight: 700;
+      padding: 0.7rem 1.25rem;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-danger-action:hover {
+      background: var(--color-red);
+      color: #FFFFFF;
+    }
+
+    /* Data Tables */
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+
+    .admin-table th {
+      background: #F8FAFC;
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      color: var(--color-navy);
+      border-bottom: 2px solid var(--border-color);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+    }
+
+    .admin-table td {
+      padding: 0.95rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+      vertical-align: middle;
+    }
+
+    .admin-table tr:hover td {
+      background: #F8FAFC;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .badge-new { background: var(--color-blue-light); color: var(--color-blue); }
+    .badge-contacted { background: var(--color-gold-light); color: var(--color-gold); }
+    .badge-booked { background: var(--color-green-light); color: var(--color-green); }
+    .badge-closed { background: #E2E8F0; color: var(--text-muted); }
+
+    /* TOAST NOTIFICATION */
+    #adminToast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--color-navy);
+      color: #FFFFFF;
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      font-weight: 700;
+      font-size: 0.92rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      z-index: 9999999;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      border-left: 5px solid var(--color-green);
+    }
+
+    #adminToast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 1024px) {
+      .stats-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .form-grid-3, .form-grid-4 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .admin-sidebar {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        bottom: 0;
+        transition: left 0.3s ease;
+      }
+      .admin-sidebar.open {
+        left: 0;
+      }
+      .mobile-menu-trigger {
+        display: block;
+      }
+      .top-navbar {
+        padding: 0 1rem;
+      }
+      .content-area {
+        padding: 1.25rem 1rem;
+      }
+      .stats-grid-4 {
+        grid-template-columns: 1fr;
+      }
+      .form-grid-2, .form-grid-3, .form-grid-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. LOGIN SHIELD OVERLAY
+       ========================================================================= -->
+  <div id="loginScreen">
+    <div class="login-box">
+      <div class="login-brand">
+        <img src="../images/logo.png" alt="Trovenza Logo" class="login-logo">
+        <div class="login-brand-title">TROVENZA <span>ADMIN</span></div>
+      </div>
+      <h2 class="login-heading">Client Management Portal</h2>
+      <p class="login-sub">Sign in to edit taxi fares, packages, rates & view customer leads.</p>
+
+      <div id="loginError" class="login-error">Invalid Username or Password!</div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label class="form-label" for="loginUser">Admin Username</label>
+          <input type="text" id="loginUser" class="form-control" placeholder="admin" required autofocus value="admin">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="loginPass">Password</label>
+          <input type="password" id="loginPass" class="form-control" placeholder="••••••••••••" required value="trovenza@2026">
+        </div>
+        <button type="submit" class="btn-submit">
+          <span>Authenticate & Access Dashboard</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+      </form>
+
+      <div class="login-hint">
+        🔑 <strong>Default Client Login Credentials:</strong><br>
+        Username: <code style="color:var(--color-gold); font-weight:700;">admin</code> &nbsp;|&nbsp; 
+        Password: <code style="color:var(--color-gold); font-weight:700;">trovenza@2026</code><br>
+        <small style="color:#94A3B8;">(You can change your password inside Settings tab)</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       2. DASHBOARD MAIN APP WRAPPER
+       ========================================================================= -->
+  <div id="dashboardApp">
+
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <img src="../images/logo.png" alt="Logo" class="sidebar-logo">
+        <div class="sidebar-title-box">
+          <h3>TROVENZA</h3>
+          <span>CLIENT CONTROL PANEL</span>
+        </div>
+      </div>
+
+      <ul class="sidebar-nav">
+        <li>
+          <button class="nav-tab-btn active" data-tab="tabDashboard">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+            <span>Dashboard</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-tab-btn" data-tab="tabTaxiFares">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C2.1 11.1 2 11.5 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Taxi & Fleet Fares</span>
+            <span class="sidebar-badge" style="background:#10B981;">5 Cabs</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-tab-btn" data-tab="tabPackages">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"/><path d="M16.5 9.4 7.55 4.24"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" x2="12" y1="22" y2="12"/></svg>
+            <span>Tour & Yatra Packages</span>
+            <span class="sidebar-badge" style="background:var(--color-gold);">9 Tours</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-tab-btn" data-tab="tabWedding">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            <span>Triyuginarayan Wedding</span>
+            <span class="sidebar-badge" style="background:var(--color-red);">₹4L</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-tab-btn" data-tab="tabContact">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Contact & Office</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-tab-btn" data-tab="tabLeads">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>Customer Leads</span>
+            <span class="sidebar-badge" id="leadsBadgeCount">0</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-tab-btn" data-tab="tabSettings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+            <span>Settings & Backups</span>
+          </button>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <div><strong>Trovenza System</strong> v2.4</div>
+        <div style="font-size:0.75rem; margin-top:0.2rem;">Haridwar Local Operations Desk</div>
+      </div>
+    </aside>
+
+    <!-- Main Content Container -->
+    <main class="admin-main">
+      <!-- Top Bar -->
+      <header class="top-navbar">
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <button class="mobile-menu-trigger" id="mobileMenuBtn" aria-label="Toggle Sidebar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div class="top-left-title" id="pageTitleHeading">
+            <span>📊</span> Dashboard Overview
+          </div>
+        </div>
+
+        <div class="top-actions">
+          <a href="../index.html" target="_blank" class="btn-view-site">
+            <span>Trovenza Live</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+          </a>
+          <a href="../jaimaa-travels/index.html" target="_blank" class="btn-view-site" style="border-color:#FCD34D;">
+            <span style="color:var(--color-gold);">Jai Maa Live</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+          </a>
+          <button class="btn-logout" id="logoutBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+            <span>Logout</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Dynamic Content Area -->
+      <div class="content-area">
+
+        <!-- =================================================================
+             TAB 1: DASHBOARD OVERVIEW
+             ================================================================= -->
+        <section class="tab-pane active" id="tabDashboard">
+          <div class="stats-grid-4">
+            <div class="stat-card">
+              <div class="stat-icon-wrap" style="background:#EFF6FF; color:#2563EB;">🚖</div>
+              <div>
+                <div class="stat-val" id="statCabsCount">5</div>
+                <div class="stat-lbl">Active Vehicle Types</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon-wrap" style="background:#FEF3C7; color:#D97706;">🎒</div>
+              <div>
+                <div class="stat-val" id="statPackagesCount">9</div>
+                <div class="stat-lbl">Active Tour Packages</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon-wrap" style="background:#FEE2E2; color:#DC2626;">💒</div>
+              <div>
+                <div class="stat-val">₹4.0 L</div>
+                <div class="stat-lbl">Triyuginarayan Wedding</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon-wrap" style="background:#D1FAE5; color:#10B981;">📋</div>
+              <div>
+                <div class="stat-val" id="statLeadsCount">0</div>
+                <div class="stat-lbl">Customer Inquiries Logged</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="panel-card">
+            <div class="panel-card-header">
+              <div>
+                <div class="panel-card-title">⚡ Quick Management Actions</div>
+                <div class="panel-card-desc">Instantly jump to editing fares, holiday packages, or viewing new leads.</div>
+              </div>
+            </div>
+            <div class="panel-card-body" style="display:flex; flex-wrap:wrap; gap:0.85rem;">
+              <button class="btn-primary-action" onclick="switchTab('tabTaxiFares')">
+                <span>🚖 Edit Taxi Fares & KM Rates</span>
+              </button>
+              <button class="btn-primary-action" onclick="switchTab('tabPackages')" style="background:linear-gradient(135deg, #1E293B, #0F172A);">
+                <span>🎒 Edit Packages & Prices</span>
+              </button>
+              <button class="btn-primary-action" onclick="switchTab('tabWedding')" style="background:linear-gradient(135deg, #DC2626, #991B1B);">
+                <span>💒 Edit Wedding Package</span>
+              </button>
+              <button class="btn-primary-action" onclick="switchTab('tabLeads')" style="background:linear-gradient(135deg, #059669, #047857);">
+                <span>📋 View Customer Leads</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Recent Leads Overview -->
+          <div class="panel-card">
+            <div class="panel-card-header">
+              <div>
+                <div class="panel-card-title">📋 Recent Customer Inquiries</div>
+                <div class="panel-card-desc">Travelers who requested quotes on Trovenza or Jai Maa Travels.</div>
+              </div>
+              <button class="btn-secondary-action" onclick="switchTab('tabLeads')">View All Leads →</button>
+            </div>
+            <div class="panel-card-body" style="padding:0;">
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Date / Time</th>
+                      <th>Customer Name</th>
+                      <th>Phone</th>
+                      <th>Service / Package</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="dashboardRecentLeadsTable">
+                    <tr>
+                      <td colspan="6" style="text-align:center; padding:2rem; color:var(--text-muted);">
+                        No inquiries recorded yet. Test by submitting a quote on the live website!
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================
+             TAB 2: TAXI & FLEET FARES EDITOR
+             ================================================================= -->
+        <section class="tab-pane" id="tabTaxiFares">
+          <div class="panel-card">
+            <div class="panel-card-header">
+              <div>
+                <div class="panel-card-title">🚖 Delhi to Haridwar Fixed One-Way Drop Fares</div>
+                <div class="panel-card-desc">Edit fixed one-way transfer rates shown across Trovenza and Jai Maa portals.</div>
+              </div>
+              <button class="btn-primary-action" id="saveTaxiFixedBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                <span>Save Fixed Drop Fares</span>
+              </button>
+            </div>
+            <div class="panel-card-body">
+              <div class="form-grid-3">
+                <div class="form-group">
+                  <label class="form-label">Swift Dzire (Sedan)</label>
+                  <div style="display:flex; align-items:center;">
+                    <span style="padding:0.8rem 1rem; background:#F1F5F9; border:1.5px solid var(--border-color); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); font-weight:700;">₹</span>
+                    <input type="number" id="fareDzireFixed" class="form-control" style="border-radius:0 var(--radius-md) var(--radius-md) 0;" value="3600">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Maruti Ertiga (6 Pax)</label>
+                  <div style="display:flex; align-items:center;">
+                    <span style="padding:0.8rem 1rem; background:#F1F5F9; border:1.5px solid var(--border-color); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); font-weight:700;">₹</span>
+                    <input type="number" id="fareErtigaFixed" class="form-control" style="border-radius:0 var(--radius-md) var(--radius-md) 0;" value="4200">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Toyota Innova Crysta</label>
+                  <div style="display:flex; align-items:center;">
+                    <span style="padding:0.8rem 1rem; background:#F1F5F9; border:1.5px solid var(--border-color); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); font-weight:700;">₹</span>
+                    <input type="number" id="fareCrystaFixed" class="form-control" style="border-radius:0 var(--radius-md) var(--radius-md) 0;" value="5000">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Tempo Traveller (12-16 Pax)</label>
+                  <div style="display:flex; align-items:center;">
+                    <span style="padding:0.8rem 1rem; background:#F1F5F9; border:1.5px solid var(--border-color); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); font-weight:700;">₹</span>
+                    <input type="number" id="fareTempoFixed" class="form-control" style="border-radius:0 var(--radius-md) var(--radius-md) 0;" value="12000">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Force Urbania (16 Pax Luxury)</label>
+                  <div style="display:flex; align-items:center;">
+                    <span style="padding:0.8rem 1rem; background:#F1F5F9; border:1.5px solid var(--border-color); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); font-weight:700;">₹</span>
+                    <input type="number" id="fareUrbaniaFixed" class="form-control" style="border-radius:0 var(--radius-md) var(--radius-md) 0;" value="15000">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Outstation Per KM Rates -->
+          <div class="panel-card">
+            <div class="panel-card-header">
+              <div>
+                <div class="panel-card-title">🛣️ Outstation Per-Kilometer Rates & Allowance</div>
+                <div class="panel-card-desc">Configure the live calculator math for custom distance outstation travel.</div>
+              </div>
+              <button class="btn-primary-action" id="saveTaxiKmBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                <span>Save KM Rates</span>
+              </button>
+            </div>
+            <div class="panel-card-body">
+              <div class="form-grid-3">
+                <div class="form-group">
+                  <label class="form-label">Dzire (₹ / km)</label>
+                  <input type="number" id="rateDzireKm" class="form-control" value="12">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Ertiga (₹ / km)</label>
+                  <input type="number" id="rateErtigaKm" class="form-control" value="14">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Innova Crysta (₹ / km)</label>
+                  <input type="number" id="rateCrystaKm" class="form-control" value="18">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Tempo Traveller (₹ / km)</label>
+                  <input type="number" id="rateTempoKm" class="form-control" value="28">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Force Urbania (₹ / km)</label>
+                  <input type="number" id="rateUrbaniaKm" class="form-control" value="38">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Driver Night Allowance (₹ / Night)</label>
+                  <input type="number" id="rateNightAllowance" class="form-control" value="400">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================
+             TAB 3: TOUR & YATRA PACKAGES EDITOR
+             ================================================================= -->
+        <section class="tab-pane" id="tabPackages">
+          <div class="panel-card">
+            <div class="panel-card-header">
+              <div>
+                <div class="panel-card-title">🎒 Manage Holiday & Yatra Packages</div>
+                <div class="panel-card-desc">Edit package prices, durations, MAP meal inclusion tags, and visibility.</div>
+              </div>
+              <button class="btn-primary-action" id="saveAllPackagesBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                <span>Save All Packages</span>
+              </button>
+            </div>
+            <div class="panel-card-body" style="padding:0;">
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th style="width:30%;">Package Title</th>
+                      <th>Duration</th>
+                      <th>Selling Price (₹)</th>
+                      <th>Original Price (₹)</th>
+                      <th>Meal Plan</th>
+                      <th>Badge</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="packagesEditorTableBody">
+                    <!-- Injected dynamically by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================
+             TAB 4: TRIYUGINARAYAN WEDDING PACKAGE
+             ================================================================= -->
+        <section class="tab-pane" id="tabWedding">
+          <div class="panel-card">
+            <div class="panel-card-header">
+              <div>
+                <div class="panel-card-title">💒 Triyuginarayan Temple Vedic Destination Wedding</div>
+                <div class="panel-card-desc">Edit pricing, guest capacity, gourmet meal inclusions, and ritual logistics.</div>
+              </div>
+              <button class="btn-primary-action" id="saveWeddingBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                <span>Save Wedding Package</span>
+              </button>
+            </div>
+            <div class="panel-card-body">
+              <div class="form-grid-3">
+                <div class="form-group">
+                  <label class="form-label">Total Package Cost (₹)</label>
+                  <input type="number" id="weddingPrice" class="form-control" value="400000">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Guest Limit</label>
+                  <input type="text" id="weddingGuests" class="form-control" value="Upto 30 Guests Included">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Event Duration</label>
+                  <input type="text" id="weddingDuration" class="form-control" value="2 Nights / 3 Days">
+                </div>
+              </div>
+
+              <div class="form-grid-2" style="margin-top:1rem;">
+                <div class="form-group">
+                  <label class="form-label">Gourmet Catering Inclusions</label>
+                  <textarea id="weddingMeals" class="form-control" rows="3">All 4 Gourmet Meals Included: Breakfast, Satvik Lunch, Evening High Tea & Grand Wedding Dinner</textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Transport Route</label>
+                  <textarea id="weddingTransport" class="form-control" rows="3">Haridwar to Haridwar Dedicated Sanitized Fleet Travel Included for all 30 Guests</textarea>
+                </div>
+              </div>
+
+              <div class="form-grid-2" style="margin-top:1rem;">
+                <div class="form-group">
+                  <label class="form-label">Resort & Accommodation</label>
+                  <textarea id="weddingAccommodation" class="form-control" rows="3">Premium Mountain Resort Double-Occupancy Rooms (1 Room for 2 Members) with luxury mountain views</textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Ceremonies & Decor Included</label>
+                  <textarea id="weddingRituals" class="form-control" rows="3">Haldi, Mehndi, Ring Ceremony, Wedding Mandap, Fresh Floral Decor & Complete Lighting Arrangements</textarea>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-top:1rem;">
+                <label class="form-label">Management, Makeup, Drone Photography & Temple Fees</label>
+                <textarea id="weddingInclusions" class="form-control" rows="3">Full On-Ground Management Team, Certified Bridal/Groom Makeup Artist, Cinematic 4K Photography & Drone Coverage, Temple Puja Fees & Senior Priest Dakshina Included</textarea>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================
+             TAB 5: CONTACT & OFFICE DETAILS
+             ================================================================= -->
+        <section class="tab-pane" id="tabContact">
+          <div class="panel-card">
+            <div class="panel-card-header">
+              <div>
+                <div class="panel-card-title">🏢 Contact Info & Office Location</div>
+                <div class="panel-card-desc">Ensure single Haridwar registered office and updated contact numbers across website.</div>
+              </div>
+              <button class="btn-primary-action" id="saveContactBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                <span>Save Contact Details</span>
+              </button>
+            </div>
+            <div class="panel-card-body">
+              <div class="form-group">
+                <label class="form-label">Official Registered Office Address</label>
+                <input type="text" id="contactAddress" class="form-control" value="No. 7, Gyan Mandir, Opp. Daksh Mandir, Haridwar, Uttarakhand - 249408">
+                <small style="color:var(--text-muted); margin-top:0.3rem; display:block;">📍 Note: Haridwar is the official registered headquarters.</small>
+              </div>
+
+              <div class="form-grid-3" style="margin-top:1.25rem;">
+                <div class="form-group">
+                  <label class="form-label">24x7 Helpline Phone</label>
+                  <input type="text" id="contactHelpline" class="form-control" value="+91 98765 43210">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Primary WhatsApp Number</label>
+                  <input type="text" id="contactWhatsapp" class="form-control" value="919876543210">
+                  <small style="color:var(--text-muted); font-size:0.75rem;">(Format: country code + 10 digits without +)</small>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Support Email</label>
+                  <input type="email" id="contactEmail" class="form-control" value="info@trovenzatravels.com">
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-top:1.25rem;">
+                <label class="form-label">Top Announcement Strip Text</label>
+                <input type="text" id="contactAnnouncement" class="form-control" value="⚡ Direct Haridwar Cab & Pilgrimage Operations • Guaranteed Commercial Yellow Plate Vehicles">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================
+             TAB 6: CUSTOMER LEADS & INQUIRIES
+             ================================================================= -->
+        <section class="tab-pane" id="tabLeads">
+          <div class="panel-card">
+            <div class="panel-card-header">
+              <div>
+                <div class="panel-card-title">📋 Customer Leads & Inquiries CRM</div>
+                <div class="panel-card-desc">Inquiries logged from booking forms, taxi calculator, and package dispatch requests.</div>
+              </div>
+              <div style="display:flex; gap:0.5rem;">
+                <button class="btn-secondary-action" id="exportLeadsCsvBtn">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                  <span>Export to CSV / Excel</span>
+                </button>
+                <button class="btn-secondary-action" id="addDemoLeadBtn">
+                  <span>+ Test Lead</span>
+                </button>
+              </div>
+            </div>
+            <div class="panel-card-body" style="padding:0;">
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Time / Date</th>
+                      <th>Customer Name</th>
+                      <th>Phone</th>
+                      <th>Service Requested</th>
+                      <th>Travel Details</th>
+                      <th>Status</th>
+                      <th>Quick WhatsApp</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="leadsFullTableBody">
+                    <!-- Populated dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================
+             TAB 7: SETTINGS & BACKUPS
+             ================================================================= -->
+        <section class="tab-pane" id="tabSettings">
+          <!-- Password Change -->
+          <div class="panel-card">
+            <div class="panel-card-header">
+              <div>
+                <div class="panel-card-title">🔐 Change Admin Password</div>
+                <div class="panel-card-desc">Update the password required to access this Client Control Center.</div>
+              </div>
+            </div>
+            <div class="panel-card-body">
+              <form id="changePasswordForm" style="max-width:500px;">
+                <div class="form-group">
+                  <label class="form-label">Current Password</label>
+                  <input type="password" id="currentPass" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">New Password</label>
+                  <input type="password" id="newPass" class="form-control" required minlength="6">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Confirm New Password</label>
+                  <input type="password" id="confirmPass" class="form-control" required minlength="6">
+                </div>
+                <button type="submit" class="btn-primary-action">
+                  <span>Update Password</span>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Configuration Backup & Reset -->
+          <div class="panel-card">
+            <div class="panel-card-header">
+              <div>
+                <div class="panel-card-title">💾 Configuration Backup & Factory Reset</div>
+                <div class="panel-card-desc">Download a backup file of your entire website configuration or restore defaults.</div>
+              </div>
+            </div>
+            <div class="panel-card-body" style="display:flex; flex-wrap:wrap; gap:1rem;">
+              <button class="btn-secondary-action" id="downloadConfigBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                <span>Export Configuration Backup (.JSON)</span>
+              </button>
+
+              <button class="btn-danger-action" id="resetConfigBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+                <span>Reset to Factory Defaults</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast Notification Banner -->
+  <div id="adminToast">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    <span id="toastMessage">Changes saved successfully!</span>
+  </div>
+
+  <!-- =========================================================================
+       JAVASCRIPT LOGIC
+       ========================================================================= -->
+  <script>
+    // 1. AUTHENTICATION CONTROLLER
+    const AUTH_STORAGE_KEY = 'trovenza_admin_auth';
+    const PASS_STORAGE_KEY = 'trovenza_admin_custom_pass';
+    const DEFAULT_PASS = 'trovenza@2026';
+
+    const loginScreen = document.getElementById('loginScreen');
+    const dashboardApp = document.getElementById('dashboardApp');
+    const loginForm = document.getElementById('loginForm');
+    const loginError = document.getElementById('loginError');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    function checkAuth() {
+      const isAuth = sessionStorage.getItem(AUTH_STORAGE_KEY) === 'true';
+      if (isAuth) {
+        loginScreen.style.display = 'none';
+        dashboardApp.style.display = 'flex';
+        initDashboard();
+      } else {
+        loginScreen.style.display = 'flex';
+        dashboardApp.style.display = 'none';
+      }
+    }
+
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const user = document.getElementById('loginUser').value.trim();
+      const pass = document.getElementById('loginPass').value.trim();
+      const storedPass = localStorage.getItem(PASS_STORAGE_KEY) || DEFAULT_PASS;
+
+      if (user === 'admin' && pass === storedPass) {
+        sessionStorage.setItem(AUTH_STORAGE_KEY, 'true');
+        loginError.style.display = 'none';
+        checkAuth();
+        showToast('Welcome to Trovenza Admin Control Center!');
+      } else {
+        loginError.style.display = 'block';
+      }
+    });
+
+    logoutBtn.addEventListener('click', () => {
+      sessionStorage.removeItem(AUTH_STORAGE_KEY);
+      checkAuth();
+      showToast('Logged out successfully.');
+    });
+
+    // 2. TAB CONTROLLER
+    const tabBtns = document.querySelectorAll('.nav-tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    const pageTitleHeading = document.getElementById('pageTitleHeading');
+    const sidebar = document.getElementById('sidebar');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+    function switchTab(targetTabId) {
+      tabBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-tab') === targetTabId);
+      });
+      tabPanes.forEach(pane => {
+        pane.classList.toggle('active', pane.id === targetTabId);
+      });
+
+      // Update page title
+      const activeBtn = document.querySelector(`.nav-tab-btn[data-tab="${targetTabId}"]`);
+      if (activeBtn) {
+        pageTitleHeading.innerHTML = activeBtn.querySelector('span').textContent;
+      }
+
+      // Close mobile sidebar if open
+      if (sidebar.classList.contains('open')) {
+        sidebar.classList.remove('open');
+      }
+    }
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tabId = btn.getAttribute('data-tab');
+        switchTab(tabId);
+      });
+    });
+
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+    }
+
+    // 3. TOAST NOTIFICATION HELPER
+    function showToast(msg) {
+      const toast = document.getElementById('adminToast');
+      const toastMsg = document.getElementById('toastMessage');
+      toastMsg.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+
+    // 4. DATA HYDRATION INTO FORM FIELDS
+    function initDashboard() {
+      const config = window.TrovenzaConfig ? window.TrovenzaConfig.getConfig() : null;
+      if (!config) return;
+
+      // Hydrate Fixed Drops
+      if (config.fares && config.fares.delhiHaridwar) {
+        document.getElementById('fareDzireFixed').value = config.fares.delhiHaridwar.dzire || 3600;
+        document.getElementById('fareErtigaFixed').value = config.fares.delhiHaridwar.ertiga || 4200;
+        document.getElementById('fareCrystaFixed').value = config.fares.delhiHaridwar.crysta || 5000;
+        document.getElementById('fareTempoFixed').value = config.fares.delhiHaridwar.tempo || 12000;
+        document.getElementById('fareUrbaniaFixed').value = config.fares.delhiHaridwar.urbania || 15000;
+      }
+
+      // Hydrate Per KM Rates
+      if (config.fares && config.fares.perKm) {
+        document.getElementById('rateDzireKm').value = config.fares.perKm.dzire || 12;
+        document.getElementById('rateErtigaKm').value = config.fares.perKm.ertiga || 14;
+        document.getElementById('rateCrystaKm').value = config.fares.perKm.crysta || 18;
+        document.getElementById('rateTempoKm').value = config.fares.perKm.tempo || 28;
+        document.getElementById('rateUrbaniaKm').value = config.fares.perKm.urbania || 38;
+        document.getElementById('rateNightAllowance').value = config.fares.nightDriverAllowance || 400;
+      }
+
+      // Hydrate Packages Table
+      renderPackagesTable(config.packages || []);
+
+      // Hydrate Wedding
+      if (config.wedding) {
+        document.getElementById('weddingPrice').value = config.wedding.price || 400000;
+        document.getElementById('weddingGuests').value = config.wedding.guests || 'Upto 30 Guests Included';
+        document.getElementById('weddingDuration').value = config.wedding.duration || '2 Nights / 3 Days';
+        document.getElementById('weddingMeals').value = config.wedding.meals || '';
+        document.getElementById('weddingTransport').value = config.wedding.transport || '';
+        document.getElementById('weddingAccommodation').value = config.wedding.accommodation || '';
+        document.getElementById('weddingRituals').value = config.wedding.rituals || '';
+        document.getElementById('weddingInclusions').value = config.wedding.inclusions || '';
+      }
+
+      // Hydrate Contact
+      if (config.company) {
+        document.getElementById('contactAddress').value = config.company.haridwarAddress || '';
+        document.getElementById('contactHelpline').value = config.company.helpline || '';
+        document.getElementById('contactWhatsapp').value = config.company.whatsappNumber || '';
+        document.getElementById('contactEmail').value = config.company.email || '';
+        document.getElementById('contactAnnouncement').value = config.company.announcement || '';
+      }
+
+      // Hydrate Leads
+      renderLeads();
+    }
+
+    // 5. PACKAGES TABLE RENDERER
+    function renderPackagesTable(packages) {
+      const tbody = document.getElementById('packagesEditorTableBody');
+      tbody.innerHTML = '';
+
+      packages.forEach((pkg, index) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>
+            <input type="text" class="form-control pkg-name-input" data-index="${index}" value="${pkg.name}" style="font-weight:700; font-size:0.88rem;">
+            <small style="color:var(--text-muted); font-size:0.75rem;">ID: ${pkg.id}</small>
+          </td>
+          <td>
+            <input type="text" class="form-control pkg-duration-input" data-index="${index}" value="${pkg.duration}" style="width:100px;">
+          </td>
+          <td>
+            <input type="number" class="form-control pkg-price-input" data-index="${index}" value="${pkg.price}" style="width:115px; font-weight:800; color:var(--color-navy);">
+          </td>
+          <td>
+            <input type="number" class="form-control pkg-orig-price-input" data-index="${index}" value="${pkg.originalPrice || ''}" style="width:105px; color:var(--text-muted);">
+          </td>
+          <td>
+            <input type="text" class="form-control pkg-meal-input" data-index="${index}" value="${pkg.mealPlan || 'MAP Plan'}" style="width:160px;">
+          </td>
+          <td>
+            <input type="text" class="form-control pkg-badge-input" data-index="${index}" value="${pkg.badge || ''}" style="width:110px;">
+          </td>
+          <td>
+            <select class="form-control pkg-status-input" data-index="${index}" style="width:95px; font-weight:700;">
+              <option value="true" ${pkg.active !== false ? 'selected' : ''}>Active</option>
+              <option value="false" ${pkg.active === false ? 'selected' : ''}>Hidden</option>
+            </select>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // 6. SAVE HANDLERS
+    // Save Fixed Taxi Drops
+    document.getElementById('saveTaxiFixedBtn').addEventListener('click', () => {
+      const config = window.TrovenzaConfig.getConfig();
+      config.fares.delhiHaridwar.dzire = parseInt(document.getElementById('fareDzireFixed').value) || 3600;
+      config.fares.delhiHaridwar.ertiga = parseInt(document.getElementById('fareErtigaFixed').value) || 4200;
+      config.fares.delhiHaridwar.crysta = parseInt(document.getElementById('fareCrystaFixed').value) || 5000;
+      config.fares.delhiHaridwar.tempo = parseInt(document.getElementById('fareTempoFixed').value) || 12000;
+      config.fares.delhiHaridwar.urbania = parseInt(document.getElementById('fareUrbaniaFixed').value) || 15000;
+
+      window.TrovenzaConfig.saveConfig(config);
+      showToast('✅ Fixed One-Way Drop Fares saved & live!');
+    });
+
+    // Save KM Rates
+    document.getElementById('saveTaxiKmBtn').addEventListener('click', () => {
+      const config = window.TrovenzaConfig.getConfig();
+      config.fares.perKm.dzire = parseInt(document.getElementById('rateDzireKm').value) || 12;
+      config.fares.perKm.ertiga = parseInt(document.getElementById('rateErtigaKm').value) || 14;
+      config.fares.perKm.crysta = parseInt(document.getElementById('rateCrystaKm').value) || 18;
+      config.fares.perKm.tempo = parseInt(document.getElementById('rateTempoKm').value) || 28;
+      config.fares.perKm.urbania = parseInt(document.getElementById('rateUrbaniaKm').value) || 38;
+      config.fares.nightDriverAllowance = parseInt(document.getElementById('rateNightAllowance').value) || 400;
+
+      window.TrovenzaConfig.saveConfig(config);
+      showToast('✅ Outstation KM Rates saved & live!');
+    });
+
+    // Save All Packages
+    document.getElementById('saveAllPackagesBtn').addEventListener('click', () => {
+      const config = window.TrovenzaConfig.getConfig();
+      const names = document.querySelectorAll('.pkg-name-input');
+      const durations = document.querySelectorAll('.pkg-duration-input');
+      const prices = document.querySelectorAll('.pkg-price-input');
+      const origPrices = document.querySelectorAll('.pkg-orig-price-input');
+      const meals = document.querySelectorAll('.pkg-meal-input');
+      const badges = document.querySelectorAll('.pkg-badge-input');
+      const statuses = document.querySelectorAll('.pkg-status-input');
+
+      names.forEach((input, i) => {
+        if (config.packages[i]) {
+          config.packages[i].name = names[i].value;
+          config.packages[i].duration = durations[i].value;
+          config.packages[i].price = parseInt(prices[i].value) || config.packages[i].price;
+          config.packages[i].originalPrice = parseInt(origPrices[i].value) || 0;
+          config.packages[i].mealPlan = meals[i].value;
+          config.packages[i].badge = badges[i].value;
+          config.packages[i].active = statuses[i].value === 'true';
+        }
+      });
+
+      window.TrovenzaConfig.saveConfig(config);
+      showToast('✅ All 9 Holiday & Yatra Packages updated!');
+    });
+
+    // Save Wedding Package
+    document.getElementById('saveWeddingBtn').addEventListener('click', () => {
+      const config = window.TrovenzaConfig.getConfig();
+      config.wedding.price = parseInt(document.getElementById('weddingPrice').value) || 400000;
+      config.wedding.guests = document.getElementById('weddingGuests').value;
+      config.wedding.duration = document.getElementById('weddingDuration').value;
+      config.wedding.meals = document.getElementById('weddingMeals').value;
+      config.wedding.transport = document.getElementById('weddingTransport').value;
+      config.wedding.accommodation = document.getElementById('weddingAccommodation').value;
+      config.wedding.rituals = document.getElementById('weddingRituals').value;
+      config.wedding.inclusions = document.getElementById('weddingInclusions').value;
+
+      window.TrovenzaConfig.saveConfig(config);
+      showToast('✅ Triyuginarayan Wedding Package details updated!');
+    });
+
+    // Save Contact Details
+    document.getElementById('saveContactBtn').addEventListener('click', () => {
+      const config = window.TrovenzaConfig.getConfig();
+      config.company.haridwarAddress = document.getElementById('contactAddress').value;
+      config.company.helpline = document.getElementById('contactHelpline').value;
+      config.company.whatsappNumber = document.getElementById('contactWhatsapp').value;
+      config.company.email = document.getElementById('contactEmail').value;
+      config.company.announcement = document.getElementById('contactAnnouncement').value;
+
+      window.TrovenzaConfig.saveConfig(config);
+      showToast('✅ Contact Info & Haridwar Address saved live!');
+    });
+
+    // 7. LEADS CRM CONTROLLER
+    function renderLeads() {
+      const leads = window.TrovenzaConfig.getLeads();
+      const badge = document.getElementById('leadsBadgeCount');
+      const statCount = document.getElementById('statLeadsCount');
+      const recentTbody = document.getElementById('dashboardRecentLeadsTable');
+      const fullTbody = document.getElementById('leadsFullTableBody');
+
+      badge.textContent = leads.length;
+      statCount.textContent = leads.length;
+
+      if (leads.length === 0) {
+        recentTbody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:2rem; color:var(--text-muted);">No inquiries logged yet. Click "+ Test Lead" to simulate!</td></tr>';
+        fullTbody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding:3rem; color:var(--text-muted);">No inquiries found. When visitors submit quotes on your site, they appear here instantly!</td></tr>';
+        return;
+      }
+
+      // Full table
+      fullTbody.innerHTML = '';
+      leads.forEach(lead => {
+        const badgeClass = lead.status === 'New' ? 'badge-new' :
+                           lead.status === 'Contacted' ? 'badge-contacted' :
+                           lead.status === 'Booked' ? 'badge-booked' : 'badge-closed';
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><small style="font-weight:700;">${lead.dateFormatted || lead.timestamp.substring(0, 10)}</small></td>
+          <td><strong>${lead.name}</strong></td>
+          <td><a href="tel:${lead.phone}" style="color:var(--color-navy); font-weight:700; text-decoration:none;">${lead.phone}</a></td>
+          <td><span style="font-weight:600; color:var(--color-navy);">${lead.service}</span></td>
+          <td><small style="color:var(--text-muted);">${lead.pickup ? lead.pickup + ' → ' + lead.destination : lead.vehicle || lead.guests || 'N/A'}</small></td>
+          <td>
+            <select class="form-control" onchange="changeLeadStatus('${lead.id}', this.value)" style="padding:0.25rem 0.5rem; font-size:0.75rem; font-weight:700; width:100px;">
+              <option value="New" ${lead.status === 'New' ? 'selected' : ''}>New</option>
+              <option value="Contacted" ${lead.status === 'Contacted' ? 'selected' : ''}>Contacted</option>
+              <option value="Booked" ${lead.status === 'Booked' ? 'selected' : ''}>Booked</option>
+              <option value="Closed" ${lead.status === 'Closed' ? 'selected' : ''}>Closed</option>
+            </select>
+          </td>
+          <td>
+            <a href="https://wa.me/${lead.phone.replace(/[^0-9]/g, '')}?text=Namaste%20${encodeURIComponent(lead.name)}!%20This%20is%20Trovenza%20Travels%20regarding%20your%20inquiry%20for%20${encodeURIComponent(lead.service)}." target="_blank" class="btn-secondary-action" style="padding:0.3rem 0.6rem; font-size:0.75rem; background:#D1FAE5; color:#065F46; border-color:#A7F3D0;">
+              💬 WhatsApp
+            </a>
+          </td>
+          <td>
+            <button onclick="removeLead('${lead.id}')" style="background:none; border:none; color:var(--color-red); cursor:pointer; font-weight:800; font-size:1.1rem;" title="Delete Lead">×</button>
+          </td>
+        `;
+        fullTbody.appendChild(tr);
+      });
+
+      // Recent leads table (top 5)
+      recentTbody.innerHTML = '';
+      leads.slice(0, 5).forEach(lead => {
+        const badgeClass = lead.status === 'New' ? 'badge-new' :
+                           lead.status === 'Contacted' ? 'badge-contacted' :
+                           lead.status === 'Booked' ? 'badge-booked' : 'badge-closed';
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><small style="font-weight:700;">${lead.dateFormatted || lead.timestamp.substring(0, 10)}</small></td>
+          <td><strong>${lead.name}</strong></td>
+          <td>${lead.phone}</td>
+          <td>${lead.service}</td>
+          <td><span class="status-badge ${badgeClass}">${lead.status}</span></td>
+          <td>
+            <button class="btn-secondary-action" onclick="switchTab('tabLeads')" style="padding:0.25rem 0.5rem; font-size:0.75rem;">Manage</button>
+          </td>
+        `;
+        recentTbody.appendChild(tr);
+      });
+    }
+
+    window.changeLeadStatus = function(leadId, status) {
+      window.TrovenzaConfig.updateLeadStatus(leadId, status);
+      renderLeads();
+      showToast('Lead status updated to ' + status);
+    };
+
+    window.removeLead = function(leadId) {
+      if (confirm('Are you sure you want to delete this lead?')) {
+        window.TrovenzaConfig.deleteLead(leadId);
+        renderLeads();
+        showToast('Lead removed.');
+      }
+    };
+
+    // Add Demo Lead button for testing
+    document.getElementById('addDemoLeadBtn').addEventListener('click', () => {
+      const demoNames = ['Rajesh Sharma', 'Pooja Verma', 'Amitabh Sen', 'Vikram Patel', 'Sunita Rawat'];
+      const demoServices = ['Delhi to Haridwar Cab (Crysta)', 'Char Dham Yatra 2026 (4 Pax)', 'Auli + Chopta Tour (2N/3D)', 'Triyuginarayan Wedding Inquiry'];
+      const randomName = demoNames[Math.floor(Math.random() * demoNames.length)];
+      const randomService = demoServices[Math.floor(Math.random() * demoServices.length)];
+
+      window.TrovenzaConfig.recordLead({
+        name: randomName,
+        phone: '+91 98' + Math.floor(10000000 + Math.random() * 90000000),
+        service: randomService,
+        pickup: 'New Delhi IGI Airport',
+        destination: 'Haridwar / Rishikesh',
+        travelDate: '15-May-2026'
+      });
+      renderLeads();
+      showToast('Sample Lead recorded successfully!');
+    });
+
+    // Export Leads to CSV
+    document.getElementById('exportLeadsCsvBtn').addEventListener('click', () => {
+      const leads = window.TrovenzaConfig.getLeads();
+      if (leads.length === 0) {
+        alert('No leads to export!');
+        return;
+      }
+      let csv = 'Lead ID,Date,Name,Phone,Service,Pickup,Destination,Travel Date,Status\n';
+      leads.forEach(l => {
+        csv += `"${l.id}","${l.dateFormatted || l.timestamp}","${l.name}","${l.phone}","${l.service}","${l.pickup}","${l.destination}","${l.travelDate}","${l.status}"\n`;
+      });
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', 'trovenza_customer_leads_' + new Date().toISOString().substring(0,10) + '.csv');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast('Leads exported as CSV file!');
+    });
+
+    // 8. SETTINGS: PASSWORD & BACKUPS
+    document.getElementById('changePasswordForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const curr = document.getElementById('currentPass').value;
+      const n1 = document.getElementById('newPass').value;
+      const n2 = document.getElementById('confirmPass').value;
+      const stored = localStorage.getItem(PASS_STORAGE_KEY) || DEFAULT_PASS;
+
+      if (curr !== stored) {
+        alert('Current password does not match!');
+        return;
+      }
+      if (n1 !== n2) {
+        alert('New passwords do not match!');
+        return;
+      }
+      localStorage.setItem(PASS_STORAGE_KEY, n1);
+      document.getElementById('changePasswordForm').reset();
+      showToast('✅ Admin password updated successfully!');
+    });
+
+    // Export JSON Backup
+    document.getElementById('downloadConfigBtn').addEventListener('click', () => {
+      const config = window.TrovenzaConfig.getConfig();
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(config, null, 2));
+      const a = document.createElement('a');
+      a.setAttribute("href", dataStr);
+      a.setAttribute("download", "trovenza_site_config_backup_" + new Date().toISOString().substring(0,10) + ".json");
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      showToast('Configuration backup JSON downloaded!');
+    });
+
+    // Factory Reset
+    document.getElementById('resetConfigBtn').addEventListener('click', () => {
+      if (confirm('WARNING: Are you sure you want to reset all rates and packages to factory defaults? Any custom edits will be reverted.')) {
+        window.TrovenzaConfig.resetConfig();
+        initDashboard();
+        showToast('Factory defaults restored.');
+      }
+    });
+
+    // Initial Auth Check
+    checkAuth();
+  </script>
+</body>
+</html>
