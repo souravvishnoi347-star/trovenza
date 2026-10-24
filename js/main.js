@@ -267,6 +267,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // Synchronize Vehicle Data & Popular Routes with Central Site Config (Editable via /admin)
+  if (window.TrovenzaConfig) {
+    const liveConfig = window.TrovenzaConfig.getConfig();
+    if (liveConfig && liveConfig.fares) {
+      if (vehicleData.dzire && liveConfig.fares.delhiHaridwar?.dzire) vehicleData.dzire.delhiHaridwarFixed = liveConfig.fares.delhiHaridwar.dzire;
+      if (vehicleData.ertiga && liveConfig.fares.delhiHaridwar?.ertiga) vehicleData.ertiga.delhiHaridwarFixed = liveConfig.fares.delhiHaridwar.ertiga;
+      if (vehicleData.crysta && liveConfig.fares.delhiHaridwar?.crysta) vehicleData.crysta.delhiHaridwarFixed = liveConfig.fares.delhiHaridwar.crysta;
+      if (vehicleData.tempo && liveConfig.fares.delhiHaridwar?.tempo) vehicleData.tempo.delhiHaridwarFixed = liveConfig.fares.delhiHaridwar.tempo;
+      if (vehicleData.urbania && liveConfig.fares.delhiHaridwar?.urbania) vehicleData.urbania.delhiHaridwarFixed = liveConfig.fares.delhiHaridwar.urbania;
+
+      if (vehicleData.dzire && liveConfig.fares.perKm?.dzire) { vehicleData.dzire.rateNum = liveConfig.fares.perKm.dzire; vehicleData.dzire.ratePerKm = '₹' + liveConfig.fares.perKm.dzire + ' / km'; }
+      if (vehicleData.ertiga && liveConfig.fares.perKm?.ertiga) { vehicleData.ertiga.rateNum = liveConfig.fares.perKm.ertiga; vehicleData.ertiga.ratePerKm = '₹' + liveConfig.fares.perKm.ertiga + ' / km'; }
+      if (vehicleData.crysta && liveConfig.fares.perKm?.crysta) { vehicleData.crysta.rateNum = liveConfig.fares.perKm.crysta; vehicleData.crysta.ratePerKm = '₹' + liveConfig.fares.perKm.crysta + ' / km'; }
+      if (vehicleData.tempo && liveConfig.fares.perKm?.tempo) { vehicleData.tempo.rateNum = liveConfig.fares.perKm.tempo; vehicleData.tempo.ratePerKm = '₹' + liveConfig.fares.perKm.tempo + ' / km'; }
+      if (vehicleData.urbania && liveConfig.fares.perKm?.urbania) { vehicleData.urbania.rateNum = liveConfig.fares.perKm.urbania; vehicleData.urbania.ratePerKm = '₹' + liveConfig.fares.perKm.urbania + ' / km'; }
+
+      if (popularRoutes.delhi_haridwar && liveConfig.fares.delhiHaridwar) {
+        popularRoutes.delhi_haridwar.fixed = {
+          ...popularRoutes.delhi_haridwar.fixed,
+          ...liveConfig.fares.delhiHaridwar
+        };
+      }
+    }
+  }
+
   // Fixed Route Calculator Handler
   const routeSelect = document.getElementById('calcRouteSelect');
   const carTypeSelect = document.getElementById('calcCarSelect');
@@ -407,6 +432,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const vehicle = document.getElementById('heroTaxiVehicle')?.value || '';
       const date = document.getElementById('heroTaxiDate')?.value || '';
 
+      if (window.TrovenzaConfig && window.TrovenzaConfig.recordLead) {
+        window.TrovenzaConfig.recordLead({
+          name: pickup ? `Traveler (${pickup})` : 'Website Traveler',
+          phone: '+91 (Submitted via Web)',
+          service: `Taxi Dispatch: ${pickup} to ${drop}`,
+          pickup: pickup,
+          destination: drop,
+          vehicle: vehicle,
+          travelDate: date
+        });
+      }
+
       const msg = `Namaste Trovenza! 🚖 Instant Taxi Dispatch Request:%0A` +
         `• Pickup: ${pickup}%0A` +
         `• Destination: ${drop}%0A` +
@@ -424,6 +461,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const circuit = document.getElementById('heroYatraCircuit')?.value || '';
       const guests = document.getElementById('heroYatraGuests')?.value || '';
       const month = document.getElementById('heroYatraMonth')?.value || '';
+
+      if (window.TrovenzaConfig && window.TrovenzaConfig.recordLead) {
+        window.TrozaConfig = window.TrovenzaConfig;
+        window.TrovenzaConfig.recordLead({
+          name: `Pilgrim Group (${guests || 'General'})`,
+          phone: '+91 (Submitted via Web)',
+          service: `Char Dham Inquiry: ${circuit}`,
+          guests: guests,
+          travelDate: month
+        });
+      }
 
       const msg = `Namaste Trovenza! 🕉️ 2026 Char Dham Registration Inquiry:%0A` +
         `• Selected Circuit: ${circuit}%0A` +
