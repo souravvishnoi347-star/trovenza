@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trovenza & Jai Maa Travels â€” Client Admin Control Center</title>
+  <title>Trovenza & Jai Maa Travels — Client Admin Control Center</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/png" href="../images/logo.png">
 
@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Site Config Bridge -->
-  <script src="../site-config.js"></script>
+  <script src="../js/site-config.js"></script>
 
   <style>
     :root {
@@ -885,7 +885,7 @@
         </div>
         <div class="form-group">
           <label class="form-label" for="loginPass">Password</label>
-          <input type="password" id="loginPass" class="form-control" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" required value="trovenza@2026">
+          <input type="password" id="loginPass" class="form-control" placeholder="••••••••••••" required value="trovenza@2026">
         </div>
         <button type="submit" class="btn-submit">
           <span>Authenticate & Access Dashboard</span>
@@ -894,7 +894,7 @@
       </form>
 
       <div class="login-hint">
-        ðŸ”‘ <strong>Default Client Login Credentials:</strong><br>
+        🔑 <strong>Default Client Login Credentials:</strong><br>
         Username: <code style="color:var(--color-gold); font-weight:700;">admin</code> &nbsp;|&nbsp; 
         Password: <code style="color:var(--color-gold); font-weight:700;">trovenza@2026</code><br>
         <small style="color:#94A3B8;">(You can change your password inside Settings tab)</small>
@@ -942,7 +942,7 @@
           <button class="nav-tab-btn" data-tab="tabWedding">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
             <span>Triyuginarayan Wedding</span>
-            <span class="sidebar-badge" style="background:var(--color-red);">â‚¹4L</span>
+            <span class="sidebar-badge" style="background:var(--color-red);">₹4L</span>
           </button>
         </li>
         <li>
@@ -981,7 +981,7 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
           </button>
           <div class="top-left-title" id="pageTitleHeading">
-            <span>ðŸ“Š</span> Dashboard Overview
+            <span>📊</span> Dashboard Overview
           </div>
         </div>
 
@@ -1010,28 +1010,28 @@
         <section class="tab-pane active" id="tabDashboard">
           <div class="stats-grid-4">
             <div class="stat-card">
-              <div class="stat-icon-wrap" style="background:#EFF6FF; color:#2563EB;">ðŸš–</div>
+              <div class="stat-icon-wrap" style="background:#EFF6FF; color:#2563EB;">🚖</div>
               <div>
                 <div class="stat-val" id="statCabsCount">5</div>
                 <div class="stat-lbl">Active Vehicle Types</div>
               </div>
             </div>
             <div class="stat-card">
-              <div class="stat-icon-wrap" style="background:#FEF3C7; color:#D97706;">ðŸŽ’</div>
+              <div class="stat-icon-wrap" style="background:#FEF3C7; color:#D97706;">🎒</div>
               <div>
                 <div class="stat-val" id="statPackagesCount">9</div>
                 <div class="stat-lbl">Active Tour Packages</div>
               </div>
             </div>
             <div class="stat-card">
-              <div class="stat-icon-wrap" style="background:#FEE2E2; color:#DC2626;">ðŸ’’</div>
+              <div class="stat-icon-wrap" style="background:#FEE2E2; color:#DC2626;">💒</div>
               <div>
-                <div class="stat-val">â‚¹4.0 L</div>
+                <div class="stat-val">₹4.0 L</div>
                 <div class="stat-lbl">Triyuginarayan Wedding</div>
               </div>
             </div>
             <div class="stat-card">
-              <div class="stat-icon-wrap" style="background:#D1FAE5; color:#10B981;">ðŸ“‹</div>
+              <div class="stat-icon-wrap" style="background:#D1FAE5; color:#10B981;">📋</div>
               <div>
                 <div class="stat-val" id="statLeadsCount">0</div>
                 <div class="stat-lbl">Customer Inquiries Logged</div>
@@ -1043,22 +1043,22 @@
           <div class="panel-card">
             <div class="panel-card-header">
               <div>
-                <div class="panel-card-title">âš¡ Quick Management Actions</div>
+                <div class="panel-card-title">⚡ Quick Management Actions</div>
                 <div class="panel-card-desc">Instantly jump to editing fares, holiday packages, or viewing new leads.</div>
               </div>
             </div>
             <div class="panel-card-body" style="display:flex; flex-wrap:wrap; gap:0.85rem;">
               <button class="btn-primary-action" onclick="switchTab('tabTaxiFares')">
-                <span>ðŸš– Edit Taxi Fares & KM Rates</span>
+                <span>🚖 Edit Taxi Fares & KM Rates</span>
               </button>
               <button class="btn-primary-action" onclick="switchTab('tabPackages')" style="background:linear-gradient(135deg, #1E293B, #0F172A);">
-                <span>ðŸŽ’ Edit Packages & Prices</span>
+                <span>🎒 Edit Packages & Prices</span>
               </button>
               <button class="btn-primary-action" onclick="switchTab('tabWedding')" style="background:linear-gradient(135deg, #DC2626, #991B1B);">
-                <span>ðŸ’’ Edit Wedding Package</span>
+                <span>💒 Edit Wedding Package</span>
               </button>
               <button class="btn-primary-action" onclick="switchTab('tabLeads')" style="background:linear-gradient(135deg, #059669, #047857);">
-                <span>ðŸ“‹ View Customer Leads</span>
+                <span>📋 View Customer Leads</span>
               </button>
             </div>
           </div>
@@ -1067,10 +1067,10 @@
           <div class="panel-card">
             <div class="panel-card-header">
               <div>
-                <div class="panel-card-title">ðŸ“‹ Recent Customer Inquiries</div>
+                <div class="panel-card-title">📋 Recent Customer Inquiries</div>
                 <div class="panel-card-desc">Travelers who requested quotes on Trovenza or Jai Maa Travels.</div>
               </div>
-              <button class="btn-secondary-action" onclick="switchTab('tabLeads')">View All Leads â†’</button>
+              <button class="btn-secondary-action" onclick="switchTab('tabLeads')">View All Leads →</button>
             </div>
             <div class="panel-card-body" style="padding:0;">
               <div class="table-responsive">
@@ -1105,7 +1105,7 @@
           <div class="panel-card">
             <div class="panel-card-header">
               <div>
-                <div class="panel-card-title">ðŸš– Delhi to Haridwar Fixed One-Way Drop Fares</div>
+                <div class="panel-card-title">🚖 Delhi to Haridwar Fixed One-Way Drop Fares</div>
                 <div class="panel-card-desc">Edit fixed one-way transfer rates shown across Trovenza and Jai Maa portals.</div>
               </div>
               <button class="btn-primary-action" id="saveTaxiFixedBtn">
@@ -1118,7 +1118,7 @@
                 <div class="form-group">
                   <label class="form-label">Swift Dzire (Sedan)</label>
                   <div style="display:flex; align-items:center;">
-                    <span style="padding:0.8rem 1rem; background:#F1F5F9; border:1.5px solid var(--border-color); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); font-weight:700;">â‚¹</span>
+                    <span style="padding:0.8rem 1rem; background:#F1F5F9; border:1.5px solid var(--border-color); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); font-weight:700;">₹</span>
                     <input type="number" id="fareDzireFixed" class="form-control" style="border-radius:0 var(--radius-md) var(--radius-md) 0;" value="3600">
                   </div>
                 </div>
@@ -1126,7 +1126,7 @@
                 <div class="form-group">
                   <label class="form-label">Maruti Ertiga (6 Pax)</label>
                   <div style="display:flex; align-items:center;">
-                    <span style="padding:0.8rem 1rem; background:#F1F5F9; border:1.5px solid var(--border-color); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); font-weight:700;">â‚¹</span>
+                    <span style="padding:0.8rem 1rem; background:#F1F5F9; border:1.5px solid var(--border-color); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); font-weight:700;">₹</span>
                     <input type="number" id="fareErtigaFixed" class="form-control" style="border-radius:0 var(--radius-md) var(--radius-md) 0;" value="4200">
                   </div>
                 </div>
@@ -1134,7 +1134,7 @@
                 <div class="form-group">
                   <label class="form-label">Toyota Innova Crysta</label>
                   <div style="display:flex; align-items:center;">
-                    <span style="padding:0.8rem 1rem; background:#F1F5F9; border:1.5px solid var(--border-color); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); font-weight:700;">â‚¹</span>
+                    <span style="padding:0.8rem 1rem; background:#F1F5F9; border:1.5px solid var(--border-color); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); font-weight:700;">₹</span>
                     <input type="number" id="fareCrystaFixed" class="form-control" style="border-radius:0 var(--radius-md) var(--radius-md) 0;" value="5000">
                   </div>
                 </div>
@@ -1142,7 +1142,7 @@
                 <div class="form-group">
                   <label class="form-label">Tempo Traveller (12-16 Pax)</label>
                   <div style="display:flex; align-items:center;">
-                    <span style="padding:0.8rem 1rem; background:#F1F5F9; border:1.5px solid var(--border-color); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); font-weight:700;">â‚¹</span>
+                    <span style="padding:0.8rem 1rem; background:#F1F5F9; border:1.5px solid var(--border-color); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); font-weight:700;">₹</span>
                     <input type="number" id="fareTempoFixed" class="form-control" style="border-radius:0 var(--radius-md) var(--radius-md) 0;" value="12000">
                   </div>
                 </div>
@@ -1150,7 +1150,7 @@
                 <div class="form-group">
                   <label class="form-label">Force Urbania (16 Pax Luxury)</label>
                   <div style="display:flex; align-items:center;">
-                    <span style="padding:0.8rem 1rem; background:#F1F5F9; border:1.5px solid var(--border-color); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); font-weight:700;">â‚¹</span>
+                    <span style="padding:0.8rem 1rem; background:#F1F5F9; border:1.5px solid var(--border-color); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); font-weight:700;">₹</span>
                     <input type="number" id="fareUrbaniaFixed" class="form-control" style="border-radius:0 var(--radius-md) var(--radius-md) 0;" value="15000">
                   </div>
                 </div>
@@ -1162,7 +1162,7 @@
           <div class="panel-card">
             <div class="panel-card-header">
               <div>
-                <div class="panel-card-title">ðŸ›£ï¸ Outstation Per-Kilometer Rates & Allowance</div>
+                <div class="panel-card-title">🛣️ Outstation Per-Kilometer Rates & Allowance</div>
                 <div class="panel-card-desc">Configure the live calculator math for custom distance outstation travel.</div>
               </div>
               <button class="btn-primary-action" id="saveTaxiKmBtn">
@@ -1173,27 +1173,27 @@
             <div class="panel-card-body">
               <div class="form-grid-3">
                 <div class="form-group">
-                  <label class="form-label">Dzire (â‚¹ / km)</label>
+                  <label class="form-label">Dzire (₹ / km)</label>
                   <input type="number" id="rateDzireKm" class="form-control" value="12">
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Ertiga (â‚¹ / km)</label>
+                  <label class="form-label">Ertiga (₹ / km)</label>
                   <input type="number" id="rateErtigaKm" class="form-control" value="14">
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Innova Crysta (â‚¹ / km)</label>
+                  <label class="form-label">Innova Crysta (₹ / km)</label>
                   <input type="number" id="rateCrystaKm" class="form-control" value="18">
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Tempo Traveller (â‚¹ / km)</label>
+                  <label class="form-label">Tempo Traveller (₹ / km)</label>
                   <input type="number" id="rateTempoKm" class="form-control" value="28">
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Force Urbania (â‚¹ / km)</label>
+                  <label class="form-label">Force Urbania (₹ / km)</label>
                   <input type="number" id="rateUrbaniaKm" class="form-control" value="38">
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Driver Night Allowance (â‚¹ / Night)</label>
+                  <label class="form-label">Driver Night Allowance (₹ / Night)</label>
                   <input type="number" id="rateNightAllowance" class="form-control" value="400">
                 </div>
               </div>
@@ -1208,7 +1208,7 @@
           <div class="panel-card">
             <div class="panel-card-header">
               <div>
-                <div class="panel-card-title">ðŸŽ’ Manage Holiday & Yatra Packages</div>
+                <div class="panel-card-title">🎒 Manage Holiday & Yatra Packages</div>
                 <div class="panel-card-desc">Edit package prices, durations, meal plans, visibility, change package photos, or create brand new tour packages.</div>
               </div>
               <div style="display:flex; gap:0.6rem; align-items:center; flex-wrap:wrap;">
@@ -1221,7 +1221,7 @@
                   <span>Save All Packages</span>
                 </button>
                 <button type="button" class="btn-outline" id="resetPackagesBtn" style="padding:0.6rem 0.85rem; font-size:0.8rem; border:1px solid #CBD5E1; border-radius:var(--radius-sm); background:#FFFFFF; cursor:pointer;" title="Reset Packages to Original Defaults">
-                  ðŸ”„ Reset Defaults
+                  🔄 Reset Defaults
                 </button>
               </div>
             </div>
@@ -1233,12 +1233,12 @@
                       <th style="width:105px; text-align:center;">Picture</th>
                       <th style="min-width:240px;">Package Title & Category</th>
                       <th style="width:95px;">Duration</th>
-                      <th style="width:115px;">Selling (â‚¹)</th>
-                      <th style="width:105px;">Original (â‚¹)</th>
+                      <th style="width:115px;">Selling (₹)</th>
+                      <th style="width:105px;">Original (₹)</th>
                       <th style="width:135px;">Meal Plan</th>
                       <th style="width:105px;">Badge</th>
                       <th style="width:95px;">Status</th>
-                      <th style="width:75px; text-align:center;">Action</th>
+                      <th style="width:175px; text-align:center;">Actions</th>
                     </tr>
                   </thead>
                   <tbody id="packagesEditorTableBody">
@@ -1257,7 +1257,7 @@
           <div class="panel-card">
             <div class="panel-card-header">
               <div>
-                <div class="panel-card-title">ðŸ’’ Triyuginarayan Temple Vedic Destination Wedding</div>
+                <div class="panel-card-title">💒 Triyuginarayan Temple Vedic Destination Wedding</div>
                 <div class="panel-card-desc">Edit pricing, guest capacity, gourmet meal inclusions, and ritual logistics.</div>
               </div>
               <button class="btn-primary-action" id="saveWeddingBtn">
@@ -1268,7 +1268,7 @@
             <div class="panel-card-body">
               <div class="form-grid-3">
                 <div class="form-group">
-                  <label class="form-label">Total Package Cost (â‚¹)</label>
+                  <label class="form-label">Total Package Cost (₹)</label>
                   <input type="number" id="weddingPrice" class="form-control" value="400000">
                 </div>
                 <div class="form-group">
@@ -1318,7 +1318,7 @@
           <div class="panel-card">
             <div class="panel-card-header">
               <div>
-                <div class="panel-card-title">ðŸ¢ Contact Info & Office Location</div>
+                <div class="panel-card-title">🏢 Contact Info & Office Location</div>
                 <div class="panel-card-desc">Ensure single Haridwar registered office and updated contact numbers across website.</div>
               </div>
               <button class="btn-primary-action" id="saveContactBtn">
@@ -1330,7 +1330,7 @@
               <div class="form-group">
                 <label class="form-label">Official Registered Office Address</label>
                 <input type="text" id="contactAddress" class="form-control" value="No. 7, Gyan Mandir, Opp. Daksh Mandir, Haridwar, Uttarakhand - 249408">
-                <small style="color:var(--text-muted); margin-top:0.3rem; display:block;">ðŸ“ Note: Haridwar is the official registered headquarters.</small>
+                <small style="color:var(--text-muted); margin-top:0.3rem; display:block;">📍 Note: Haridwar is the official registered headquarters.</small>
               </div>
 
               <div class="form-grid-3" style="margin-top:1.25rem;">
@@ -1351,7 +1351,7 @@
 
               <div class="form-group" style="margin-top:1.25rem;">
                 <label class="form-label">Top Announcement Strip Text</label>
-                <input type="text" id="contactAnnouncement" class="form-control" value="âš¡ Direct Haridwar Cab & Pilgrimage Operations â€¢ Guaranteed Commercial Yellow Plate Vehicles">
+                <input type="text" id="contactAnnouncement" class="form-control" value="⚡ Direct Haridwar Cab & Pilgrimage Operations • Guaranteed Commercial Yellow Plate Vehicles">
               </div>
             </div>
           </div>
@@ -1364,7 +1364,7 @@
           <div class="panel-card">
             <div class="panel-card-header">
               <div>
-                <div class="panel-card-title">ðŸ“‹ Customer Leads & Inquiries CRM</div>
+                <div class="panel-card-title">📋 Customer Leads & Inquiries CRM</div>
                 <div class="panel-card-desc">Inquiries logged from booking forms, taxi calculator, and package dispatch requests.</div>
               </div>
               <div style="display:flex; gap:0.5rem;">
@@ -1409,7 +1409,7 @@
           <div class="panel-card">
             <div class="panel-card-header">
               <div>
-                <div class="panel-card-title">ðŸ” Change Admin Password</div>
+                <div class="panel-card-title">🔐 Change Admin Password</div>
                 <div class="panel-card-desc">Update the password required to access this Client Control Center.</div>
               </div>
             </div>
@@ -1438,7 +1438,7 @@
           <div class="panel-card">
             <div class="panel-card-header">
               <div>
-                <div class="panel-card-title">ðŸ’¾ Configuration Backup & Factory Reset</div>
+                <div class="panel-card-title">💾 Configuration Backup & Factory Reset</div>
                 <div class="panel-card-desc">Download a backup file of your entire website configuration or restore defaults.</div>
               </div>
             </div>
@@ -1473,7 +1473,7 @@
     <div class="admin-modal-container">
       <div class="admin-modal-header">
         <div style="display:flex; align-items:center; gap:0.6rem;">
-          <span style="font-size:1.4rem;">ðŸŽ’</span>
+          <span style="font-size:1.4rem;">🎒</span>
           <div>
             <h3 style="font-size:1.15rem; font-weight:800; color:var(--color-navy); margin:0;">Create New Tour Package</h3>
             <p style="font-size:0.78rem; color:var(--text-muted); margin:0;">Add a new holiday tour package with pictures and custom pricing.</p>
@@ -1503,11 +1503,11 @@
               <input type="text" id="newPkgDuration" class="form-control" placeholder="e.g. 5N / 6D" required>
             </div>
             <div class="form-group">
-              <label class="form-label" for="newPkgPrice">Selling Price (â‚¹ per person) *</label>
+              <label class="form-label" for="newPkgPrice">Selling Price (₹ per person) *</label>
               <input type="number" id="newPkgPrice" class="form-control" placeholder="e.g. 18500" required>
             </div>
             <div class="form-group">
-              <label class="form-label" for="newPkgOrigPrice">Original Price (â‚¹ Strike-through)</label>
+              <label class="form-label" for="newPkgOrigPrice">Original Price (₹ Strike-through)</label>
               <input type="number" id="newPkgOrigPrice" class="form-control" placeholder="e.g. 24000">
             </div>
             <div class="form-group">
@@ -1520,11 +1520,11 @@
             </div>
             <div class="form-group" style="grid-column:span 2;">
               <label class="form-label" for="newPkgDestinations">Destinations / Circuit Route</label>
-              <input type="text" id="newPkgDestinations" class="form-control" placeholder="e.g. ðŸ“ Haridwar â€¢ Shimla â€¢ Sangla â€¢ Kalpa â€¢ Kaza â€¢ Spiti">
+              <input type="text" id="newPkgDestinations" class="form-control" placeholder="e.g. 📍 Haridwar • Shimla • Sangla • Kalpa • Kaza • Spiti">
             </div>
             <div class="form-group" style="grid-column:span 2;">
               <label class="form-label" for="newPkgInclusions">Key Inclusions (Comma separated)</label>
-              <input type="text" id="newPkgInclusions" class="form-control" placeholder="e.g. ðŸ½ï¸ MAP Meals, ðŸš— Dedicated 4x4 Cab, ðŸ¨ Premium Stays, ðŸ¥¾ Expert Guide">
+              <input type="text" id="newPkgInclusions" class="form-control" placeholder="e.g. 🍽️ MAP Meals, 🚗 Dedicated 4x4 Cab, 🏨 Premium Stays, 🥾 Expert Guide">
             </div>
             
             <!-- IMAGE UPLOAD SECTION -->
@@ -1533,18 +1533,18 @@
               <div class="modal-upload-card">
                 <div style="display:flex; gap:0.75rem; align-items:center; flex-wrap:wrap;">
                   <label class="btn-primary-action" style="background:#0284C7; cursor:pointer; padding:0.6rem 1rem; font-size:0.85rem; display:inline-flex; align-items:center; gap:0.5rem;">
-                    <span>ðŸ“¸ Choose Photo from Device</span>
+                    <span>📸 Choose Photo from Device</span>
                     <input type="file" id="newPkgFileInput" accept="image/*" style="display:none;">
                   </label>
-                  <span style="font-size:0.8rem; color:var(--text-muted); font-weight:600;">â€” OR Image Link â€”</span>
+                  <span style="font-size:0.8rem; color:var(--text-muted); font-weight:600;">— OR Image Link —</span>
                   <input type="text" id="newPkgUrlInput" class="form-control" placeholder="images/packages/... or https://..." style="flex:1; min-width:200px;">
                 </div>
                 <div id="newPkgPreviewWrap" style="margin-top:0.75rem; display:none; align-items:center; gap:1rem; background:#F8FAFC; border:1px dashed #CBD5E1; padding:0.75rem; border-radius:8px;">
                   <img id="newPkgPreviewImg" src="" alt="Preview" style="width:120px; height:80px; object-fit:cover; border-radius:6px; box-shadow:0 2px 6px rgba(0,0,0,0.15);">
                   <div>
                     <div style="font-size:0.85rem; font-weight:700; color:var(--color-navy);" id="newPkgImgMeta">Photo Selected</div>
-                    <div style="font-size:0.75rem; color:#059669; font-weight:600;">âš¡ Compressed & web-optimized for instant loading</div>
-                    <button type="button" id="removeNewPkgImgBtn" style="background:none; border:none; color:#DC2626; font-size:0.78rem; font-weight:700; cursor:pointer; padding:0; margin-top:0.3rem;">âœ• Remove photo</button>
+                    <div style="font-size:0.75rem; color:#059669; font-weight:600;">⚡ Compressed & web-optimized for instant loading</div>
+                    <button type="button" id="removeNewPkgImgBtn" style="background:none; border:none; color:#DC2626; font-size:0.78rem; font-weight:700; cursor:pointer; padding:0; margin-top:0.3rem;">✕ Remove photo</button>
                   </div>
                 </div>
               </div>
@@ -1554,7 +1554,7 @@
         <div class="admin-modal-footer">
           <button type="button" class="btn-outline" id="cancelAddPackageBtn" style="padding:0.65rem 1.25rem; font-weight:700; border-radius:var(--radius-sm); border:1px solid #CBD5E1; background:#FFFFFF; cursor:pointer;">Cancel</button>
           <button type="submit" class="btn-primary-action" style="background:linear-gradient(135deg, #059669, #047857); padding:0.65rem 1.5rem;">
-            <span>âž• Create & Publish Package</span>
+            <span>➕ Create & Publish Package</span>
           </button>
         </div>
       </form>
@@ -1569,6 +1569,138 @@
       <button type="button" id="closeLightboxBtn" style="position:absolute; top:0.75rem; right:0.75rem; background:rgba(255,255,255,0.2); border:none; color:#FFFFFF; width:36px; height:36px; border-radius:50%; font-size:1.2rem; cursor:pointer; display:flex; align-items:center; justify-content:center;">&times;</button>
       <h4 id="lightboxTitle" style="color:#FFFFFF; margin:0 0 1rem 0; font-size:1.1rem; text-align:center;">Package Image Preview</h4>
       <img id="lightboxImg" src="" alt="Enlarged Preview" style="max-width:85vw; max-height:75vh; object-fit:contain; border-radius:8px; border:2px solid #334155;">
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 3: EDIT TOP 4 PHOTOS & ITINERARY MANAGER
+       ========================================================================= -->
+  <div id="packageGalleryModal" class="admin-modal-overlay" style="display:none; z-index:9999999;">
+    <div class="admin-modal-container" style="max-width:880px;">
+      <div class="admin-modal-header">
+        <div style="display:flex; align-items:center; gap:0.6rem;">
+          <span style="font-size:1.4rem;">🖼️</span>
+          <div>
+            <h3 style="font-size:1.15rem; font-weight:800; color:var(--color-navy); margin:0;" id="galleryModalTitle">Top 4 Collage Photos & Itinerary</h3>
+            <p style="font-size:0.78rem; color:var(--text-muted); margin:0;">
+              Manage the 4-photo showcase grid for this package. Blank slots show a sleek placeholder on the site.
+            </p>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <a id="galleryModalLiveLink" href="#" target="_blank" style="font-size:0.8rem; font-weight:700; color:#0284C7; text-decoration:none; display:inline-flex; align-items:center; gap:0.25rem;">
+            <span>🌐 View Live Page</span> &rarr;
+          </a>
+          <button type="button" class="modal-close-btn" id="closeGalleryModalBtn">&times;</button>
+        </div>
+      </div>
+      <div class="admin-modal-body" style="max-height:75vh; overflow-y:auto;">
+        
+        <!-- Grid layout for the 4 slots -->
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap:1rem; margin-bottom:1.5rem;">
+          
+          <!-- Slot 1: Hero Landscape -->
+          <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:1rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+              <strong style="font-size:0.88rem; color:var(--color-navy);">Slot 1: Featured Landscape (Main Hero)</strong>
+              <span style="font-size:0.7rem; background:#EFF6FF; color:#1D4ED8; font-weight:700; padding:0.15rem 0.45rem; border-radius:4px;">Left Large (2 Rows)</span>
+            </div>
+            <div style="height:140px; background:#E2E8F0; border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; margin-bottom:0.75rem; position:relative;">
+              <img id="galleryPreview_0" src="" alt="Slot 1 Preview" style="width:100%; height:100%; object-fit:cover; display:none;">
+              <div id="galleryPlaceholder_0" style="color:var(--text-muted); font-size:0.8rem; text-align:center;">
+                📷 <em>No photo (uses main package image)</em>
+              </div>
+            </div>
+            <div style="display:flex; gap:0.4rem; align-items:center; flex-wrap:wrap;">
+              <label class="btn-primary-action" style="font-size:0.75rem; padding:0.35rem 0.65rem; background:#0284C7; cursor:pointer; margin:0;">
+                📸 Upload Photo
+                <input type="file" class="gallery-file-input" data-slot="0" accept="image/*" style="display:none;">
+              </label>
+              <button type="button" class="btn-outline gallery-url-btn" data-slot="0" style="font-size:0.75rem; padding:0.35rem 0.65rem;">🔗 Link</button>
+              <button type="button" class="btn-outline gallery-clear-btn" data-slot="0" style="font-size:0.75rem; padding:0.35rem 0.65rem; color:#DC2626; border-color:#FCA5A5;">❌ Revert/Blank</button>
+            </div>
+          </div>
+
+          <!-- Slot 2: Portrait Sightseeing -->
+          <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:1rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+              <strong style="font-size:0.88rem; color:var(--color-navy);">Slot 2: Sightseeing & Activity (Portrait)</strong>
+              <span style="font-size:0.7rem; background:#EFF6FF; color:#1D4ED8; font-weight:700; padding:0.15rem 0.45rem; border-radius:4px;">Middle Tall</span>
+            </div>
+            <div style="height:140px; background:#E2E8F0; border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; margin-bottom:0.75rem; position:relative;">
+              <img id="galleryPreview_1" src="" alt="Slot 2 Preview" style="width:100%; height:100%; object-fit:cover; display:none;">
+              <div id="galleryPlaceholder_1" style="color:var(--text-muted); font-size:0.8rem; text-align:center;">
+                📷 <em>Blank Placeholder (Visible on site)</em>
+              </div>
+            </div>
+            <div style="display:flex; gap:0.4rem; align-items:center; flex-wrap:wrap;">
+              <label class="btn-primary-action" style="font-size:0.75rem; padding:0.35rem 0.65rem; background:#0284C7; cursor:pointer; margin:0;">
+                📸 Upload Photo
+                <input type="file" class="gallery-file-input" data-slot="1" accept="image/*" style="display:none;">
+              </label>
+              <button type="button" class="btn-outline gallery-url-btn" data-slot="1" style="font-size:0.75rem; padding:0.35rem 0.65rem;">🔗 Link</button>
+              <button type="button" class="btn-outline gallery-clear-btn" data-slot="1" style="font-size:0.75rem; padding:0.35rem 0.65rem; color:#DC2626; border-color:#FCA5A5;">❌ Clear (Blank)</button>
+            </div>
+          </div>
+
+          <!-- Slot 3: Resort & Stay -->
+          <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:1rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+              <strong style="font-size:0.88rem; color:var(--color-navy);">Slot 3: Scenic Stay & Resort</strong>
+              <span style="font-size:0.7rem; background:#EFF6FF; color:#1D4ED8; font-weight:700; padding:0.15rem 0.45rem; border-radius:4px;">Top Right</span>
+            </div>
+            <div style="height:140px; background:#E2E8F0; border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; margin-bottom:0.75rem; position:relative;">
+              <img id="galleryPreview_2" src="" alt="Slot 3 Preview" style="width:100%; height:100%; object-fit:cover; display:none;">
+              <div id="galleryPlaceholder_2" style="color:var(--text-muted); font-size:0.8rem; text-align:center;">
+                🏨 <em>Blank Placeholder (Visible on site)</em>
+              </div>
+            </div>
+            <div style="display:flex; gap:0.4rem; align-items:center; flex-wrap:wrap;">
+              <label class="btn-primary-action" style="font-size:0.75rem; padding:0.35rem 0.65rem; background:#0284C7; cursor:pointer; margin:0;">
+                📸 Upload Photo
+                <input type="file" class="gallery-file-input" data-slot="2" accept="image/*" style="display:none;">
+              </label>
+              <button type="button" class="btn-outline gallery-url-btn" data-slot="2" style="font-size:0.75rem; padding:0.35rem 0.65rem;">🔗 Link</button>
+              <button type="button" class="btn-outline gallery-clear-btn" data-slot="2" style="font-size:0.75rem; padding:0.35rem 0.65rem; color:#DC2626; border-color:#FCA5A5;">❌ Clear (Blank)</button>
+            </div>
+          </div>
+
+          <!-- Slot 4: Highlights & Memories -->
+          <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:1rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+              <strong style="font-size:0.88rem; color:var(--color-navy);">Slot 4: Food, Culture & Highlights</strong>
+              <span style="font-size:0.7rem; background:#EFF6FF; color:#1D4ED8; font-weight:700; padding:0.15rem 0.45rem; border-radius:4px;">Bottom Right</span>
+            </div>
+            <div style="height:140px; background:#E2E8F0; border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; margin-bottom:0.75rem; position:relative;">
+              <img id="galleryPreview_3" src="" alt="Slot 4 Preview" style="width:100%; height:100%; object-fit:cover; display:none;">
+              <div id="galleryPlaceholder_3" style="color:var(--text-muted); font-size:0.8rem; text-align:center;">
+                ✨ <em>Blank Placeholder (Visible on site)</em>
+              </div>
+            </div>
+            <div style="display:flex; gap:0.4rem; align-items:center; flex-wrap:wrap;">
+              <label class="btn-primary-action" style="font-size:0.75rem; padding:0.35rem 0.65rem; background:#0284C7; cursor:pointer; margin:0;">
+                📸 Upload Photo
+                <input type="file" class="gallery-file-input" data-slot="3" accept="image/*" style="display:none;">
+              </label>
+              <button type="button" class="btn-outline gallery-url-btn" data-slot="3" style="font-size:0.75rem; padding:0.35rem 0.65rem;">🔗 Link</button>
+              <button type="button" class="btn-outline gallery-clear-btn" data-slot="3" style="font-size:0.75rem; padding:0.35rem 0.65rem; color:#DC2626; border-color:#FCA5A5;">❌ Clear (Blank)</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="background:#F0FDF4; border:1px solid #BBF7D0; border-radius:8px; padding:0.85rem 1rem; font-size:0.82rem; color:#166534; display:flex; align-items:center; gap:0.6rem;">
+          <span>💡</span>
+          <span><strong>Instant Live Sync:</strong> When you click "Save Photos & Itinerary", images are compressed and instantly updated on both the website and the detailed itinerary page!</span>
+        </div>
+
+      </div>
+      <div class="admin-modal-footer">
+        <button type="button" class="btn-outline" id="closeGalleryModalBtnBottom" style="padding:0.65rem 1.25rem; font-weight:700; border-radius:var(--radius-sm); border:1px solid #CBD5E1; background:#FFFFFF; cursor:pointer;">Cancel</button>
+        <button type="button" class="btn-primary-action" id="saveGalleryModalBtn" style="background:linear-gradient(135deg, #059669, #047857); padding:0.65rem 1.5rem;">
+          <span>💾 Save Photos & Itinerary</span>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -1751,14 +1883,14 @@
             <div class="pkg-photo-box">
               <div class="pkg-thumb-wrapper" onclick="openImageLightbox('${escapeHtml(imgSrc)}', '${escapeHtml(pkg.name)}')">
                 <img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(pkg.name)}" class="pkg-table-thumb" id="thumbImg_${index}" onerror="this.src='../images/logo.png'">
-                <div class="pkg-thumb-zoom" title="Click to enlarge">ðŸ”</div>
+                <div class="pkg-thumb-zoom" title="Click to enlarge">🔍</div>
               </div>
               <div class="pkg-photo-btns">
                 <label class="btn-photo-change" title="Upload Photo from Device / Mobile">
-                  ðŸ“¸ Upload
+                  📸 Upload
                   <input type="file" class="pkg-row-file-input" data-index="${index}" accept="image/*" style="display:none;">
                 </label>
-                <button type="button" class="btn-photo-url" data-index="${index}" title="Edit Image URL">ðŸ”— Link</button>
+                <button type="button" class="btn-photo-url" data-index="${index}" title="Edit Image URL">🔗 Link</button>
               </div>
             </div>
           </td>
@@ -1796,13 +1928,24 @@
               <option value="false" ${pkg.active === false ? 'selected' : ''}>Hidden</option>
             </select>
           </td>
-          <td style="text-align:center;">
-            <button type="button" class="btn-del-pkg" data-index="${index}" title="Delete Package" style="background:#FEE2E2; border:1px solid #FCA5A5; color:#DC2626; padding:0.4rem 0.6rem; border-radius:6px; cursor:pointer; font-size:0.8rem; font-weight:700;">
-              ðŸ—‘ï¸
+          <td style="text-align:center; white-space:nowrap;">
+            <button type="button" class="btn-gallery-pkg" data-index="${index}" title="Edit Top 4 Photos & Itinerary Page" style="background:#0F172A; color:#FFFFFF; border:none; padding:0.42rem 0.65rem; border-radius:6px; cursor:pointer; font-size:0.75rem; font-weight:700; display:inline-flex; align-items:center; gap:0.25rem;">
+              <span>🖼️ Photos & Itinerary</span>
+            </button>
+            <button type="button" class="btn-del-pkg" data-index="${index}" title="Delete Package" style="background:#FEE2E2; border:1px solid #FCA5A5; color:#DC2626; padding:0.42rem 0.6rem; border-radius:6px; cursor:pointer; font-size:0.8rem; font-weight:700; margin-left:0.25rem;">
+              🗑️
             </button>
           </td>
         `;
         tbody.appendChild(tr);
+      });
+
+      // Attach Gallery Modal Open Listeners for Table Rows
+      tbody.querySelectorAll('.btn-gallery-pkg').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const index = parseInt(btn.getAttribute('data-index'), 10);
+          openPackageGalleryModal(index);
+        });
       });
 
       // Attach File Upload Change Listeners for Table Rows
@@ -1811,7 +1954,7 @@
           const file = e.target.files[0];
           if (!file) return;
           const index = parseInt(input.getAttribute('data-index'), 10);
-          showToast('â³ Compressing & optimizing photo...');
+          showToast('⏳ Compressing & optimizing photo...');
           try {
             const compressedDataUrl = await window.TrovenzaConfig.compressImage(file, 900, 650, 0.82);
             const config = window.TrovenzaConfig.getConfig();
@@ -1824,7 +1967,7 @@
               if (wrapper) {
                 wrapper.onclick = () => openImageLightbox(compressedDataUrl, config.packages[index].name);
               }
-              showToast(`âœ… Photo updated for "${config.packages[index].name}"!`);
+              showToast(`✅ Photo updated for "${config.packages[index].name}"!`);
             }
           } catch (err) {
             alert('Error processing image: ' + err.message);
@@ -1848,7 +1991,7 @@
             if (wrapper) {
               wrapper.onclick = () => openImageLightbox(newUrl.trim(), config.packages[index].name);
             }
-            showToast(`âœ… Image link updated for "${config.packages[index].name}"!`);
+            showToast(`✅ Image link updated for "${config.packages[index].name}"!`);
           }
         });
       });
@@ -1864,7 +2007,7 @@
             config.packages.splice(index, 1);
             window.TrovenzaConfig.saveConfig(config);
             renderPackagesTable(config.packages);
-            showToast(`ðŸ—‘ï¸ Package "${pkg.name}" deleted.`);
+            showToast(`🗑️ Package "${pkg.name}" deleted.`);
           }
         });
       });
@@ -1892,6 +2035,122 @@
       }
     });
 
+    // =========================================================================
+    // 5B. TOP 4 COLLAGE PHOTOS & ITINERARY MODAL CONTROLLER
+    // =========================================================================
+    let currentEditingPkgIndex = null;
+    let currentEditingGallery = ['', '', '', ''];
+
+    function openPackageGalleryModal(index) {
+      const config = window.TrovenzaConfig.getConfig();
+      const pkg = config.packages[index];
+      if (!pkg) return;
+      currentEditingPkgIndex = index;
+      currentEditingGallery = Array.isArray(pkg.gallery) ? [...pkg.gallery] : [];
+      while (currentEditingGallery.length < 4) currentEditingGallery.push('');
+
+      // Default slot 0 to pkg.image if empty
+      if (!currentEditingGallery[0] && pkg.image) {
+        currentEditingGallery[0] = pkg.image;
+      }
+
+      document.getElementById('galleryModalTitle').textContent = `Top 4 Collage Photos: ${pkg.name}`;
+      const liveLink = document.getElementById('galleryModalLiveLink');
+      if (liveLink) {
+        liveLink.href = pkg.url ? (pkg.url.startsWith('http') ? pkg.url : '../' + pkg.url) : '../index.html#travelPackages';
+      }
+
+      refreshGalleryModalPreviews();
+      document.getElementById('packageGalleryModal').style.display = 'flex';
+    }
+
+    function refreshGalleryModalPreviews() {
+      for (let slot = 0; slot < 4; slot++) {
+        const val = currentEditingGallery[slot];
+        const imgEl = document.getElementById(`galleryPreview_${slot}`);
+        const phEl = document.getElementById(`galleryPlaceholder_${slot}`);
+        if (val && val.trim() !== '') {
+          imgEl.src = val;
+          imgEl.style.display = 'block';
+          if (phEl) phEl.style.display = 'none';
+        } else {
+          imgEl.src = '';
+          imgEl.style.display = 'none';
+          if (phEl) phEl.style.display = 'block';
+        }
+      }
+    }
+
+    function closePackageGalleryModal() {
+      document.getElementById('packageGalleryModal').style.display = 'none';
+      currentEditingPkgIndex = null;
+    }
+
+    document.getElementById('closeGalleryModalBtn').addEventListener('click', closePackageGalleryModal);
+    document.getElementById('closeGalleryModalBtnBottom').addEventListener('click', closePackageGalleryModal);
+    document.getElementById('packageGalleryModal').addEventListener('click', (e) => {
+      if (e.target.id === 'packageGalleryModal') closePackageGalleryModal();
+    });
+
+    // Gallery File Inputs (Device upload with Auto Compression)
+    document.querySelectorAll('.gallery-file-input').forEach(input => {
+      input.addEventListener('change', async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const slot = parseInt(input.getAttribute('data-slot'), 10);
+        showToast('⏳ Compressing photo...');
+        try {
+          const compressed = await window.TrovenzaConfig.compressImage(file, 1200, 800, 0.82);
+          currentEditingGallery[slot] = compressed;
+          refreshGalleryModalPreviews();
+          showToast(`✅ Slot ${slot + 1} photo uploaded! Click "Save" to apply.`);
+        } catch (err) {
+          alert('Error compressing image: ' + err.message);
+        }
+      });
+    });
+
+    // Gallery URL Inputs
+    document.querySelectorAll('.gallery-url-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const slot = parseInt(btn.getAttribute('data-slot'), 10);
+        const currentVal = currentEditingGallery[slot] || '';
+        const newUrl = prompt(`Enter Image URL or path for Slot ${slot + 1}:`, currentVal);
+        if (newUrl !== null) {
+          currentEditingGallery[slot] = newUrl.trim();
+          refreshGalleryModalPreviews();
+        }
+      });
+    });
+
+    // Gallery Clear Buttons
+    document.querySelectorAll('.gallery-clear-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const slot = parseInt(btn.getAttribute('data-slot'), 10);
+        currentEditingGallery[slot] = '';
+        refreshGalleryModalPreviews();
+        showToast(`Slot ${slot + 1} cleared (reverted to blank placeholder).`);
+      });
+    });
+
+    // Save Gallery Modal Button
+    document.getElementById('saveGalleryModalBtn').addEventListener('click', () => {
+      if (currentEditingPkgIndex === null) return;
+      const config = window.TrovenzaConfig.getConfig();
+      if (!config.packages[currentEditingPkgIndex]) return;
+
+      config.packages[currentEditingPkgIndex].gallery = [...currentEditingGallery];
+      // Also update slot 0 to main image if slot 0 changed
+      if (currentEditingGallery[0]) {
+        config.packages[currentEditingPkgIndex].image = currentEditingGallery[0];
+      }
+
+      window.TrovenzaConfig.saveConfig(config);
+      renderPackagesTable(config.packages);
+      closePackageGalleryModal();
+      showToast(`✅ Top 4 Photos & Itinerary saved successfully!`);
+    });
+
     // ADD PACKAGE MODAL CONTROLLER
     let currentNewPkgDataUrl = '';
 
@@ -1915,7 +2174,7 @@
     document.getElementById('newPkgFileInput').addEventListener('change', async (e) => {
       const file = e.target.files[0];
       if (!file) return;
-      showToast('â³ Compressing photo...');
+      showToast('⏳ Compressing photo...');
       try {
         const compressed = await window.TrovenzaConfig.compressImage(file, 900, 650, 0.82);
         currentNewPkgDataUrl = compressed;
@@ -1923,7 +2182,7 @@
         document.getElementById('newPkgImgMeta').textContent = `Photo: ${file.name} (${Math.round(compressed.length * 0.75 / 1024)} KB)`;
         document.getElementById('newPkgPreviewWrap').style.display = 'flex';
         document.getElementById('newPkgUrlInput').value = '';
-        showToast('âœ… Photo compressed and ready!');
+        showToast('✅ Photo compressed and ready!');
       } catch (err) {
         alert('Failed to process image: ' + err.message);
       }
@@ -1971,7 +2230,7 @@
 
       const inclusions = inclusionsRaw
         ? inclusionsRaw.split(',').map(s => s.trim()).filter(Boolean)
-        : ["ðŸ½ï¸ " + (mealPlan || "MAP Plan"), "ðŸš— Private Fleet Cab", "ðŸ¨ Premium Stays", "ðŸ¥¾ Expert Guide"];
+        : ["🍽️ " + (mealPlan || "MAP Plan"), "🚗 Private Fleet Cab", "🏨 Premium Stays", "🥾 Expert Guide"];
 
       const cleanId = 'pkg-' + name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') + '-' + Date.now().toString(36);
 
@@ -1984,7 +2243,7 @@
         originalPrice: origPrice,
         mealPlan: mealPlan || "MAP Plan (Breakfast & Dinner)",
         badge: badge || "NEW",
-        destinations: destinations || "ðŸ“ Custom Mountain Circuit",
+        destinations: destinations || "📍 Custom Mountain Circuit",
         inclusions: inclusions,
         image: currentNewPkgDataUrl || "images/packages/auli-chopta-main.jpg",
         url: "#travelPackages",
@@ -1996,7 +2255,7 @@
       window.TrovenzaConfig.saveConfig(config);
       renderPackagesTable(config.packages);
       closeAddPackageModal();
-      showToast(`ðŸŽ‰ "${name}" published successfully!`);
+      showToast(`🎉 "${name}" published successfully!`);
     });
 
     // Reset Packages to Factory 16
@@ -2006,7 +2265,7 @@
         config.packages = JSON.parse(JSON.stringify(window.TrovenzaConfig.DEFAULT_CONFIG.packages));
         window.TrovenzaConfig.saveConfig(config);
         renderPackagesTable(config.packages);
-        showToast('âœ… Packages reset to factory defaults.');
+        showToast('✅ Packages reset to factory defaults.');
       }
     });
 
@@ -2021,7 +2280,7 @@
       config.fares.delhiHaridwar.urbania = parseInt(document.getElementById('fareUrbaniaFixed').value) || 15000;
 
       window.TrovenzaConfig.saveConfig(config);
-      showToast('âœ… Fixed One-Way Drop Fares saved & live!');
+      showToast('✅ Fixed One-Way Drop Fares saved & live!');
     });
 
     // Save KM Rates
@@ -2035,7 +2294,7 @@
       config.fares.nightDriverAllowance = parseInt(document.getElementById('rateNightAllowance').value) || 400;
 
       window.TrovenzaConfig.saveConfig(config);
-      showToast('âœ… Outstation KM Rates saved & live!');
+      showToast('✅ Outstation KM Rates saved & live!');
     });
 
     // Save All Packages
@@ -2064,7 +2323,7 @@
       });
 
       window.TrovenzaConfig.saveConfig(config);
-      showToast(`âœ… All ${config.packages.length} Tour & Yatra Packages updated & live!`);
+      showToast(`✅ All ${config.packages.length} Tour & Yatra Packages updated & live!`);
     });
 
     // Save Wedding Package
@@ -2080,7 +2339,7 @@
       config.wedding.inclusions = document.getElementById('weddingInclusions').value;
 
       window.TrovenzaConfig.saveConfig(config);
-      showToast('âœ… Triyuginarayan Wedding Package details updated!');
+      showToast('✅ Triyuginarayan Wedding Package details updated!');
     });
 
     // Save Contact Details
@@ -2093,7 +2352,7 @@
       config.company.announcement = document.getElementById('contactAnnouncement').value;
 
       window.TrovenzaConfig.saveConfig(config);
-      showToast('âœ… Contact Info & Haridwar Address saved live!');
+      showToast('✅ Contact Info & Haridwar Address saved live!');
     });
 
     // 7. LEADS CRM CONTROLLER
@@ -2126,7 +2385,7 @@
           <td><strong>${lead.name}</strong></td>
           <td><a href="tel:${lead.phone}" style="color:var(--color-navy); font-weight:700; text-decoration:none;">${lead.phone}</a></td>
           <td><span style="font-weight:600; color:var(--color-navy);">${lead.service}</span></td>
-          <td><small style="color:var(--text-muted);">${lead.pickup ? lead.pickup + ' â†’ ' + lead.destination : lead.vehicle || lead.guests || 'N/A'}</small></td>
+          <td><small style="color:var(--text-muted);">${lead.pickup ? lead.pickup + ' → ' + lead.destination : lead.vehicle || lead.guests || 'N/A'}</small></td>
           <td>
             <select class="form-control" onchange="changeLeadStatus('${lead.id}', this.value)" style="padding:0.25rem 0.5rem; font-size:0.75rem; font-weight:700; width:100px;">
               <option value="New" ${lead.status === 'New' ? 'selected' : ''}>New</option>
@@ -2137,11 +2396,11 @@
           </td>
           <td>
             <a href="https://wa.me/${lead.phone.replace(/[^0-9]/g, '')}?text=Namaste%20${encodeURIComponent(lead.name)}!%20This%20is%20Trovenza%20Travels%20regarding%20your%20inquiry%20for%20${encodeURIComponent(lead.service)}." target="_blank" class="btn-secondary-action" style="padding:0.3rem 0.6rem; font-size:0.75rem; background:#D1FAE5; color:#065F46; border-color:#A7F3D0;">
-              ðŸ’¬ WhatsApp
+              💬 WhatsApp
             </a>
           </td>
           <td>
-            <button onclick="removeLead('${lead.id}')" style="background:none; border:none; color:var(--color-red); cursor:pointer; font-weight:800; font-size:1.1rem;" title="Delete Lead">Ã—</button>
+            <button onclick="removeLead('${lead.id}')" style="background:none; border:none; color:var(--color-red); cursor:pointer; font-weight:800; font-size:1.1rem;" title="Delete Lead">×</button>
           </td>
         `;
         fullTbody.appendChild(tr);
@@ -2241,7 +2500,7 @@
       }
       localStorage.setItem(PASS_STORAGE_KEY, n1);
       document.getElementById('changePasswordForm').reset();
-      showToast('âœ… Admin password updated successfully!');
+      showToast('✅ Admin password updated successfully!');
     });
 
     // Export JSON Backup

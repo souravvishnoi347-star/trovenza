@@ -215,7 +215,7 @@
           "🫁 O₂ Support & Biometric Pass"
         ],
         image: "images/yatra/badrinath.webp",
-        url: "chardham-yatra.html",
+        url: "packages/chardham-yatra-9n10d.html",
         active: true
       },
       {
@@ -235,7 +235,7 @@
           "🚗 Helipad Transfers"
         ],
         image: "images/packages/kedarnath-heli-main.jpg",
-        url: "chardham-yatra.html",
+        url: "packages/kedarnath-heli-vip-charter-2n3d.html",
         active: true
       },
       {
@@ -255,7 +255,7 @@
           "🚗 AC Sedan / SUV"
         ],
         image: "images/yatra/ram-mandir.jpg",
-        url: "#travelPackages",
+        url: "packages/ayodhya-kashi-varanasi-4n5d.html",
         active: true
       },
       {
@@ -275,7 +275,7 @@
           "🚗 Dedicated Cab"
         ],
         image: "images/packages/kashmir.jpg",
-        url: "#travelPackages",
+        url: "packages/kashmir-paradise-gulmarg-5n6d.html",
         active: true
       },
       {
@@ -295,7 +295,7 @@
           "🚗 Private Cab"
         ],
         image: "images/packages/manali-solang.jpg",
-        url: "#travelPackages",
+        url: "packages/himachal-shimla-manali-5n6d.html",
         active: true
       },
       {
@@ -315,7 +315,7 @@
           "🚗 Chauffeur Sedan"
         ],
         image: "images/packages/hawa-mahal.webp",
-        url: "#travelPackages",
+        url: "packages/rajasthan-royal-heritage-6n7d.html",
         active: true
       },
       {
@@ -335,7 +335,7 @@
           "🏨 4-Star Resort Stays"
         ],
         image: "images/packages/nepal.jpg",
-        url: "#travelPackages",
+        url: "packages/nepal-himalayan-escapade-5n6d.html",
         active: true
       },
       {
@@ -355,7 +355,7 @@
           "🏨 4-Star Downtown Hotel"
         ],
         image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80",
-        url: "#travelPackages",
+        url: "packages/dubai-luxury-extravaganza-4n5d.html",
         active: true
       }
     ],
@@ -389,6 +389,8 @@
               if (!pkg.category && defaultMatch.category) pkg.category = defaultMatch.category;
               if (!pkg.destinations && defaultMatch.destinations) pkg.destinations = defaultMatch.destinations;
               if (!pkg.inclusions && defaultMatch.inclusions) pkg.inclusions = defaultMatch.inclusions;
+              if (!pkg.url || pkg.url === '#travelPackages' || pkg.url === 'chardham-yatra.html') pkg.url = defaultMatch.url;
+              if (!Array.isArray(pkg.gallery)) pkg.gallery = [];
             }
           });
           // Ensure all default packages exist
@@ -786,6 +788,48 @@
           }
         }
       });
+    }
+
+    // 7F. HYDRATE DETAILED ITINERARY PACKAGE GALLERY GRID & METADATA
+    const galleryGrid = document.querySelector('.package-gallery-grid');
+    if (galleryGrid && Array.isArray(config.packages)) {
+      const pagePkgId = galleryGrid.getAttribute('data-pkg-id');
+      const pkg = config.packages.find(p => p.id === pagePkgId);
+      if (pkg) {
+        if (Array.isArray(pkg.gallery)) {
+          // Slot 1 (Hero)
+          const heroImg = pkg.gallery[0] || pkg.image;
+          const slot1 = galleryGrid.querySelector('[data-gallery-slot="1"]');
+          if (slot1 && heroImg) {
+            slot1.innerHTML = `<img src="${heroImg}" alt="${escapeHtml(pkg.name)} Hero View" loading="lazy">`;
+          }
+          // Slot 2 (Portrait)
+          const slot2 = galleryGrid.querySelector('[data-gallery-slot="2"]');
+          if (slot2 && pkg.gallery[1]) {
+            slot2.innerHTML = `<img src="${pkg.gallery[1]}" alt="${escapeHtml(pkg.name)} Sightseeing & Activity" loading="lazy">`;
+          }
+          // Slot 3 (Top Right)
+          const slot3 = galleryGrid.querySelector('[data-gallery-slot="3"]');
+          if (slot3 && pkg.gallery[2]) {
+            slot3.innerHTML = `<img src="${pkg.gallery[2]}" alt="${escapeHtml(pkg.name)} Resort & Stay" loading="lazy">`;
+          }
+          // Slot 4 (Bottom Right)
+          const slot4 = galleryGrid.querySelector('[data-gallery-slot="4"]');
+          if (slot4 && pkg.gallery[3]) {
+            slot4.innerHTML = `<img src="${pkg.gallery[3]}" alt="${escapeHtml(pkg.name)} Experience & Highlights" loading="lazy">`;
+          }
+        }
+
+        // Hydrate Itinerary Detail Page Pricing
+        const pagePriceEl = document.querySelector('.price-current');
+        if (pagePriceEl && pkg.price) {
+          pagePriceEl.textContent = '₹' + Number(pkg.price).toLocaleString('en-IN');
+        }
+        const pageOrigPriceEl = document.querySelector('.price-strike');
+        if (pageOrigPriceEl && pkg.originalPrice) {
+          pageOrigPriceEl.textContent = '₹' + Number(pkg.originalPrice).toLocaleString('en-IN');
+        }
+      }
     }
   }
 
