@@ -952,6 +952,13 @@
           </button>
         </li>
         <li>
+          <button class="nav-tab-btn" data-tab="tabFounder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Founder & CEO Profile</span>
+            <span class="sidebar-badge" style="background:#0284C7;">CEO</span>
+          </button>
+        </li>
+        <li>
           <button class="nav-tab-btn" data-tab="tabLeads">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             <span>Customer Leads</span>
@@ -1352,6 +1359,81 @@
               <div class="form-group" style="margin-top:1.25rem;">
                 <label class="form-label">Top Announcement Strip Text</label>
                 <input type="text" id="contactAnnouncement" class="form-control" value="⚡ Direct Haridwar Cab & Pilgrimage Operations • Guaranteed Commercial Yellow Plate Vehicles">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================
+             TAB 5B: FOUNDER & CEO PROFILE (TRILOK RANA)
+             ================================================================= -->
+        <section class="tab-pane" id="tabFounder">
+          <div class="panel-card">
+            <div class="panel-card-header">
+              <div>
+                <div class="panel-card-title">👤 Founder & Managing Director Profile (Trilok Rana)</div>
+                <div class="panel-card-desc">Edit personal branding, CEO portrait photo, experience badges, and executive vision statement.</div>
+              </div>
+              <button class="btn-primary-action" id="saveFounderBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                <span>Save Founder Profile</span>
+              </button>
+            </div>
+            <div class="panel-card-body">
+              <div class="form-grid-3">
+                <div class="form-group">
+                  <label class="form-label">Full Name</label>
+                  <input type="text" id="founderName" class="form-control" value="Trilok Rana">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Executive Title / Designation</label>
+                  <input type="text" id="founderTitle" class="form-control" value="Founder & Managing Director">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Years of Experience Badge</label>
+                  <input type="text" id="founderExperience" class="form-control" value="⏱️ 10+ Years Experience">
+                </div>
+              </div>
+
+              <div class="form-grid-2" style="margin-top:1rem;">
+                <div class="form-group">
+                  <label class="form-label">Yatris Blessed Badge</label>
+                  <input type="text" id="founderYatris" class="form-control" value="★ 45,000+ Yatris Blessed">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Founder Contact Phone</label>
+                  <input type="text" id="founderPhone" class="form-control" value="+91 98765 43210">
+                </div>
+              </div>
+
+              <!-- PHOTO UPLOAD & PREVIEW -->
+              <div class="form-group" style="margin-top:1.25rem;">
+                <label class="form-label">Founder Official HD Portrait (Photo)</label>
+                <div class="modal-upload-card" style="display:flex; gap:1.25rem; align-items:center; flex-wrap:wrap; background:#F8FAFC; border:1px solid #E2E8F0; padding:1.25rem; border-radius:12px;">
+                  <div style="width:110px; height:110px; border-radius:50%; overflow:hidden; border:3px solid var(--color-gold); background:#1E293B; flex-shrink:0;">
+                    <img id="founderImgPreview" src="../images/team/trilok-rana.jpg" alt="Trilok Rana Preview" onerror="this.src='../images/logo.png'" style="width:100%; height:100%; object-fit:cover;">
+                  </div>
+                  <div style="flex:1; min-width:240px;">
+                    <div style="display:flex; gap:0.6rem; align-items:center; flex-wrap:wrap; margin-bottom:0.5rem;">
+                      <label class="btn-primary-action" style="background:#0284C7; cursor:pointer; padding:0.5rem 1rem; font-size:0.82rem;">
+                        📸 Choose Photo from Device / Phone
+                        <input type="file" id="founderFileInput" accept="image/*" style="display:none;">
+                      </label>
+                      <button type="button" class="btn-outline" id="founderUrlBtn" style="padding:0.5rem 0.85rem; font-size:0.82rem;">🔗 Image Link</button>
+                    </div>
+                    <div style="font-size:0.76rem; color:var(--text-muted);">Recommended: Square portrait photo (min 400x400px). Client-side compression automatically reduces size for instant load.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-top:1.25rem;">
+                <label class="form-label">Executive Vision & Bio Statement</label>
+                <textarea id="founderBio" class="form-control" rows="4" style="resize:vertical;"></textarea>
+              </div>
+
+              <div style="margin-top:1rem; padding:0.85rem 1rem; background:#EFF6FF; border:1px solid #BFDBFE; border-radius:8px; font-size:0.8rem; color:#1D4ED8; display:flex; align-items:center; gap:0.6rem;">
+                <span>💡</span>
+                <span><strong>AI & Google Knowledge Graph:</strong> This profile directly powers the <code>Person</code> Schema and <code>llms.txt</code> so AI search engines cite Trilok Rana when users search about Haridwar tours or Trovenza Group.</span>
               </div>
             </div>
           </div>
@@ -1850,6 +1932,19 @@
         document.getElementById('contactWhatsapp').value = config.company.whatsappNumber || '';
         document.getElementById('contactEmail').value = config.company.email || '';
         document.getElementById('contactAnnouncement').value = config.company.announcement || '';
+      }
+
+      // Hydrate Founder (Trilok Rana)
+      if (config.founder) {
+        if (document.getElementById('founderName')) document.getElementById('founderName').value = config.founder.name || 'Trilok Rana';
+        if (document.getElementById('founderTitle')) document.getElementById('founderTitle').value = config.founder.title || 'Founder & Managing Director';
+        if (document.getElementById('founderExperience')) document.getElementById('founderExperience').value = config.founder.experience || '⏱️ 10+ Years Experience';
+        if (document.getElementById('founderYatris')) document.getElementById('founderYatris').value = config.founder.yatrisServed || '★ 45,000+ Yatris Blessed';
+        if (document.getElementById('founderPhone')) document.getElementById('founderPhone').value = config.founder.phone || '+91 98765 43210';
+        if (document.getElementById('founderBio')) document.getElementById('founderBio').value = config.founder.bio || '';
+        if (config.founder.image && document.getElementById('founderImgPreview')) {
+          document.getElementById('founderImgPreview').src = config.founder.image;
+        }
       }
 
       // Hydrate Leads
@@ -2353,6 +2448,55 @@
 
       window.TrovenzaConfig.saveConfig(config);
       showToast('✅ Contact Info & Haridwar Address saved live!');
+    });
+
+    // Founder Photo Upload & Auto Compression
+    document.getElementById('founderFileInput').addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      showToast('⏳ Compressing Founder portrait...');
+      try {
+        const compressed = await window.TrovenzaConfig.compressImage(file, 600, 600, 0.85);
+        const config = window.TrovenzaConfig.getConfig();
+        if (!config.founder) config.founder = {};
+        config.founder.image = compressed;
+        window.TrovenzaConfig.saveConfig(config);
+        const prevImg = document.getElementById('founderImgPreview');
+        if (prevImg) prevImg.src = compressed;
+        showToast('✅ Founder photo updated live!');
+      } catch (err) {
+        alert('Error processing photo: ' + err.message);
+      }
+    });
+
+    // Founder Image URL Link Button
+    document.getElementById('founderUrlBtn').addEventListener('click', () => {
+      const config = window.TrovenzaConfig.getConfig();
+      const currentUrl = config.founder?.image || '';
+      const newUrl = prompt('Enter Image URL for Founder (e.g. images/team/trilok-rana.jpg or https://...):', currentUrl);
+      if (newUrl !== null && newUrl.trim() !== '') {
+        if (!config.founder) config.founder = {};
+        config.founder.image = newUrl.trim();
+        window.TrovenzaConfig.saveConfig(config);
+        const prevImg = document.getElementById('founderImgPreview');
+        if (prevImg) prevImg.src = newUrl.trim();
+        showToast('✅ Founder image link updated live!');
+      }
+    });
+
+    // Save Founder Profile Details
+    document.getElementById('saveFounderBtn').addEventListener('click', () => {
+      const config = window.TrovenzaConfig.getConfig();
+      if (!config.founder) config.founder = {};
+      config.founder.name = document.getElementById('founderName').value.trim();
+      config.founder.title = document.getElementById('founderTitle').value.trim();
+      config.founder.experience = document.getElementById('founderExperience').value.trim();
+      config.founder.yatrisServed = document.getElementById('founderYatris').value.trim();
+      config.founder.phone = document.getElementById('founderPhone').value.trim();
+      config.founder.bio = document.getElementById('founderBio').value.trim();
+
+      window.TrovenzaConfig.saveConfig(config);
+      showToast('✅ Founder Profile (Trilok Rana) saved live across both websites!');
     });
 
     // 7. LEADS CRM CONTROLLER

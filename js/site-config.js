@@ -371,6 +371,16 @@
       rituals: "Complete Haldi, Mehndi, Ring Ceremony, Wedding Mandap, Floral & Lighting Decor",
       inclusions: "Full On-Ground Management, Certified Bridal/Groom Makeup Artist, Cinematic 4K Photography & Drone, Temple Puja Fees & Priest Dakshina",
       active: true
+    },
+    founder: {
+      name: "Trilok Rana",
+      title: "Founder & Managing Director",
+      bio: "With over a decade of hands-on pilgrimage operations headquartered in Haridwar, Trilok Rana has spearheaded Trovenza Group and Jai Maa Tour & Travels to serve over 45,000+ satisfied yatris across Char Dham, Kedarnath Helicopter shuttles, and luxury Himalayan expeditions.",
+      experience: "10+ Years Excellence",
+      yatrisServed: "45,000+ Yatris Blessed",
+      image: "images/team/trilok-rana.jpg",
+      phone: "+91 98765 43210",
+      active: true
     }
   };
 
@@ -380,6 +390,9 @@
       const stored = localStorage.getItem(CONFIG_STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
+        if (!parsed.founder) {
+          parsed.founder = { ...DEFAULT_CONFIG.founder };
+        }
         if (Array.isArray(parsed.packages)) {
           // Merge defaults to ensure images, categories, and newly registered packages are present
           parsed.packages.forEach(pkg => {
@@ -580,6 +593,20 @@
           window.vehicleData[veh].ratePerKm = '₹' + config.fares.perKm[veh] + ' / km';
         }
       });
+    }
+
+    // 7D-2. Update Founder Details (Trilok Rana)
+    if (config.founder) {
+      document.querySelectorAll('[data-bind="founder-name"]').forEach(el => el.textContent = config.founder.name);
+      document.querySelectorAll('[data-bind="founder-title"]').forEach(el => el.textContent = config.founder.title);
+      document.querySelectorAll('[data-bind="founder-bio"]').forEach(el => el.textContent = config.founder.bio);
+      document.querySelectorAll('[data-bind="founder-experience"]').forEach(el => el.textContent = config.founder.experience);
+      document.querySelectorAll('[data-bind="founder-yatris"]').forEach(el => el.textContent = config.founder.yatrisServed);
+      if (config.founder.image) {
+        document.querySelectorAll('img[data-bind="founder-image"]').forEach(img => {
+          img.src = config.founder.image;
+        });
+      }
     }
 
     // 7E. HYDRATE TOUR PACKAGES & NEW PICTURES (TROVENZA & JAI MAA)
