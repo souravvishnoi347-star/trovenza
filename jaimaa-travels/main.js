@@ -1,394 +1,633 @@
 /**
- * JAI MAA TOUR & TRAVELS - INTERACTIVE SCRIPT
- * Handles WhatsApp Inquiry Dispatch and Day-by-Day Modal Itineraries
+ * TROVENZA GROUP - LUXURY WHITE TRAVEL PORTAL INTERACTIVE LOGIC
+ * Features:
+ * 1. Mobile Navigation & Sticky Bottom Action Bar
+ * 2. Hero Console Tabs & Mode Switcher
+ * 3. Interactive Fleet Showcase Simulator (Urbania, Crysta, Ertiga, Dzire, Tempo, Hycross)
+ * 4. Dual-Mode Live Taxi Fare Engine (10+ Fixed Routes + Custom KM Estimator)
+ * 5. Instant WhatsApp Booking Dispatch Routing
+ * 6. Animated Counter Numbers
+ * 7. Travel Packages Category Filter
+ * 8. FAQ Accordion Interaction
+ * 9. Triyuginarayan Royal Wedding Menu Tabs
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. WhatsApp Inquiry Dispatch
-  const inquiryForm = document.getElementById('inquiryForm');
-  if (inquiryForm) {
-    inquiryForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const tour = document.getElementById('tourSelect').value;
-      const name = document.getElementById('custName').value;
-      const phone = document.getElementById('custPhone').value;
-      const persons = document.getElementById('custPersons').value;
-      const month = document.getElementById('custMonth').value;
+  // 1. Mobile Navigation Toggle
+  const mobileToggle = document.querySelector('.mobile-toggle');
+  const navMenu = document.querySelector('.nav-pills-list') || document.querySelector('.nav-menu-pills');
 
-      const message = `Namaste Jai Maa Tour & Travels! 🚩%0A%0A` +
-        `*New Website Tour Inquiry (12 Year Portal)*%0A` +
-        `• *Package:* ${tour}%0A` +
-        `• *Client Name:* ${name}%0A` +
-        `• *Phone:* ${phone}%0A` +
-        `• *Number of Persons:* ${persons}%0A` +
-        `• *Travel Month:* ${month}%0A%0A` +
-        `Please send full day-by-day itinerary and best discounted quote.`;
-
-      window.open(`https://wa.me/919876543210?text=${message}`, '_blank');
-    });
-  }
-
-  // Mobile Navigation Toggle
-  const mobileToggle = document.getElementById('mobileNavToggle');
-  const navLinks = document.querySelector('.nav-links');
-  if (mobileToggle && navLinks) {
+  if (mobileToggle && navMenu) {
     mobileToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('mobile-open');
-    });
-
-    document.querySelectorAll('.nav-item').forEach(item => {
-      item.addEventListener('click', () => {
-        navLinks.classList.remove('mobile-open');
-      });
+      navMenu.classList.toggle('mobile-open');
     });
 
     document.addEventListener('click', (e) => {
-      if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
-        navLinks.classList.remove('mobile-open');
+      if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+        navMenu.classList.remove('mobile-open');
       }
     });
   }
 
-  // FAQ Accordion
-  initFaqAccordion();
+  // 2. Hero Console Tabs & Mode Switcher
+  const consoleTabs = document.querySelectorAll('.b-card-tab, .console-tab');
+  const consolePanes = document.querySelectorAll('.booking-pane, .console-pane');
+  const modePills = document.querySelectorAll('.service-pill-btn, .mode-pill-btn');
 
-  // Fare Estimator
-  initFareEstimator();
-
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+  const switchTab = (targetId) => {
+    consoleTabs.forEach(t => {
+      t.classList.toggle('active', t.getAttribute('data-pane') === targetId);
     });
-  });
 
-});
+    consolePanes.forEach(p => {
+      p.classList.toggle('active', p.id === targetId);
+    });
 
+    modePills.forEach(m => {
+      const mode = m.getAttribute('data-mode');
+      m.classList.remove('active-taxi', 'active-yatra', 'active-govt');
+      if (mode === 'taxi' && targetId === 'paneTaxi') m.classList.add('active-taxi');
+      if (mode === 'yatra' && targetId === 'paneYatra') m.classList.add('active-yatra');
+      if (mode === 'govt' && targetId === 'paneGovt') m.classList.add('active-govt');
+    });
+  };
 
-// Itineraries Data
-const itineraries = {
-  chardham: `
-    <h3 style="font-family:'Outfit',sans-serif; color:#0F172A; margin-bottom:0.75rem; font-size:1.45rem;">Maha Char Dham Yatra (10 Days / 9 Nights)</h3>
-    <p style="color:#64748B; font-size:0.9rem; margin-bottom:1.5rem;">Standard / Deluxe Haridwar Departure Circuit</p>
-    
-    <div style="display:flex; flex-direction:column; gap:1rem; font-size:0.9rem;">
-      <div style="border-left:3px solid #D97706; padding-left:1rem;">
-        <strong>Day 1:</strong> Haridwar to Barkot via Mussoorie / Kempty Falls (220 km / 7-8 hrs). Overnight at Barkot.
-      </div>
-      <div style="border-left:3px solid #D97706; padding-left:1rem;">
-        <strong>Day 2:</strong> Barkot to Yamunotri Dham Darshan (Janki Chatti trek 6 km) & return. Overnight at Barkot.
-      </div>
-      <div style="border-left:3px solid #D97706; padding-left:1rem;">
-        <strong>Day 3:</strong> Barkot to Uttarkashi (100 km / 4 hrs). Visit Kashi Vishwanath Temple Uttarkashi.
-      </div>
-      <div style="border-left:3px solid #D97706; padding-left:1rem;">
-        <strong>Day 4:</strong> Uttarkashi to Gangotri Dham Darshan & return via Harsil Valley. Overnight at Uttarkashi.
-      </div>
-      <div style="border-left:3px solid #D97706; padding-left:1rem;">
-        <strong>Day 5:</strong> Uttarkashi to Guptkashi / Sitapur (220 km / 8 hrs). Mandatory biometric check.
-      </div>
-      <div style="border-left:3px solid #D97706; padding-left:1rem;">
-        <strong>Day 6:</strong> Guptkashi to Kedarnath Dham (Helicopter / 16 km trek from Sonprayag). Evening Aarti & Night Stay at Kedarnath.
-      </div>
-      <div style="border-left:3px solid #D97706; padding-left:1rem;">
-        <strong>Day 7:</strong> Kedarnath Morning Darshan to Guptkashi / Chopta descent. Overnight stay.
-      </div>
-      <div style="border-left:3px solid #D97706; padding-left:1rem;">
-        <strong>Day 8:</strong> Guptkashi to Badrinath Dham via Joshimath (190 km / 7 hrs). Evening Aarti & Tapt Kund snan.
-      </div>
-      <div style="border-left:3px solid #D97706; padding-left:1rem;">
-        <strong>Day 9:</strong> Badrinath Darshan, Mana Village (Vyas Gufa, Bhim Pul) to Rudraprayag / Srinagar.
-      </div>
-      <div style="border-left:3px solid #D97706; padding-left:1rem;">
-        <strong>Day 10:</strong> Rudraprayag to Haridwar / Rishikesh drop via Devprayag Sangam. Tour ends with divine blessings.
-      </div>
-    </div>
-
-    <div style="margin-top:2rem; text-align:center;">
-      <a href="https://wa.me/919876543210?text=Namaste!%20Please%20send%20PDF%20brochure%20for%2010D9N%20Char%20Dham." target="_blank" class="btn-submit" style="display:inline-flex; width:auto; padding:0.75rem 2rem;">
-        Download Detailed PDF via WhatsApp
-      </a>
-    </div>
-  `,
-
-  dodham: `
-    <h3 style="font-family:'Outfit',sans-serif; color:#0F172A; margin-bottom:0.75rem; font-size:1.45rem;">Sacred Do Dham (Kedarnath & Badrinath - 5 Days / 4 Nights)</h3>
-    <p style="color:#64748B; font-size:0.9rem; margin-bottom:1.5rem;">Shiva-Vishnu Express Pilgrimage</p>
-    
-    <div style="display:flex; flex-direction:column; gap:1rem; font-size:0.9rem;">
-      <div style="border-left:3px solid #0284C7; padding-left:1rem;">
-        <strong>Day 1:</strong> Haridwar / Dehradun to Guptkashi / Phata base. Overnight hotel stay.
-      </div>
-      <div style="border-left:3px solid #0284C7; padding-left:1rem;">
-        <strong>Day 2:</strong> Guptkashi to Kedarnath Dham (Helipad / Trek). VIP Darshan, evening aarti & stay at Top.
-      </div>
-      <div style="border-left:3px solid #0284C7; padding-left:1rem;">
-        <strong>Day 3:</strong> Kedarnath to Guptkashi descent, then drive to Pipalkoti / Joshimath.
-      </div>
-      <div style="border-left:3px solid #0284C7; padding-left:1rem;">
-        <strong>Day 4:</strong> Drive to Sri Badrinath Dham, Darshan, Mana Village sightseeing & drive to Srinagar.
-      </div>
-      <div style="border-left:3px solid #0284C7; padding-left:1rem;">
-        <strong>Day 5:</strong> Srinagar to Rishikesh / Haridwar drop with Devprayag & Ram Jhula visit.
-      </div>
-    </div>
-
-    <div style="margin-top:2rem; text-align:center;">
-      <a href="https://wa.me/919876543210?text=Namaste!%20Please%20send%20PDF%20brochure%20for%205D4N%20Do%20Dham." target="_blank" class="btn-submit" style="display:inline-flex; width:auto; padding:0.75rem 2rem;">
-        Book Do Dham on WhatsApp
-      </a>
-    </div>
-  `,
-
-  heli: `
-    <h3 style="font-family:'Outfit',sans-serif; color:#0F172A; margin-bottom:0.75rem; font-size:1.45rem;">Kedarnath Heli & VIP Darshan (3 Days / 2 Nights)</h3>
-    <p style="color:#64748B; font-size:0.9rem; margin-bottom:1.5rem;">Comfortable express package with zero strenuous trekking</p>
-    
-    <div style="display:flex; flex-direction:column; gap:1rem; font-size:0.9rem;">
-      <div style="border-left:3px solid #DC2626; padding-left:1rem;">
-        <strong>Day 1:</strong> Dehradun Airport (Jolly Grant) / Haridwar pickup in Innova Crysta, drive to luxury resort at Phata / Sersi.
-      </div>
-      <div style="border-left:3px solid #DC2626; padding-left:1rem;">
-        <strong>Day 2:</strong> Early morning helicopter flight to Kedarnath helipad (8 mins flight). Priority Sugam Darshan pass, puja rituals, and return heli flight or night cottage stay.
-      </div>
-      <div style="border-left:3px solid #DC2626; padding-left:1rem;">
-        <strong>Day 3:</strong> Relaxed return drive to Dehradun Airport or Haridwar Railway Station.
-      </div>
-    </div>
-
-    <div style="margin-top:2rem; text-align:center;">
-      <a href="https://wa.me/919876543210?text=Namaste!%20Please%20check%20Helicopter%20slots%20for%20Kedarnath." target="_blank" class="btn-submit" style="display:inline-flex; width:auto; padding:0.75rem 2rem;">
-        Check Slot Availability on WhatsApp
-      </a>
-    </div>
-  `
-};
-
-function openDetailsModal(key) {
-  const modal = document.getElementById('itineraryModal');
-  const content = document.getElementById('modalContent');
-  if (modal && content && itineraries[key]) {
-    content.innerHTML = itineraries[key];
-    modal.classList.add('active');
-  }
-}
-
-function closeDetailsModal() {
-  const modal = document.getElementById('itineraryModal');
-  if (modal) modal.classList.remove('active');
-}
-
-window.addEventListener('click', (e) => {
-  const modal = document.getElementById('itineraryModal');
-  if (e.target === modal) {
-    modal.classList.remove('active');
-  }
-  const policyModal = document.getElementById('policyModal');
-  if (e.target === policyModal) {
-    policyModal.classList.remove('active');
-  }
-});
-
-function openPolicyModal() {
-  const modal = document.getElementById('policyModal');
-  if (modal) modal.classList.add('active');
-}
-
-function closePolicyModal() {
-  const modal = document.getElementById('policyModal');
-  if (modal) modal.classList.remove('active');
-}
-
-// Interactive FAQ Accordion
-function initFaqAccordion() {
-  const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(item => {
-    const questionBtn = item.querySelector('.faq-question');
-    if (!questionBtn) return;
-    questionBtn.addEventListener('click', () => {
-      const isAlreadyActive = item.classList.contains('active');
-      faqItems.forEach(otherItem => {
-        otherItem.classList.remove('active');
-        const btn = otherItem.querySelector('.faq-question');
-        if (btn) btn.setAttribute('aria-expanded', 'false');
+  if (consoleTabs.length > 0) {
+    consoleTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetId = tab.getAttribute('data-pane');
+        switchTab(targetId);
       });
-      if (!isAlreadyActive) {
-        item.classList.add('active');
-        questionBtn.setAttribute('aria-expanded', 'true');
+    });
+  }
+
+  if (modePills.length > 0) {
+    modePills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const mode = pill.getAttribute('data-mode');
+        if (mode === 'taxi') switchTab('paneTaxi');
+        if (mode === 'yatra') switchTab('paneYatra');
+        if (mode === 'govt') switchTab('paneGovt');
+      });
+    });
+  }
+
+  // 3. Interactive Fleet Showcase Simulator
+  const vehicleData = {
+    crysta: {
+      name: "Toyota Innova Crysta (Captain Seats)",
+      category: "Executive Long-Distance MPV",
+      image: "images/fleet/toyota-crysta.webp",
+      desc: "India's unquestioned benchmark for mountain terrain and highway endurance. Equipped with plush ottoman captain loungers, individual climate vents, and high luggage clearance.",
+      ratePerKm: "₹18 / km",
+      seating: "6+1 Executive Captain",
+      luggage: "4 Suitcases + 2 Bags",
+      rateNum: 18,
+      delhiHaridwarFixed: 5000
+    },
+    urbania: {
+      name: "Force Urbania (16 Pax Ultra-Luxury)",
+      category: "VIP Delegation & Wedding Cruiser",
+      image: "images/fleet/urbania.png",
+      desc: "Next-generation aerodynamic luxury cruiser with 16 individual plush reclining seats, panoramic individual AC vents, sealed quiet cabin, and massive luggage hold.",
+      ratePerKm: "₹38 / km",
+      seating: "16+1 Executive Pushback",
+      luggage: "16 Large Suitcases",
+      rateNum: 38,
+      delhiHaridwarFixed: 15000
+    },
+    ertiga: {
+      name: "Maruti / Toyota Ertiga (6 Seater)",
+      category: "Economical Family MPV",
+      image: "images/fleet/ertiga.jpg",
+      desc: "Affordable and fuel-efficient 6-seater family MPV, ideal for small groups, airport runs, and plains-to-hills trips.",
+      ratePerKm: "₹14 / km",
+      seating: "6+1 Family Seating",
+      luggage: "3 Suitcases + Hand Bags",
+      rateNum: 14,
+      delhiHaridwarFixed: 4200
+    },
+    dzire: {
+      name: "Maruti Swift Dzire (Executive Sedan)",
+      category: "Punctual City & Outstation Sedan",
+      image: "images/fleet/swift-dzire.avif",
+      desc: "Smooth, silent, fuel-efficient highway sedan for couples and business executives. Chilled air conditioning and immaculate clean boot space.",
+      ratePerKm: "₹12 / km",
+      seating: "4+1 Sedan Cabin",
+      luggage: "2 Medium Bags + 2 Duffels",
+      rateNum: 12,
+      delhiHaridwarFixed: 3600
+    },
+    tempo: {
+      name: "Force Tempo Traveller (12/17 Luxury)",
+      category: "Group & Family Pilgrimage Coach",
+      image: "images/fleet/tempo-traveller.jpg",
+      desc: "Spacious custom coach tailored for Char Dham yatras and wedding entourages. High ceiling, 1x1 Maharaja pushback recliner seats, and expansive separate luggage rack.",
+      ratePerKm: "₹28 / km",
+      seating: "12-17 Pushback Seats",
+      luggage: "15+ Bags (Dedicated Trunk)",
+      rateNum: 28,
+      delhiHaridwarFixed: 12000
+    },
+    hycross: {
+      name: "Toyota Innova Hycross Hybrid",
+      category: "Luxury Hybrid Lounge",
+      image: "images/fleet/innova-hycross.jpg",
+      desc: "Ultra-quiet self-charging electric hybrid propulsion with panoramic glass roof, ventilated ottoman seating, and presidential highway poise.",
+      ratePerKm: "₹22 / km",
+      seating: "6+1 Ottoman Lounge",
+      luggage: "4 Large Bags",
+      rateNum: 22,
+      delhiHaridwarFixed: 6500
+    }
+  };
+
+  const carPills = document.querySelectorAll('.car-pill-card, .car-selector-pill');
+  const stageImg = document.getElementById('stageCarImg');
+  const stageCategory = document.getElementById('stageCarCategory');
+  const stageTitle = document.getElementById('stageCarTitle');
+  const stageDesc = document.getElementById('stageCarDesc');
+  const stageRate = document.getElementById('stageCarRate');
+  const stageSeating = document.getElementById('stageCarSeating');
+  const stageLuggage = document.getElementById('stageCarLuggage');
+  const stageBookBtn = document.getElementById('stageBookBtn');
+
+  if (carPills.length > 0) {
+    carPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        carPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+
+        const key = pill.getAttribute('data-car');
+        const v = vehicleData[key];
+        if (!v) return;
+
+        if (stageImg) stageImg.src = v.image;
+        if (stageCategory) stageCategory.textContent = v.category;
+        if (stageTitle) stageTitle.textContent = v.name;
+        if (stageDesc) stageDesc.textContent = v.desc;
+        if (stageRate) stageRate.textContent = v.ratePerKm;
+        if (stageSeating) stageSeating.textContent = v.seating;
+        if (stageLuggage) stageLuggage.textContent = v.luggage;
+
+        if (stageBookBtn) {
+          stageBookBtn.href = `https://wa.me/918937830353?text=Namaste%20Trovenza!%20I%20want%20to%20reserve%20${encodeURIComponent(v.name)}.`;
+        }
+      });
+    });
+  }
+
+  // 4. DUAL-MODE LIVE TAXI FARE ESTIMATOR ENGINE
+  // Mode Tab Switcher (Fixed Popular Routes vs Custom KM)
+  const calcNavTabs = document.querySelectorAll('.calc-nav-tab');
+  const calcModePanes = document.querySelectorAll('.calc-mode-pane');
+
+  if (calcNavTabs.length > 0) {
+    calcNavTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        calcNavTabs.forEach(t => t.classList.remove('active'));
+        calcModePanes.forEach(p => p.classList.remove('active'));
+
+        tab.classList.add('active');
+        const targetPaneId = tab.getAttribute('data-calc-pane');
+        const targetPane = document.getElementById(targetPaneId);
+        if (targetPane) targetPane.classList.add('active');
+      });
+    });
+  }
+
+  // 10+ Popular Routes Data Matrix
+  const popularRoutes = {
+    delhi_haridwar: {
+      name: "Delhi ⇄ Haridwar / Rishikesh",
+      km: 240,
+      toll: 480,
+      fixed: { dzire: 3600, ertiga: 4200, crysta: 5000, hycross: 6500, tempo: 12000, urbania: 15000 }
+    },
+    delhi_mussoorie: {
+      name: "Delhi ⇄ Mussoorie (Queen of Hills)",
+      km: 300,
+      toll: 550,
+      fixed: { dzire: 4500, ertiga: 5500, crysta: 6800, hycross: 8200, tempo: 14500, urbania: 18500 }
+    },
+    delhi_nainital: {
+      name: "Delhi ⇄ Nainital (Lake City)",
+      km: 320,
+      toll: 480,
+      fixed: { dzire: 4800, ertiga: 5800, crysta: 7200, hycross: 8600, tempo: 15200, urbania: 19200 }
+    },
+    delhi_agra: {
+      name: "Delhi ⇄ Agra (Taj Expressway)",
+      km: 210,
+      toll: 650,
+      fixed: { dzire: 2800, ertiga: 3800, crysta: 4900, hycross: 6200, tempo: 10500, urbania: 14000 }
+    },
+    delhi_jaipur: {
+      name: "Delhi ⇄ Jaipur (Pink City)",
+      km: 280,
+      toll: 520,
+      fixed: { dzire: 3200, ertiga: 4200, crysta: 5500, hycross: 6800, tempo: 11500, urbania: 15500 }
+    },
+    delhi_dehradun: {
+      name: "Delhi ⇄ Dehradun (Expressway)",
+      km: 250,
+      toll: 490,
+      fixed: { dzire: 3500, ertiga: 4200, crysta: 5200, hycross: 6600, tempo: 12000, urbania: 15000 }
+    },
+    ded_rishikesh: {
+      name: "Dehradun Airport (Jolly Grant) ⇄ Rishikesh",
+      km: 35,
+      toll: 100,
+      fixed: { dzire: 1200, ertiga: 1600, crysta: 2200, hycross: 2800, tempo: 4500, urbania: 6500 }
+    },
+    ded_mussoorie: {
+      name: "Dehradun Airport ⇄ Mussoorie",
+      km: 60,
+      toll: 120,
+      fixed: { dzire: 2200, ertiga: 2800, crysta: 3600, hycross: 4400, tempo: 6800, urbania: 9000 }
+    },
+    haridwar_chopta: {
+      name: "Haridwar ⇄ Chopta (Mini Switzerland)",
+      km: 210,
+      toll: 150,
+      fixed: { dzire: 4200, ertiga: 5200, crysta: 6500, hycross: 7800, tempo: 13500, urbania: 17000 }
+    },
+    haridwar_kedarnath: {
+      name: "Haridwar ⇄ Phata / Guptkashi (Kedarnath Base)",
+      km: 215,
+      toll: 180,
+      fixed: { dzire: 4500, ertiga: 5500, crysta: 6800, hycross: 8200, tempo: 14000, urbania: 17500 }
+    },
+    haridwar_badrinath: {
+      name: "Haridwar ⇄ Badrinath Dham",
+      km: 320,
+      toll: 220,
+      fixed: { dzire: 6500, ertiga: 7800, crysta: 9600, hycross: 11500, tempo: 18500, urbania: 24000 }
+    }
+  };
+
+  // Synchronize Vehicle Data & Popular Routes with Central Site Config (Editable via /admin)
+  if (window.TrovenzaConfig) {
+    const liveConfig = window.TrovenzaConfig.getConfig();
+    if (liveConfig && liveConfig.fares) {
+      if (vehicleData.dzire && liveConfig.fares.delhiHaridwar?.dzire) vehicleData.dzire.delhiHaridwarFixed = liveConfig.fares.delhiHaridwar.dzire;
+      if (vehicleData.ertiga && liveConfig.fares.delhiHaridwar?.ertiga) vehicleData.ertiga.delhiHaridwarFixed = liveConfig.fares.delhiHaridwar.ertiga;
+      if (vehicleData.crysta && liveConfig.fares.delhiHaridwar?.crysta) vehicleData.crysta.delhiHaridwarFixed = liveConfig.fares.delhiHaridwar.crysta;
+      if (vehicleData.tempo && liveConfig.fares.delhiHaridwar?.tempo) vehicleData.tempo.delhiHaridwarFixed = liveConfig.fares.delhiHaridwar.tempo;
+      if (vehicleData.urbania && liveConfig.fares.delhiHaridwar?.urbania) vehicleData.urbania.delhiHaridwarFixed = liveConfig.fares.delhiHaridwar.urbania;
+
+      if (vehicleData.dzire && liveConfig.fares.perKm?.dzire) { vehicleData.dzire.rateNum = liveConfig.fares.perKm.dzire; vehicleData.dzire.ratePerKm = '₹' + liveConfig.fares.perKm.dzire + ' / km'; }
+      if (vehicleData.ertiga && liveConfig.fares.perKm?.ertiga) { vehicleData.ertiga.rateNum = liveConfig.fares.perKm.ertiga; vehicleData.ertiga.ratePerKm = '₹' + liveConfig.fares.perKm.ertiga + ' / km'; }
+      if (vehicleData.crysta && liveConfig.fares.perKm?.crysta) { vehicleData.crysta.rateNum = liveConfig.fares.perKm.crysta; vehicleData.crysta.ratePerKm = '₹' + liveConfig.fares.perKm.crysta + ' / km'; }
+      if (vehicleData.tempo && liveConfig.fares.perKm?.tempo) { vehicleData.tempo.rateNum = liveConfig.fares.perKm.tempo; vehicleData.tempo.ratePerKm = '₹' + liveConfig.fares.perKm.tempo + ' / km'; }
+      if (vehicleData.urbania && liveConfig.fares.perKm?.urbania) { vehicleData.urbania.rateNum = liveConfig.fares.perKm.urbania; vehicleData.urbania.ratePerKm = '₹' + liveConfig.fares.perKm.urbania + ' / km'; }
+
+      if (popularRoutes.delhi_haridwar && liveConfig.fares.delhiHaridwar) {
+        popularRoutes.delhi_haridwar.fixed = {
+          ...popularRoutes.delhi_haridwar.fixed,
+          ...liveConfig.fares.delhiHaridwar
+        };
+      }
+    }
+  }
+
+  // Fixed Route Calculator Handler
+  const routeSelect = document.getElementById('calcRouteSelect');
+  const carTypeSelect = document.getElementById('calcCarSelect');
+  const tripTypeSelect = document.getElementById('calcTripType');
+  const calcPriceDisplay = document.getElementById('calcPriceDisplay');
+  const calcDistDisplay = document.getElementById('calcDistDisplay');
+  const calcTollDisplay = document.getElementById('calcTollDisplay');
+  const calcDriverDisplay = document.getElementById('calcDriverDisplay');
+  const calcBookWaBtn = document.getElementById('calcBookWaBtn');
+
+  const updateFixedFareCalc = () => {
+    if (!routeSelect || !carTypeSelect) return;
+    const routeKey = routeSelect.value;
+    const carKey = carTypeSelect.value;
+    const tripType = tripTypeSelect ? tripTypeSelect.value : 'oneway';
+
+    const r = popularRoutes[routeKey] || popularRoutes.delhi_haridwar;
+    const v = vehicleData[carKey] || vehicleData.crysta;
+
+    let baseFare = (r.fixed && r.fixed[carKey]) ? r.fixed[carKey] : (r.km * v.rateNum + r.toll + 400);
+    let totalFare = baseFare;
+    let distanceLabel = `${r.km} km (One-Way)`;
+    let tripTypeName = "One-Way Drop";
+
+    if (tripType === 'roundtrip') {
+      tripTypeName = "Round-Trip (2 Days)";
+      totalFare = Math.round(baseFare * 1.85); // round trip package pricing with driver allowance
+      distanceLabel = `${r.km * 2} km (Round-Trip Circuit)`;
+    }
+
+    if (calcPriceDisplay) calcPriceDisplay.textContent = `₹${totalFare.toLocaleString('en-IN')}`;
+    if (calcDistDisplay) calcDistDisplay.textContent = distanceLabel;
+    if (calcTollDisplay) calcTollDisplay.textContent = (routeKey === 'delhi_haridwar' && tripType === 'oneway') ? 'Included in Fixed Fare' : `₹${r.toll} Included`;
+    if (calcDriverDisplay) calcDriverDisplay.textContent = 'Included (Day Allowance)';
+
+    if (calcBookWaBtn) {
+      const msg = `Namaste Trovenza! 🚖 Instant Fare Quote Inquiry:%0A` +
+        `• Route: ${r.name}%0A` +
+        `• Trip Type: ${tripTypeName}%0A` +
+        `• Vehicle: ${v.name} (${v.seating})%0A` +
+        `• Estimated Fixed Tariff: ₹${totalFare.toLocaleString('en-IN')}%0A` +
+        `• Distance: ${distanceLabel}%0A` +
+        `Please confirm vehicle availability and driver details.`;
+      calcBookWaBtn.href = `https://wa.me/918937830353?text=${msg}`;
+    }
+  };
+
+  if (routeSelect && carTypeSelect) {
+    routeSelect.addEventListener('change', updateFixedFareCalc);
+    carTypeSelect.addEventListener('change', updateFixedFareCalc);
+    if (tripTypeSelect) tripTypeSelect.addEventListener('change', updateFixedFareCalc);
+    updateFixedFareCalc();
+  }
+
+  // Custom KM Trip Estimator Handler
+  const customKmInput = document.getElementById('customKmInput');
+  const customTripType = document.getElementById('customTripType');
+  const customCarSelect = document.getElementById('customCarSelect');
+  const customDaysInput = document.getElementById('customDaysInput');
+  const customPriceDisplay = document.getElementById('customPriceDisplay');
+  const customDistDisplay = document.getElementById('customDistDisplay');
+  const customRateDisplay = document.getElementById('customRateDisplay');
+  const customDriverDisplay = document.getElementById('customDriverDisplay');
+  const customTollDisplay = document.getElementById('customTollDisplay');
+  const customBookWaBtn = document.getElementById('customBookWaBtn');
+  const kmPresetButtons = document.querySelectorAll('.km-preset-btn');
+
+  const updateCustomKmCalc = () => {
+    if (!customKmInput || !customCarSelect) return;
+    const km = Math.max(20, parseInt(customKmInput.value) || 150);
+    const carKey = customCarSelect.value;
+    const tripType = customTripType ? customTripType.value : 'oneway';
+    const days = Math.max(1, parseInt(customDaysInput ? customDaysInput.value : 1) || 1);
+
+    const v = vehicleData[carKey] || vehicleData.crysta;
+    let billedKm = km;
+    let driverAllowance = 400 * days;
+    let estimatedTolls = Math.round(km * 1.5);
+    let tripTypeName = "One-Way Custom Trip";
+
+    if (tripType === 'roundtrip') {
+      tripTypeName = `Round-Trip (${days} Day${days > 1 ? 's' : ''})`;
+      // Standard outstation round-trip rule: minimum 250 km per day or 2x distance
+      billedKm = Math.max(km * 2, days * 250);
+      estimatedTolls = Math.round(km * 2.2);
+    }
+
+    const vehicleBaseCost = billedKm * v.rateNum;
+    const grandTotal = vehicleBaseCost + driverAllowance + estimatedTolls;
+
+    if (customPriceDisplay) customPriceDisplay.textContent = `₹${grandTotal.toLocaleString('en-IN')}`;
+    if (customDistDisplay) customDistDisplay.textContent = `${billedKm} km (Billed)`;
+    if (customRateDisplay) customRateDisplay.textContent = `₹${v.rateNum} / km`;
+    if (customDriverDisplay) customDriverDisplay.textContent = `₹${driverAllowance} (${days} Day${days > 1 ? 's' : ''})`;
+    if (customTollDisplay) customTollDisplay.textContent = `₹${estimatedTolls} (Est. Toll/Tax)`;
+
+    if (customBookWaBtn) {
+      const msg = `Namaste Trovenza! 📏 Custom KM Fare Estimate Inquiry:%0A` +
+        `• Type: ${tripTypeName}%0A` +
+        `• Est. Distance: ${km} km (Billed: ${billedKm} km)%0A` +
+        `• Vehicle: ${v.name} (Rate: ₹${v.rateNum}/km)%0A` +
+        `• Driver Allowance: ₹${driverAllowance}%0A` +
+        `• Estimated Tolls: ₹${estimatedTolls}%0A` +
+        `• Total Estimated Quote: ₹${grandTotal.toLocaleString('en-IN')}%0A` +
+        `Please confirm booking.`;
+      customBookWaBtn.href = `https://wa.me/918937830353?text=${msg}`;
+    }
+  };
+
+  if (customKmInput && customCarSelect) {
+    customKmInput.addEventListener('input', updateCustomKmCalc);
+    customCarSelect.addEventListener('change', updateCustomKmCalc);
+    if (customTripType) customTripType.addEventListener('change', updateCustomKmCalc);
+    if (customDaysInput) customDaysInput.addEventListener('input', updateCustomKmCalc);
+
+    kmPresetButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const addKm = parseInt(btn.getAttribute('data-km'));
+        if (btn.hasAttribute('data-set-km')) {
+          customKmInput.value = addKm;
+        } else {
+          customKmInput.value = (parseInt(customKmInput.value) || 0) + addKm;
+        }
+        updateCustomKmCalc();
+      });
+    });
+
+    updateCustomKmCalc();
+  }
+
+  // 5. Hero Console Forms Dispatcher (WhatsApp)
+  const heroTaxiForm = document.getElementById('heroTaxiForm');
+  if (heroTaxiForm) {
+    heroTaxiForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('heroTaxiName')?.value || 'Traveler';
+      const phone = document.getElementById('heroTaxiPhone')?.value || '';
+      const pickup = document.getElementById('heroTaxiPickup')?.value || '';
+      const drop = document.getElementById('heroTaxiDrop')?.value || '';
+      const vehicle = document.getElementById('heroTaxiVehicle')?.value || '';
+      const date = document.getElementById('heroTaxiDate')?.value || '';
+
+      if (window.TrovenzaConfig && window.TrovenzaConfig.recordLead) {
+        window.TrovenzaConfig.recordLead({
+          name: name,
+          phone: phone,
+          service: `Taxi Dispatch: ${pickup} to ${drop}`,
+          pickup: pickup,
+          destination: drop,
+          vehicle: vehicle,
+          travelDate: date
+        });
+      }
+
+      const msg = `Namaste Trovenza! 🚖 Instant Taxi Dispatch Request:%0A` +
+        `• Pickup: ${pickup}%0A` +
+        `• Destination: ${drop}%0A` +
+        `• Vehicle: ${vehicle}%0A` +
+        `• Travel Date: ${date}%0A` +
+        `Please send nearest driver details and confirmed quote.`;
+      window.open(`https://wa.me/918937830353?text=${msg}`, '_blank');
+    });
+  }
+
+  const heroYatraForm = document.getElementById('heroYatraForm');
+  if (heroYatraForm) {
+    heroYatraForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('heroYatraName')?.value || 'Pilgrim';
+      const phone = document.getElementById('heroYatraPhone')?.value || '';
+      const circuit = document.getElementById('heroYatraCircuit')?.value || '';
+      const guests = document.getElementById('heroYatraGuests')?.value || '';
+      const month = document.getElementById('heroYatraMonth')?.value || '';
+
+      if (window.TrovenzaConfig && window.TrovenzaConfig.recordLead) {
+        window.TrovenzaConfig = window.TrovenzaConfig;
+        window.TrovenzaConfig.recordLead({
+          name: name,
+          phone: phone,
+          service: `Char Dham Inquiry: ${circuit}`,
+          guests: guests,
+          travelDate: month
+        });
+      }
+
+      const msg = `Namaste Trovenza! 🕉️ 2026 Char Dham Registration Inquiry:%0A` +
+        `• Selected Circuit: ${circuit}%0A` +
+        `• Number of Pilgrims: ${guests}%0A` +
+        `• Month: ${month}%0A` +
+        `Please send full day-by-day itinerary and helicopter availability.`;
+      window.open(`https://wa.me/918937830353?text=${msg}`, '_blank');
+    });
+  }
+
+  const heroGovtForm = document.getElementById('heroGovtForm');
+  if (heroGovtForm) {
+    heroGovtForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const org = document.getElementById('heroGovtOrg')?.value || '';
+      const fleet = document.getElementById('heroGovtFleet')?.value || '';
+      const duration = document.getElementById('heroGovtDuration')?.value || '';
+
+      const msg = `Namaste Trovenza Institutional Directorate! 🏛️ Vehicle Tender RFP:%0A` +
+        `• Procuring Entity: ${org}%0A` +
+        `• Fleet Category: ${fleet}%0A` +
+        `• Contract Duration: ${duration}%0A` +
+        `Please share GeM vendor compliance profile and rate sheet.`;
+      window.open(`https://wa.me/918937830353?text=${msg}`, '_blank');
+    });
+  }
+
+  // 6. Animated Counter Numbers
+  const counterElements = document.querySelectorAll('[data-counter-target]');
+  if (counterElements.length > 0) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = parseFloat(entry.target.getAttribute('data-counter-target'));
+          const suffix = entry.target.getAttribute('data-counter-suffix') || '';
+          let count = 0;
+          const step = target / 40;
+
+          const timer = setInterval(() => {
+            count += step;
+            if (count >= target) {
+              entry.target.textContent = target + suffix;
+              clearInterval(timer);
+            } else {
+              entry.target.textContent = Math.floor(count) + suffix;
+            }
+          }, 35);
+
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    counterElements.forEach(el => observer.observe(el));
+  }
+
+  // 7. Travel Packages Category Filter
+  const pkgFilterPills = document.querySelectorAll('.pkg-filter-pill');
+  const pkgCards = document.querySelectorAll('.travel-pkg-card');
+
+  if (pkgFilterPills.length > 0 && pkgCards.length > 0) {
+    pkgFilterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const targetCategory = pill.getAttribute('data-pkg-filter');
+
+        // Update active pill styling
+        pkgFilterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+
+        // Filter cards with smooth fade
+        pkgCards.forEach(card => {
+          const cardCat = card.getAttribute('data-pkg-category');
+          if (targetCategory === 'all' || cardCat === targetCategory) {
+            card.style.display = 'flex';
+            card.style.animation = 'fadeInUp 0.35s ease forwards';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
+  // 8. FAQ Accordion Logic
+  const faqItems = document.querySelectorAll('.faq-accordion-item');
+  if (faqItems.length > 0) {
+    faqItems.forEach(item => {
+      const questionBtn = item.querySelector('.faq-question-btn');
+      if (questionBtn) {
+        questionBtn.addEventListener('click', () => {
+          const isCurrentlyActive = item.classList.contains('active');
+          // Collapse others for clean accordion feel
+          faqItems.forEach(other => {
+            other.classList.remove('active');
+            const otherBtn = other.querySelector('.faq-question-btn');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+          });
+
+          if (!isCurrentlyActive) {
+            item.classList.add('active');
+            questionBtn.setAttribute('aria-expanded', 'true');
+          } else {
+            questionBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
       }
     });
-  });
-}
-
-// Comprehensive Uttarakhand & Delhi Circuit Fare Estimator Database
-const fareDatabase = {
-  "delhi-haridwar-oneway": {
-    name: "Delhi ➔ Haridwar / Rishikesh (One-Way)",
-    distance: "220 km (approx. 4.5 hrs via Meerut Expressway)",
-    rates: {
-      dzire: { price: "₹3,600", desc: "Maruti Swift Dzire • 4 Passengers • AC Sedan • Highway Tolls Included" },
-      ertiga: { price: "₹4,200", desc: "Maruti / Toyota Ertiga • 6 Passengers • Family MPV • Extra Luggage" },
-      crysta: { price: "₹5,000", desc: "Toyota Innova Crysta • 6/7 Passengers • Executive Captain Loungers" },
-      urbania: { price: "₹15,000", desc: "Force Urbania 16 Pax Luxury • VIP Pushback Recliners • Monocoque Quiet Ride" },
-      tempo: { price: "₹12,000", desc: "Force Tempo Traveller • 17 Pushback Seats • Large Dedicated Boot" }
-    }
-  },
-  "delhi-haridwar-round": {
-    name: "Delhi ⇄ Haridwar / Rishikesh (Same Day Round Trip)",
-    distance: "450 km (Same Day Ganga Aarti Return)",
-    rates: {
-      dzire: { price: "₹5,500", desc: "Maruti Swift Dzire • 4 Passengers • Fuel & Driver DA Included" },
-      ertiga: { price: "₹6,800", desc: "Maruti / Toyota Ertiga • 6 Passengers • Economical Family Ride" },
-      crysta: { price: "₹8,200", desc: "Toyota Innova Crysta • 6/7 Passengers • Supreme Luxury Comfort" },
-      urbania: { price: "₹22,000", desc: "Force Urbania 16 Pax Luxury • Corporate & Large Family VIP Travel" },
-      tempo: { price: "₹17,500", desc: "Force Tempo Traveller • 17 Passengers • Dedicated Coach" }
-    }
-  },
-  "haridwar-kedarnath-round": {
-    name: "Haridwar ⇄ Sonprayag / Phata (Kedarnath Base) (4 Days)",
-    distance: "500 km Mountain Circuit • 4 Days / 3 Nights",
-    rates: {
-      dzire: { price: "₹14,000", desc: "Maruti Dzire • Hill Certified Driver • Green Tax & Tolls Included" },
-      ertiga: { price: "₹18,000", desc: "Maruti / Toyota Ertiga • 6 Pax • High Hill Ground Clearance" },
-      crysta: { price: "₹24,000", desc: "Toyota Innova Crysta • King of Himalayan Roads • Senior Friendly" },
-      urbania: { price: "₹55,000", desc: "Force Urbania 16 Pax Luxury • Monocoque Coil Suspension • Panoramic View" },
-      tempo: { price: "₹42,000", desc: "Force Tempo Traveller • 17 Pax • Large Luggage Hold" }
-    }
-  },
-  "haridwar-badrinath-round": {
-    name: "Haridwar ⇄ Sri Badrinath Dham (4 Days)",
-    distance: "640 km Himalayan Highway • 4 Days / 3 Nights",
-    rates: {
-      dzire: { price: "₹15,500", desc: "Maruti Dzire • Joshimath & Mana Village Sightseeing" },
-      ertiga: { price: "₹19,500", desc: "Maruti / Toyota Ertiga • 6 Pax • Complete Mountain Route" },
-      crysta: { price: "₹26,000", desc: "Toyota Innova Crysta • Deluxe Reclining Captain Loungers" },
-      urbania: { price: "₹58,000", desc: "Force Urbania 16 Pax Luxury • Aircraft-Style AC & Reading Lights" },
-      tempo: { price: "₹45,000", desc: "Force Tempo Traveller • 17 Pax • Group Pilgrimage Coach" }
-    }
-  },
-  "haridwar-dodham-round": {
-    name: "Haridwar ⇄ Do Dham (Kedarnath + Badrinath) (5 Days)",
-    distance: "750 km High Altitude Circuit • 5 Days / 4 Nights",
-    rates: {
-      dzire: { price: "₹19,500", desc: "Maruti Dzire • Complete Shiva & Vishnu Pilgrimage" },
-      ertiga: { price: "₹24,500", desc: "Maruti / Toyota Ertiga • 6 Pax • Tested Mountain Driver" },
-      crysta: { price: "₹32,000", desc: "Toyota Innova Crysta • Unmatched Comfort for Parents" },
-      urbania: { price: "₹72,000", desc: "Force Urbania 16 Pax Luxury • Premier Himalayan Commuter" },
-      tempo: { price: "₹56,000", desc: "Force Tempo Traveller • 17 Pax • Large Luggage Space" }
-    }
-  },
-  "haridwar-chardham-round": {
-    name: "Haridwar ⇄ Maha Char Dham Yatra (10 Days)",
-    distance: "1,600 km Complete Sacred Circuit • 10 Days / 9 Nights",
-    rates: {
-      dzire: { price: "₹38,000", desc: "Maruti Dzire • All 4 Shrines Covered • Driver Allowance Included" },
-      ertiga: { price: "₹48,000", desc: "Maruti / Toyota Ertiga • 6 Pax • 10 Days Dedicated Taxi" },
-      crysta: { price: "₹62,000", desc: "Toyota Innova Crysta • 6/7 Pax • Top Rated Yatra Ride" },
-      urbania: { price: "₹1,45,000", desc: "Force Urbania 16 Pax Luxury • Flagship Ultra-Luxury Experience" },
-      tempo: { price: "₹1,10,000", desc: "Force Tempo Traveller • 17 Pax • Custom Maharaja Coach" }
-    }
-  },
-  "haridwar-triyugi-wedding": {
-    name: "Haridwar ⇄ Triyuginarayan Temple Wedding Transit (3 Days)",
-    distance: "520 km Wedding Transit • 3 Days / 2 Nights",
-    rates: {
-      dzire: { price: "₹12,500", desc: "Maruti Dzire • Bride & Groom Private Sedan" },
-      ertiga: { price: "₹15,500", desc: "Maruti / Toyota Ertiga • 6 Pax • Family Wedding Taxi" },
-      crysta: { price: "₹21,000", desc: "Toyota Innova Crysta • VVIP Family Lounge" },
-      urbania: { price: "₹48,000", desc: "Force Urbania 16 Pax Luxury • Flagship Baraat Luxury Cruiser" },
-      tempo: { price: "₹36,000", desc: "Force Tempo Traveller • 17 Pax • Baraat Transit Coach" }
-    }
-  },
-  "delhi-mussoorie-round": {
-    name: "Delhi ⇄ Dehradun & Mussoorie Weekend (3 Days)",
-    distance: "600 km Hill Station Route • 3 Days / 2 Nights",
-    rates: {
-      dzire: { price: "₹11,500", desc: "Maruti Dzire • Kempty Falls & Mall Road Sightseeing" },
-      ertiga: { price: "₹14,000", desc: "Maruti / Toyota Ertiga • 6 Pax • Family Mountain Ride" },
-      crysta: { price: "₹18,500", desc: "Toyota Innova Crysta • Executive Mountain Comfort" },
-      urbania: { price: "₹42,000", desc: "Force Urbania 16 Pax Luxury • Corporate & Group Weekend Tour" },
-      tempo: { price: "₹32,000", desc: "Force Tempo Traveller • 17 Pax • Group Hill Holiday" }
-    }
-  }
-};
-
-function initFareEstimator() {
-  const circuitSelect = document.getElementById('calcCircuit');
-  const vehicleSelect = document.getElementById('calcVehicle');
-  const priceDisplay = document.getElementById('calcPrice');
-  const descDisplay = document.getElementById('calcDesc');
-  const routeDisplay = document.getElementById('calcRouteTitle');
-  const bookBtn = document.getElementById('calcBookBtn');
-
-  if (!circuitSelect || !vehicleSelect || !priceDisplay || !descDisplay || !bookBtn) return;
-
-  function updateFare() {
-    const circuitKey = circuitSelect.value;
-    const vehicleKey = vehicleSelect.value;
-    const circuitData = fareDatabase[circuitKey];
-
-    if (circuitData && circuitData.rates[vehicleKey]) {
-      const rateInfo = circuitData.rates[vehicleKey];
-      priceDisplay.textContent = rateInfo.price;
-      descDisplay.textContent = rateInfo.desc;
-      if (routeDisplay) {
-        routeDisplay.textContent = `${circuitData.name} • ${circuitData.distance}`;
-      }
-      const vehicleNames = {
-        dzire: "Maruti Swift Dzire (4 Pax Sedan)",
-        ertiga: "Maruti / Toyota Ertiga (6 Pax MPV)",
-        crysta: "Toyota Innova Crysta (6/7 Pax Luxury)",
-        urbania: "Force Urbania (16 Pax Luxury Van)",
-        tempo: "Force Tempo Traveller (17 Pax Coach)"
-      };
-      const vName = vehicleNames[vehicleKey] || vehicleKey;
-      const waText = encodeURIComponent(
-        `Namaste Jai Maa Tour & Travels! 🚖\n\n` +
-        `*Taxi & Yatra Fare Inquiry*\n` +
-        `• *Selected Circuit:* ${circuitData.name}\n` +
-        `• *Vehicle Chosen:* ${vName}\n` +
-        `• *Estimated Tariff:* ${rateInfo.price}\n\n` +
-        `Please confirm vehicle availability, pickup schedule, and advance booking steps.`
-      );
-      bookBtn.href = `https://wa.me/919876543210?text=${waText}`;
-    }
   }
 
-  circuitSelect.addEventListener('change', updateFare);
-  vehicleSelect.addEventListener('change', updateFare);
-  updateFare();
-}
+  // 9. Triyuginarayan Wedding Menu Tabs
+  const weddingMenuBtns = document.querySelectorAll('.wedding-menu-pill-btn');
+  const weddingMenuPanes = document.querySelectorAll('.wedding-menu-pane');
 
-// Scroll Reveal Engine
-document.addEventListener('DOMContentLoaded', () => {
-  const scrollTargets = document.querySelectorAll(
-    '.package-card, .fleet-card, .review-card, .why-card, .faq-item, .policy-card, .estimator-card, .hero-card'
+  if (weddingMenuBtns.length > 0 && weddingMenuPanes.length > 0) {
+    weddingMenuBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        weddingMenuBtns.forEach(b => b.classList.remove('active'));
+        weddingMenuPanes.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        const targetMenuId = btn.getAttribute('data-menu-pane');
+        const targetPane = document.getElementById(targetMenuId);
+        if (targetPane) targetPane.classList.add('active');
+      });
+    });
+  }
+
+  // 10. Scroll Reveal Animation Engine
+  const revealTargets = document.querySelectorAll(
+    '.pkg-card-white, .trust-badge-card, .review-card, .fare-calc-wrapper, .faq-trovenza-item, .wedding-banner-trovenza, .section-header-center, .fleet-display-stage'
   );
 
-  if ('IntersectionObserver' in window && scrollTargets.length > 0) {
-    const observer = new IntersectionObserver((entries, obs) => {
+  if ('IntersectionObserver' in window && revealTargets.length > 0) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('revealed');
-          obs.unobserve(entry.target);
+          observer.unobserve(entry.target);
         }
       });
     }, {
       root: null,
-      threshold: 0.1,
+      threshold: 0.12,
       rootMargin: '0px 0px -40px 0px'
     });
 
-    scrollTargets.forEach(el => {
+    revealTargets.forEach(el => {
       el.classList.add('reveal-on-scroll');
-      observer.observe(el);
+      revealObserver.observe(el);
     });
   } else {
-    scrollTargets.forEach(el => el.classList.add('revealed'));
+    revealTargets.forEach(el => el.classList.add('revealed'));
   }
+
 });

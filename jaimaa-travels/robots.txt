@@ -1,4 +1,8 @@
 User-agent: *
+Disallow: /admin/
+Disallow: /trilok/
+Disallow: /admin.html
+Disallow: /trilok.html
 Allow: /
 
 # Priority crawlers for AI Search & AEO / GEO

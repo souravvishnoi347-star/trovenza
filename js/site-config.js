@@ -14,9 +14,9 @@
     company: {
       name: "Trovenza Group",
       haridwarAddress: "No. 7, Gyan Mandir, Opp. Daksh Mandir, Haridwar, Uttarakhand - 249408",
-      helpline: "+91 98765 43210",
-      whatsappNumber: "919876543210",
-      email: "info@trovenzatravels.com",
+      helpline: "+91 89378 30353",
+      whatsappNumber: "918937830353",
+      email: "Trovenzatravel@gmail.com",
       announcement: "⚡ Direct Haridwar Cab & Pilgrimage Operations • Guaranteed Commercial Yellow Plate Vehicles"
     },
     fares: {
@@ -379,7 +379,7 @@
       experience: "10+ Years Excellence",
       yatrisServed: "45,000+ Yatris Blessed",
       image: "images/team/trilok-rana.jpg",
-      phone: "+91 98765 43210",
+      phone: "+91 89378 30353",
       active: true
     }
   };
@@ -503,6 +503,12 @@
       };
       leads.unshift(newLead);
       localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(leads));
+
+      // Push to Cloud Firebase & Google Sheets Webhook
+      if (window.TrovenzaFirebase && window.TrovenzaFirebase.submitLead) {
+        window.TrovenzaFirebase.submitLead(newLead);
+      }
+
       return newLead;
     } catch (e) {
       console.warn('Failed to record lead in localStorage:', e);

@@ -167,7 +167,7 @@
       btn.addEventListener('click', () => {
         const pax = btn.getAttribute('data-pax');
         const config = window.TrovenzaConfig ? window.TrovenzaConfig.getConfig() : null;
-        const phone = config?.company?.whatsappNumber || '919876543210';
+        const phone = config?.company?.whatsappNumber || '918937830353';
 
         const message = `Namaste! I am interested in:\n• Service: ${selectedService}\n• Group Size: ${pax}\n• Departure: Haridwar\n\nPlease share customized itinerary quote, available dates, and vehicle options.`;
 

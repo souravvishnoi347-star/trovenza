@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ertiga: {
       name: "Maruti / Toyota Ertiga (6 Seater)",
       category: "Economical Family MPV",
-      image: "images/fleet/toyota-crysta.webp",
+      image: "images/fleet/ertiga.jpg",
       desc: "Affordable and fuel-efficient 6-seater family MPV, ideal for small groups, airport runs, and plains-to-hills trips.",
       ratePerKm: "₹14 / km",
       seating: "6+1 Family Seating",
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (stageLuggage) stageLuggage.textContent = v.luggage;
 
         if (stageBookBtn) {
-          stageBookBtn.href = `https://wa.me/919876543210?text=Namaste%20Trovenza!%20I%20want%20to%20reserve%20${encodeURIComponent(v.name)}.`;
+          stageBookBtn.href = `https://wa.me/918937830353?text=Namaste%20Trovenza!%20I%20want%20to%20reserve%20${encodeURIComponent(v.name)}.`;
         }
       });
     });
@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `• Estimated Fixed Tariff: ₹${totalFare.toLocaleString('en-IN')}%0A` +
         `• Distance: ${distanceLabel}%0A` +
         `Please confirm vehicle availability and driver details.`;
-      calcBookWaBtn.href = `https://wa.me/919876543210?text=${msg}`;
+      calcBookWaBtn.href = `https://wa.me/918937830353?text=${msg}`;
     }
   };
 
@@ -397,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `• Estimated Tolls: ₹${estimatedTolls}%0A` +
         `• Total Estimated Quote: ₹${grandTotal.toLocaleString('en-IN')}%0A` +
         `Please confirm booking.`;
-      customBookWaBtn.href = `https://wa.me/919876543210?text=${msg}`;
+      customBookWaBtn.href = `https://wa.me/918937830353?text=${msg}`;
     }
   };
 
@@ -427,6 +427,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (heroTaxiForm) {
     heroTaxiForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      const name = document.getElementById('heroTaxiName')?.value || 'Traveler';
+      const phone = document.getElementById('heroTaxiPhone')?.value || '';
       const pickup = document.getElementById('heroTaxiPickup')?.value || '';
       const drop = document.getElementById('heroTaxiDrop')?.value || '';
       const vehicle = document.getElementById('heroTaxiVehicle')?.value || '';
@@ -434,8 +436,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (window.TrovenzaConfig && window.TrovenzaConfig.recordLead) {
         window.TrovenzaConfig.recordLead({
-          name: pickup ? `Traveler (${pickup})` : 'Website Traveler',
-          phone: '+91 (Submitted via Web)',
+          name: name,
+          phone: phone,
           service: `Taxi Dispatch: ${pickup} to ${drop}`,
           pickup: pickup,
           destination: drop,
@@ -450,7 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `• Vehicle: ${vehicle}%0A` +
         `• Travel Date: ${date}%0A` +
         `Please send nearest driver details and confirmed quote.`;
-      window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+      window.open(`https://wa.me/918937830353?text=${msg}`, '_blank');
     });
   }
 
@@ -458,15 +460,17 @@ document.addEventListener('DOMContentLoaded', () => {
   if (heroYatraForm) {
     heroYatraForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      const name = document.getElementById('heroYatraName')?.value || 'Pilgrim';
+      const phone = document.getElementById('heroYatraPhone')?.value || '';
       const circuit = document.getElementById('heroYatraCircuit')?.value || '';
       const guests = document.getElementById('heroYatraGuests')?.value || '';
       const month = document.getElementById('heroYatraMonth')?.value || '';
 
       if (window.TrovenzaConfig && window.TrovenzaConfig.recordLead) {
-        window.TrozaConfig = window.TrovenzaConfig;
+        window.TrovenzaConfig = window.TrovenzaConfig;
         window.TrovenzaConfig.recordLead({
-          name: `Pilgrim Group (${guests || 'General'})`,
-          phone: '+91 (Submitted via Web)',
+          name: name,
+          phone: phone,
           service: `Char Dham Inquiry: ${circuit}`,
           guests: guests,
           travelDate: month
@@ -478,7 +482,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `• Number of Pilgrims: ${guests}%0A` +
         `• Month: ${month}%0A` +
         `Please send full day-by-day itinerary and helicopter availability.`;
-      window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+      window.open(`https://wa.me/918937830353?text=${msg}`, '_blank');
     });
   }
 
@@ -495,7 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `• Fleet Category: ${fleet}%0A` +
         `• Contract Duration: ${duration}%0A` +
         `Please share GeM vendor compliance profile and rate sheet.`;
-      window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+      window.open(`https://wa.me/918937830353?text=${msg}`, '_blank');
     });
   }
 

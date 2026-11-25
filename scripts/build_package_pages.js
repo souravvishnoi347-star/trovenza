@@ -1301,7 +1301,7 @@ function buildPackagePageHTML(pkg) {
   <div class="top-strip">
     <div class="container top-strip-flex">
       <div>
-        📞 24x7 Booking Helpline: <a href="tel:+919876543210" data-bind="company-phone">+91 98765 43210</a>
+        📞 24x7 Booking Helpline: <a href="tel:+918937830353" data-bind="company-phone">+91 89378 30353</a>
         <span style="margin: 0 0.5rem;">|</span>
         <span class="sister-pill">🤝 Sister Brand: <a href="../jaimaa-travels/index.html">Jai Maa Tour & Travels</a></span>
       </div>
@@ -1323,10 +1323,10 @@ function buildPackagePageHTML(pkg) {
       </a>
 
       <div class="header-actions">
-        <a href="tel:+919876543210" class="btn-call" data-bind="company-phone">
-          📞 +91 98765 43210
+        <a href="tel:+918937830353" class="btn-call" data-bind="company-phone">
+          📞 +91 89378 30353
         </a>
-        <a href="https://wa.me/919876543210?text=Namaste%20Trovenza!%20Interested%20in%20${encodeURIComponent(pkg.title)}." target="_blank" class="btn-header-wa">
+        <a href="https://wa.me/918937830353?text=Namaste%20Trovenza!%20Interested%20in%20${encodeURIComponent(pkg.title)}." target="_blank" class="btn-header-wa">
           💬 WhatsApp Booking
         </a>
       </div>
@@ -1388,10 +1388,10 @@ function buildPackagePageHTML(pkg) {
         </div>
 
         <div class="hero-cta-buttons">
-          <a href="https://wa.me/919876543210?text=Namaste%20Trovenza!%20Interested%20in%20${encodeURIComponent(pkg.title)}." target="_blank" class="btn-wa-large">
+          <a href="https://wa.me/918937830353?text=Namaste%20Trovenza!%20Interested%20in%20${encodeURIComponent(pkg.title)}." target="_blank" class="btn-wa-large">
             💬 Book Instantly on WhatsApp
           </a>
-          <a href="tel:+919876543210" class="btn-call-large">
+          <a href="tel:+918937830353" class="btn-call-large">
             📞 Call Travel Specialist
           </a>
         </div>
@@ -1471,11 +1471,11 @@ function buildPackagePageHTML(pkg) {
               <li>✓ <strong>Support:</strong> 24x7 Haridwar Helpline</li>
             </ul>
 
-            <a href="https://wa.me/919876543210?text=Namaste%20Trovenza!%20Interested%20in%20${encodeURIComponent(pkg.title)}." target="_blank" class="sidebar-btn-wa">
+            <a href="https://wa.me/918937830353?text=Namaste%20Trovenza!%20Interested%20in%20${encodeURIComponent(pkg.title)}." target="_blank" class="sidebar-btn-wa">
               💬 Instant WhatsApp Booking
             </a>
-            <a href="tel:+919876543210" class="sidebar-btn-call" data-bind="company-phone">
-              📞 Call +91 98765 43210
+            <a href="tel:+918937830353" class="sidebar-btn-call" data-bind="company-phone">
+              📞 Call +91 89378 30353
             </a>
           </div>
         </div>
@@ -1525,7 +1525,7 @@ const EXISTING_PAGES = [
   { file: 'kartik-swami-triyuginarayan-dhari-devi-4n5d.html', id: 'kartik-swami-triyuginarayan-4n5d', name: 'Kartik Swami + Triyuginarayan + Dhari Devi Circuit', hero: '../images/packages/kartik-swami-dhari-devi.jpg' },
   { file: 'chopta-tungnath-2n3d.html', id: 'chopta-tungnath-2n3d', name: 'Chopta Tungnath Deoriatal Mini Switzerland', hero: '../images/packages/chopta-tungnath-main.jpg' },
   { file: 'auli-ski-resort-2n3d.html', id: 'auli-ski-resort-2n3d', name: 'Auli Ski Resort & Cable Car Himalayan Wonderland', hero: '../images/packages/auli-ski-resort.jpg' },
-  { file: 'triyuginarayan-wedding-2n3d.html', id: 'triyuginarayan-wedding', name: 'Triyuginarayan Vedic Destination Wedding', hero: '../images/packages/triyuginarayan-wedding.png' }
+  { file: 'triyuginarayan-wedding-2n3d.html', id: 'triyuginarayan-wedding', name: 'Triyuginarayan Vedic Destination Wedding', hero: '../images/packages/triyuginarayan-wedding.jpg' }
 ];
 
 EXISTING_PAGES.forEach(item => {
