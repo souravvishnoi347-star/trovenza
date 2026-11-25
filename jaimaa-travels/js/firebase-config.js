@@ -18,8 +18,8 @@ window.TrovenzaFirebase = (function () {
     projectNumber: "981395412514"
   };
 
-  // Google Sheets Webhook URL (Can also be set in /trilok Admin settings)
-  let GOOGLE_SHEETS_WEBHOOK_URL = localStorage.getItem('trovenza_sheets_webhook') || '';
+  // Google Sheets Webhook URL (Connected & Live)
+  let GOOGLE_SHEETS_WEBHOOK_URL = localStorage.getItem('trovenza_sheets_webhook') || 'https://script.google.com/macros/s/AKfycbyFa7KxxLy1nCp9twuhd4Tx2ZTFtH4cnswNiABaLCaZ-hDRmqvTQm8GZLtyokFN8cNLBA/exec';
 
   let db = null;
   let isInitialized = false;
