@@ -114,11 +114,60 @@
   </style>
   `;
 
+
+  // Mobile Smart Timed & Scroll Nudge Bubble
+  function setupWaNudge() {
+    if (sessionStorage.getItem('trovenza_wa_nudge_dismissed')) return;
+
+    const nudge = document.createElement('div');
+    nudge.id = 'waFloatingNudge';
+    nudge.style.cssText = 'position:fixed; bottom:92px; right:20px; background:#FFFFFF; color:#0F172A; padding:0.75rem 0.95rem; border-radius:12px; box-shadow:0 12px 30px rgba(0,0,0,0.18); border:1px solid #E2E8F0; border-left:4px solid #25D366; max-width:280px; font-size:0.82rem; font-weight:600; z-index:99998; display:none; align-items:center; gap:0.65rem; animation:slideUpWa 0.3s ease; cursor:pointer; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;';
+    nudge.innerHTML = '<div style="flex:1;"><span style="display:block; font-size:0.72rem; color:#16A34A; font-weight:800; margin-bottom:0.15rem;">🟢 Online • Founder Helpline</span><span>Need cab fare or Char Dham rates? Chat with Trilok Rana →</span></div><button type="button" id="closeWaNudgeBtn" style="background:none; border:none; color:#94A3B8; font-size:1.15rem; cursor:pointer; padding:0; line-height:1;" aria-label="Close">&times;</button>';
+    document.body.appendChild(nudge);
+
+    const showNudge = () => {
+      if (sessionStorage.getItem('trovenza_wa_nudge_dismissed')) return;
+      nudge.style.display = 'flex';
+    };
+
+    const timer = setTimeout(showNudge, 22000);
+
+    const onScroll = () => {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      if (total > 0 && (window.scrollY / total) * 100 > 30) {
+        showNudge();
+        window.removeEventListener('scroll', onScroll);
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    nudge.addEventListener('click', (e) => {
+      if (e.target.id === 'closeWaNudgeBtn') {
+        e.stopPropagation();
+        nudge.style.display = 'none';
+        sessionStorage.setItem('trovenza_wa_nudge_dismissed', 'true');
+        clearTimeout(timer);
+        return;
+      }
+      nudge.style.display = 'none';
+      sessionStorage.setItem('trovenza_wa_nudge_dismissed', 'true');
+      const modal = document.getElementById('waConciergeModal');
+      const step1 = document.getElementById('waConciergeStep1');
+      const step2 = document.getElementById('waConciergeStep2');
+      if (modal) {
+        modal.style.display = 'block';
+        if (step1) step1.style.display = 'flex';
+        if (step2) step2.style.display = 'none';
+      }
+    });
+  }
+
   function initConcierge() {
     // Append modal container to body
     const div = document.createElement('div');
     div.innerHTML = CONCIERGE_HTML;
     document.body.appendChild(div);
+    setupWaNudge();
 
     let selectedService = '';
 

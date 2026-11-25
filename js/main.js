@@ -503,7 +503,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. Animated Counter Numbers
+  // 6. Animated Counter Numbers (Smooth & Decimal-Aware)
   const counterElements = document.querySelectorAll('[data-counter-target]');
   if (counterElements.length > 0) {
     const observer = new IntersectionObserver((entries) => {
@@ -511,23 +511,25 @@ document.addEventListener('DOMContentLoaded', () => {
         if (entry.isIntersecting) {
           const target = parseFloat(entry.target.getAttribute('data-counter-target'));
           const suffix = entry.target.getAttribute('data-counter-suffix') || '';
+          const isDecimal = target % 1 !== 0;
           let count = 0;
-          const step = target / 40;
+          const steps = 30;
+          const step = target / steps;
 
           const timer = setInterval(() => {
             count += step;
             if (count >= target) {
-              entry.target.textContent = target + suffix;
+              entry.target.textContent = (isDecimal ? target.toFixed(1) : Math.round(target)) + suffix;
               clearInterval(timer);
             } else {
-              entry.target.textContent = Math.floor(count) + suffix;
+              entry.target.textContent = (isDecimal ? count.toFixed(1) : Math.floor(count)) + suffix;
             }
           }, 35);
 
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.15 });
 
     counterElements.forEach(el => observer.observe(el));
   }
